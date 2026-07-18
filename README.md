@@ -7,6 +7,7 @@
 - Next.js (App Router)
 - TypeScript
 - Tailwind CSS v4
+- Cloudflare Workers（OpenNext）/ Vercel
 
 ## 本地开发
 
@@ -21,10 +22,44 @@ npm run dev
 ## 常用命令
 
 ```bash
-npm run build   # 生产构建
-npm run start   # 启动生产服务
-npm run lint    # ESLint
+cd web
+npm run build     # Next.js 生产构建（Vercel 使用）
+npm run start     # 本地 Node 生产服务
+npm run lint      # ESLint
+npm run preview   # OpenNext 构建并在 Workers 运行时本地预览
+npm run deploy    # 构建并部署到 Cloudflare Workers
 ```
+
+## 部署
+
+项目在仓库子目录 `web/`，两边 Root Directory 都必须设为 `web`。
+
+### Vercel
+
+- Framework Preset: Next.js
+- Root Directory: `web`
+- Build Command: `npm run build`
+- Output Directory: 留空
+
+### Cloudflare Workers（推荐用 OpenNext，不要用旧 Pages/next-on-pages）
+
+Workers Builds（连 Git）建议配置：
+
+| 项 | 值 |
+|---|---|
+| Root directory | `web` |
+| Build command | `npx opennextjs-cloudflare build` |
+| Deploy command | `npx opennextjs-cloudflare deploy` |
+
+或本地：
+
+```bash
+cd web
+npx wrangler login
+npm run deploy
+```
+
+可选：按 [OpenNext Caching](https://opennext.js.org/cloudflare/caching) 配置 R2 增量缓存以获得更好的 ISR/缓存表现。
 
 ## 内容结构
 
