@@ -103,7 +103,7 @@ export const zh: Dictionary = {
     },
     industries: {
       title: "行业与场景",
-      sub: "资源聚焦两条主线，核心场景持续深耕，其余能力按需延展。",
+      sub: "资源聚焦智能制造与政企数字化，核心场景持续深耕，其余能力按需延展。",
       primary: [
         {
           title: "智能制造数字化转型",
@@ -298,7 +298,7 @@ export const zh: Dictionary = {
   },
   industries: {
     title: "行业与场景",
-    sub: "主线做深做透，核心支线稳健推进，其余场景按需延展。",
+    sub: "重点行业做深做透，核心场景稳健推进，其余场景按需延展。",
     items: [
       {
         title: "智能制造数字化转型",

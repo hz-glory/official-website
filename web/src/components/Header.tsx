@@ -24,12 +24,9 @@ export function Header({ locale, dict }: Props) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
   const rest = pathname.replace(/^\/(zh|en)/, "") || "/";
   const otherLocale: Locale = locale === "zh" ? "en" : "zh";
+  const closeMenu = () => setOpen(false);
 
   const isActive = (href: string) => {
     const full = localePath(locale, href);
@@ -96,6 +93,7 @@ export function Header({ locale, dict }: Props) {
               <Link
                 key={item.href}
                 href={localePath(locale, item.href)}
+                onClick={closeMenu}
                 className={`rounded-lg px-3 py-2.5 text-[0.95rem] ${
                   isActive(item.href) ? "bg-[var(--bg-muted)] font-semibold" : "text-[var(--ink-soft)]"
                 }`}
@@ -105,6 +103,7 @@ export function Header({ locale, dict }: Props) {
             ))}
             <Link
               href={localePath(otherLocale, rest)}
+              onClick={closeMenu}
               className="mt-1 rounded-lg px-3 py-2.5 text-sm text-[var(--teal)]"
             >
               {otherLocale === "zh" ? "切换到中文" : "Switch to English"}

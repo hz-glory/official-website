@@ -103,7 +103,7 @@ export const en: Dictionary = {
     },
     industries: {
       title: "Industries & scenarios",
-      sub: "We concentrate resources on two lead lines, deepen core scenarios, and extend selectively elsewhere.",
+      sub: "We concentrate on smart manufacturing and institutional digital transformation, deepen core scenarios, and extend selectively elsewhere.",
       primary: [
         {
           title: "Smart manufacturing transformation",
@@ -303,7 +303,7 @@ export const en: Dictionary = {
   },
   industries: {
     title: "Industries & scenarios",
-    sub: "Go deep on lead lines, advance core scenarios steadily, and extend elsewhere with intent.",
+    sub: "Go deep on priority industries, advance core scenarios steadily, and extend elsewhere with intent.",
     items: [
       {
         title: "Smart manufacturing transformation",

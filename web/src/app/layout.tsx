@@ -22,13 +22,13 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "光荣智能 Glorion Intelligence",
-    template: "%s · Glorion Intelligence",
+    default: "光荣智能 · Glorion Intelligence",
+    template: "%s · 光荣智能",
   },
   description:
     "Glorion Intelligence — Forward Deployed Engineer partner for AI and digital transformation.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/logo.svg",
   },
 };
 

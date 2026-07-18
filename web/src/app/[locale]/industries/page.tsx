@@ -31,16 +31,16 @@ export default async function IndustriesPage({ params }: Props) {
           persona: "典型客户画像",
           scenarios: "常见业务场景",
           problems: "我们能解决的问题类型",
-          primary: "主线",
-          core: "核心支线",
+          primary: "重点方向",
+          core: "核心场景",
           secondary: "延展场景",
         }
       : {
           persona: "Typical clients",
           scenarios: "Common scenarios",
           problems: "Problem types we address",
-          primary: "Lead line",
-          core: "Core track",
+          primary: "Focus areas",
+          core: "Core scenarios",
           secondary: "Adjacent",
         };
 

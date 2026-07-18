@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props) {
   if (!isLocale(raw)) return {};
   const dict = getDictionary(raw);
   return {
-    title: dict.meta.title,
+    title: { absolute: dict.meta.title },
     description: dict.meta.description,
   };
 }
