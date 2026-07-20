@@ -64,3 +64,9 @@ npm run deploy
 ## 内容结构
 
 双语文案位于 `web/src/content/zh.ts` 与 `web/src/content/en.ts`。页面路由在 `web/src/app/[locale]/`。
+
+## 官网增长作战手册
+
+完整审计、受众诊断、路线图与可执行工单见：
+
+[`docs/website-growth-playbook/`](./docs/website-growth-playbook/README.md)
