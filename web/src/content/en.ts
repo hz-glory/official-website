@@ -554,7 +554,13 @@ export const en: Dictionary = {
       company: "Company / organization",
       message: "Briefly describe your need or background",
       submit: "Submit",
+      sending: "Sending…",
       success: "Thanks—we received your message and will be in touch soon.",
+      error: "Something went wrong. Please try again, or reach us by email.",
+      notConfigured:
+        "Inquiry delivery is not configured yet. Please try again later or use the published contact details.",
+      privacyNote:
+        "We only use your submission to respond to this inquiry—not for unsolicited marketing.",
     },
   },
   footer: {

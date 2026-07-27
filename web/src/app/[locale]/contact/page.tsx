@@ -6,7 +6,7 @@ import { getDictionary, isLocale } from "@/lib/i18n";
 
 type Props = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ intent?: string }>;
+  searchParams: Promise<{ intent?: string; from?: string }>;
 };
 
 export async function generateMetadata({ params }: Props) {
@@ -20,7 +20,7 @@ export default async function ContactPage({ params, searchParams }: Props) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) notFound();
   const dict = getDictionary(raw);
-  const { intent } = await searchParams;
+  const { intent, from } = await searchParams;
 
   return (
     <>
@@ -43,9 +43,11 @@ export default async function ContactPage({ params, searchParams }: Props) {
                     ? "请通过表单留下联系方式与诉求。我们会按客户合作、招聘或投资合作分类跟进。"
                     : "Leave your details and intent via the form. We route inquiries across client partnerships, careers, and investment conversations."}
                 </p>
+                <p className="mt-3 text-xs leading-relaxed text-[var(--ink-muted)]">
+                  {dict.contact.form.privacyNote}
+                </p>
               </div>
               <div className="relative overflow-hidden rounded-[var(--radius)] border border-[var(--line)]">
-                {/* decorative map-like panel without needing a real map API */}
                 <div
                   className="aspect-[4/3]"
                   style={{
@@ -57,7 +59,7 @@ export default async function ContactPage({ params, searchParams }: Props) {
             </div>
           </Reveal>
           <Reveal>
-            <ContactForm dict={dict} defaultIntent={intent} />
+            <ContactForm dict={dict} defaultIntent={intent} defaultFrom={from} />
           </Reveal>
         </div>
       </section>
