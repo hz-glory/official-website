@@ -30,6 +30,7 @@
 | [07-acceptance-criteria.md](./07-acceptance-criteria.md) | QA / 负责人 | 验收标准 |
 | [08-engineer-llm-tickets.md](./08-engineer-llm-tickets.md) | 工程师 / LLM | 拆好的工单（可直接复制开干） |
 | [09-messaging-kit.md](./09-messaging-kit.md) | 文案 / 全员 | 统一话术与禁用词 |
+| [10-contact-form-backends.md](./10-contact-form-backends.md) | 工程 / 运营 | 表单多通道接收方案（飞书等） |
 
 ---
 
@@ -66,3 +67,4 @@
 | 日期 | 变更 | 作者 |
 |---|---|---|
 | 2026-07-20 | 初版作战手册入库 | Cloud Agent |
+| 2026-07-27 | 联系表单多通道实现 + `10-contact-form-backends.md` | Cloud Agent |

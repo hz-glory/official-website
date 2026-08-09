@@ -535,7 +535,12 @@ export const zh: Dictionary = {
       company: "公司 / 机构",
       message: "请简要描述您的需求或背景",
       submit: "提交",
+      sending: "提交中…",
       success: "已收到您的信息。我们会尽快与您联系。",
+      error: "提交失败，请稍后重试，或改用邮件直接联系我们。",
+      notConfigured:
+        "表单接收通道尚未配置完成。请稍后再试，或通过页面公布的联系方式联系我们。",
+      privacyNote: "我们仅将您提交的信息用于沟通回复，不会用于未授权的营销推送。",
     },
   },
   footer: {

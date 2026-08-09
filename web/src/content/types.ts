@@ -178,7 +178,11 @@ export type Dictionary = {
       company: string;
       message: string;
       submit: string;
+      sending: string;
       success: string;
+      error: string;
+      notConfigured: string;
+      privacyNote: string;
     };
   };
   footer: {
