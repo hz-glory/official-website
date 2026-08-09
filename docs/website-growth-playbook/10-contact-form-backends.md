@@ -1,7 +1,8 @@
 # 10 · 联系表单接收方案（已实现）
 
 > 代码：`web/src/app/api/contact/route.ts` + `web/src/lib/contact/*`  
-> 前端：`web/src/components/ContactForm.tsx`
+> 前端：`web/src/components/ContactForm.tsx`  
+> **状态（2026-08-09）**：飞书 Webhook 通道已配置完成并可用。
 
 除了邮箱，官网已支持多种「零存储/低运维」接收方式。**任选一种配置环境变量即可**；也可多通道并行（成功一路即算成功）。
 
