@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { getDictionary, isLocale } from "@/lib/i18n";
+import { getDictionary, isLocale, localePath } from "@/lib/i18n";
+import { pageMeta } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -11,7 +13,7 @@ export async function generateMetadata({ params }: Props) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) return {};
   const dict = getDictionary(raw);
-  return { title: dict.insights.title, description: dict.insights.sub };
+  return pageMeta(raw, dict.insights.title, dict.insights.sub, "/insights", false);
 }
 
 export default async function InsightsPage({ params }: Props) {
@@ -23,41 +25,27 @@ export default async function InsightsPage({ params }: Props) {
     <>
       <PageHero title={dict.insights.title} sub={dict.insights.sub} />
       <section className="section">
-        <div className="container">
+        <div className="container max-w-2xl">
           <Reveal>
-            <div className="flex flex-wrap gap-3">
-              {dict.insights.categories.map((cat) => (
-                <span
-                  key={cat}
-                  className="rounded-full border border-[var(--line)] px-3 py-1 text-xs font-semibold text-[var(--ink-soft)]"
-                >
-                  {cat}
-                </span>
-              ))}
-            </div>
-          </Reveal>
-
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {dict.insights.placeholders.map((item) => (
-              <Reveal key={item.title}>
-                <article className="panel h-full p-6">
-                  <p className="text-xs font-semibold tracking-wide text-[var(--orange)]">
-                    {item.category}
-                  </p>
-                  <h2 className="serif mt-3 text-xl font-semibold leading-snug">
-                    {item.title}
-                  </h2>
-                  <p className="mt-3 text-sm text-[var(--ink-soft)]">{item.excerpt}</p>
-                  <p className="mt-5 text-xs text-[var(--ink-muted)]">
-                    {raw === "zh" ? "即将发布" : "Coming soon"}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal>
-            <p className="mt-10 text-sm text-[var(--ink-muted)]">{dict.insights.empty}</p>
+            <article className="panel p-6 sm:p-8">
+              <p className="eyebrow">
+                {raw === "zh" ? "即将上线" : "Coming soon"}
+              </p>
+              <h2 className="heading mt-4 text-2xl sm:text-3xl">
+                {raw === "zh"
+                  ? "洞察栏目正在筹备中"
+                  : "Insights is being prepared"}
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-[var(--ink-soft)]">
+                {dict.insights.empty}
+              </p>
+              <Link
+                href={localePath(raw, "/contact?intent=client")}
+                className="btn btn-primary mt-8"
+              >
+                {dict.cta.consult}
+              </Link>
+            </article>
           </Reveal>
         </div>
       </section>

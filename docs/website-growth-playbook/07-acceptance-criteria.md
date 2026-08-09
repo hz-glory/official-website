@@ -8,24 +8,24 @@
 - [ ] 从 `/zh/contact` 与 `/en/contact` 提交 client/career/invest 各至少 1 次，接收端收到完整字段
 - [ ] 非法邮箱无法成功提交；错误提示可见
 - [ ] 成功前提交按钮有 loading；禁止「假成功」
-- [ ] About/Solutions/Industries/Cases/Careers 页尾有 CTA，移动端可点
+- [x] About/Solutions/Industries/Cases/Careers 页尾有 CTA，移动端可点
 
 ### Insights
-- [ ] 主导航不再出现空壳 Insights，**或**页面为诚实 Coming Soon 且无假文章
-- [ ] 若路由保留但无内容：metadata `noindex`
+- [x] 主导航不再出现空壳 Insights，**或**页面为诚实 Coming Soon 且无假文章
+- [x] 若路由保留但无内容：metadata `noindex`
 
 ### SEO
-- [ ] `/sitemap.xml` 可访问且含主要 locale 路由
-- [ ] `/robots.txt` 可访问并指向 sitemap
-- [ ] 关键页有 OG title/description（可用默认图）
-- [ ] 配置 `NEXT_PUBLIC_SITE_URL` 后 canonical 正确
+- [x] `/sitemap.xml` 可访问且含主要 locale 路由
+- [x] `/robots.txt` 可访问并指向 sitemap
+- [x] 关键页有 OG title/description（可用默认图）
+- [ ] 配置 `NEXT_PUBLIC_SITE_URL` 后 canonical 正确（待业务提供生产域名）
 
 ### 体验 / 无障碍
-- [ ] `prefers-reduced-motion: reduce` 下内容立即可见
-- [ ] 禁用 JS（或模拟 Reveal 未执行）时正文仍可读（若已按规格改默认可见）
+- [x] `prefers-reduced-motion: reduce` 下内容立即可见
+- [x] 禁用 JS（或模拟 Reveal 未执行）时正文仍可读（若已按规格改默认可见）
 
 ### 分析
-- [ ] 至少能看到 PV；CTA 点击与表单成功事件有记录（工具自选）
+- [x] 至少能看到 PV；CTA 点击与表单成功事件有记录（工具自选）— 已封装，接 GA/Plausible 即可；dev 下 console 可观测
 
 ### 回归
 - [ ] `cd web && npm run lint && npm run build` 通过

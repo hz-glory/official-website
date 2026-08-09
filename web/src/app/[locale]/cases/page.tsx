@@ -1,7 +1,10 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { getDictionary, isLocale } from "@/lib/i18n";
+import { SectionCTA } from "@/components/SectionCTA";
+import { getDictionary, isLocale, localePath } from "@/lib/i18n";
+import { pageMeta } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -11,7 +14,7 @@ export async function generateMetadata({ params }: Props) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) return {};
   const dict = getDictionary(raw);
-  return { title: dict.cases.title, description: dict.cases.sub };
+  return pageMeta(raw, dict.cases.title, dict.cases.sub, "/cases");
 }
 
 export default async function CasesPage({ params }: Props) {
@@ -108,11 +111,31 @@ export default async function CasesPage({ params }: Props) {
                     </ul>
                   </div>
                 </div>
+
+                <div className="mt-8 border-t border-[var(--line)] pt-5">
+                  <Link
+                    href={localePath(raw, `/contact?intent=client&from=case-${item.id}`)}
+                    className="text-sm font-semibold text-[var(--teal)]"
+                  >
+                    {dict.cta.discussCase} →
+                  </Link>
+                </div>
               </article>
             </Reveal>
           ))}
         </div>
       </section>
+
+      <SectionCTA
+        locale={raw}
+        title={dict.sectionCta.title}
+        sub={dict.sectionCta.sub}
+        primaryLabel={dict.cta.consult}
+        primaryHref="/contact?intent=client"
+        secondaryLabel={dict.sectionCta.secondaryAbout}
+        secondaryHref="/about#methodology"
+        eventSource="cases"
+      />
     </>
   );
 }

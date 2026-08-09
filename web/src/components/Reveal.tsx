@@ -14,6 +14,15 @@ export function Reveal({ children, className = "" }: Props) {
     const el = ref.current;
     if (!el) return;
 
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    const alreadyInView = el.getBoundingClientRect().top < window.innerHeight * 0.92;
+    if (alreadyInView) return;
+
+    el.classList.add("reveal-animate");
+    el.classList.remove("is-visible");
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -29,7 +38,7 @@ export function Reveal({ children, className = "" }: Props) {
   }, []);
 
   return (
-    <div ref={ref} className={`reveal ${className}`}>
+    <div ref={ref} className={`reveal is-visible ${className}`}>
       {children}
     </div>
   );

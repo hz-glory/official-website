@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Dictionary, Locale } from "@/content/types";
+import { track } from "@/lib/analytics";
 import { localePath } from "@/lib/i18n";
 import { Logo } from "./Logo";
 
@@ -70,6 +71,7 @@ export function Header({ locale, dict }: Props) {
           <Link
             href={localePath(locale, "/contact?intent=client")}
             className="btn btn-primary hidden !min-h-9 !px-4 !text-sm sm:inline-flex"
+            onClick={() => track("cta_click", { source: "header", href: "/contact?intent=client" })}
           >
             {dict.cta.consult}
           </Link>

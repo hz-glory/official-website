@@ -17,7 +17,6 @@ export const en: Dictionary = {
     { href: "/solutions", label: "Solutions" },
     { href: "/industries", label: "Industries" },
     { href: "/cases", label: "Case Studies" },
-    { href: "/insights", label: "Insights" },
     { href: "/careers", label: "Careers" },
     { href: "/contact", label: "Contact" },
   ],
@@ -30,6 +29,12 @@ export const en: Dictionary = {
     learnMore: "Learn more",
     viewCase: "View details",
     backHome: "Back to home",
+    discussCase: "Discuss a similar project",
+  },
+  sectionCta: {
+    title: "Start with a diagnostic",
+    sub: "Tell us your scenario and goals—we route client, career, and investment inquiries separately.",
+    secondaryAbout: "Read the FDE methodology",
   },
   home: {
     hero: {

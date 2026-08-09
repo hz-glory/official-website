@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Dictionary } from "@/content/types";
+import { track } from "@/lib/analytics";
 
 type Props = {
   dict: Dictionary;
@@ -61,6 +62,7 @@ export function ContactForm({ dict, defaultIntent, defaultFrom }: Props) {
 
           if (!res.ok || !json?.ok) {
             const code = json?.error || `http_${res.status}`;
+            track("contact_submit_error", { code, intent });
             setError(
               code === "not_configured"
                 ? dict.contact.form.notConfigured
@@ -70,10 +72,12 @@ export function ContactForm({ dict, defaultIntent, defaultFrom }: Props) {
             return;
           }
 
+          track("contact_submit_success", { intent, from: defaultFrom || "" });
           setState("success");
           form.reset();
           setIntent(initial);
         } catch {
+          track("contact_submit_error", { code: "network", intent });
           setError(dict.contact.form.error);
           setState("error");
         }

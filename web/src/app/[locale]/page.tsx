@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/Reveal";
 import { getDictionary, isLocale, localePath } from "@/lib/i18n";
+import { pageMeta } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -13,8 +14,8 @@ export async function generateMetadata({ params }: Props) {
   if (!isLocale(raw)) return {};
   const dict = getDictionary(raw);
   return {
+    ...pageMeta(raw, dict.meta.title, dict.meta.description, "/"),
     title: { absolute: dict.meta.title },
-    description: dict.meta.description,
   };
 }
 
