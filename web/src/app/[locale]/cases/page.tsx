@@ -108,6 +108,43 @@ export default async function CasesPage({ params }: Props) {
                     </ul>
                   </div>
                 </div>
+
+                {item.highlights && item.highlights.length > 0 ? (
+                  <div className="mt-8 border-t border-[var(--line)] pt-6">
+                    <h3 className="text-sm font-semibold text-[var(--teal)]">
+                      {dict.cases.labels.highlights}
+                    </h3>
+                    <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                      {item.highlights.map((h) => (
+                        <li
+                          key={h}
+                          className="flex gap-2 text-sm text-[var(--ink-soft)]"
+                        >
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--orange)]" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                {item.applicable && item.applicable.length > 0 ? (
+                  <div className="mt-6">
+                    <h3 className="text-sm font-semibold text-[var(--teal)]">
+                      {dict.cases.labels.applicable}
+                    </h3>
+                    <ul className="mt-3 flex flex-wrap gap-2">
+                      {item.applicable.map((a) => (
+                        <li
+                          key={a}
+                          className="rounded-[var(--radius-sm)] border border-[var(--line)] bg-[var(--bg)] px-3 py-1.5 text-xs text-[var(--ink-soft)]"
+                        >
+                          {a}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
               </article>
             </Reveal>
           ))}
