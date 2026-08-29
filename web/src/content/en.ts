@@ -127,7 +127,7 @@ export const en: Dictionary = {
     },
     cases: {
       title: "Selected cases",
-      sub: "Enterprise programs are shown in operating detail; public-sector work is limited to a few typical, anonymized capabilities.",
+      sub: "We deliver complex public-sector programs—and we also help SMEs ship a small, live loop around one real pain point, from nesting and trade docs to hiring and operations.",
     },
     growth: {
       title: "Three-stage growth model",
@@ -403,7 +403,7 @@ export const en: Dictionary = {
   },
   cases: {
     title: "Case studies",
-    sub: "Enterprise programs are written up in operating detail. Public-sector work is limited to two or three typical capabilities, with clients and localities anonymized.",
+    sub: "We take on complex public-sector programs, and we also help SMEs ship a live loop around one pain point—nesting, trade documents, hiring, or operations. Clients and localities are anonymized.",
     labels: {
       challenge: "Background & challenge",
       approach: "How we engaged",
@@ -412,6 +412,12 @@ export const en: Dictionary = {
       modules: "What we built",
       highlights: "Key highlights",
       applicable: "Where it applies",
+      enterpriseTitle: "SME and industry programs",
+      enterpriseLead:
+        "From nesting and trade documents to hiring and trade operations, we start with one shippable loop—not a platform nobody will use.",
+      publicTitle: "Typical public-sector capabilities",
+      publicLead:
+        "Institutional work is limited to two or three anonymized examples, to show we can also carry complex field programs.",
       stage: "Current stage",
       stageNames: [
         "Stage 1 · Paid validation",
@@ -422,6 +428,9 @@ export const en: Dictionary = {
     items: [
       {
         id: "import-trade-platform",
+        format: "full",
+        group: "enterprise",
+        featured: true,
         title: "Import-trade full-chain management platform",
         industry: "Bulk-commodity trade",
         summary:
@@ -473,6 +482,8 @@ export const en: Dictionary = {
       },
       {
         id: "local-talent-platform",
+        format: "full",
+        group: "enterprise",
         title: "County talent-hiring platform digital upgrade",
         industry: "Human resources / local hiring",
         summary:
@@ -524,7 +535,98 @@ export const en: Dictionary = {
         disclosure: "medium",
       },
       {
+        id: "ai-cutting",
+        format: "brief",
+        group: "enterprise",
+        featured: true,
+        title: "Shop-floor AI nesting and cutting",
+        industry: "Smart manufacturing / SME",
+        summary:
+          "Use algorithms to nest and schedule cutting, cut material waste, and show live status on a production board. A processing plant can start from one shop-floor pain—not a MES nobody will run.",
+        challenge:
+          "Nesting still lives with a few veterans: slow planning, leftover stock, and little visibility of live status, so material cost and due dates are hard to control.",
+        approach:
+          "Start with one line’s cutting step: get a computable nesting plan and a production board live, then expand to neighboring processes once it is used.",
+        solution:
+          "AI nesting plus a production board: take orders and sheet constraints, propose an executable cutting plan, and keep shop-floor status on the same board so teams can compare and adjust.",
+        results: [
+          "Nesting plans can be computed and compared, not only passed on by word of mouth",
+          "Progress is visible on the board, so exceptions show up sooner",
+          "A small loop that can go live, then connect to broader planning and process work",
+        ],
+        highlights: [
+          "An SME manufacturer can start with one shop-floor closed loop",
+          "Nesting and the production board ship together—not an empty platform first",
+        ],
+        applicable: [
+          "Sheet, profile, and similar cutting shops",
+          "Plants that want less waste first, then a wider digital path",
+        ],
+        disclosure: "medium",
+      },
+      {
+        id: "ai-trade-docs",
+        format: "brief",
+        group: "enterprise",
+        title: "AI generation of trade documents",
+        industry: "Trade supply chain / SME",
+        summary:
+          "Turn contracts, invoices, packing lists and other trade documents from re-keying into AI draft-and-check, so documentation staff spend time on exceptions—not retyping every form.",
+        challenge:
+          "Many document types, repeated fields, easy human error. When volume spikes, documentation is the bottleneck; bad documents then delay customs, settlement, and delivery.",
+        approach:
+          "Cover the most-used document types and review rules first, as a daily drafting assistant—not a full external-system integration on day one.",
+        solution:
+          "Draft documents from existing contract and cargo data, check completeness and consistency by rule, then let people confirm before export or archive—taking re-keying off the critical path.",
+        results: [
+          "Common documents pull master data automatically, with less duplicate entry",
+          "Obvious gaps and mismatches can be caught before submit",
+          "Staff review exceptions instead of filling every field again",
+        ],
+        highlights: [
+          "A short-cycle loop for small and mid-size trade teams",
+          "Drafting and checking together, so bad documents hurt fulfillment less",
+        ],
+        applicable: [
+          "Exporters whose documents still move on spreadsheets",
+          "Supply-chain teams that want documentation throughput first",
+        ],
+        disclosure: "medium",
+      },
+      {
+        id: "skills-market",
+        format: "brief",
+        group: "enterprise",
+        title: "Internal skills and knowledge market for manufacturers",
+        industry: "Equipment manufacturing / knowledge",
+        summary:
+          "Turn veteran know-how and scattered files into an internal skills market so process, maintenance, and operating knowledge can be searched and reused—and new hires ramp faster.",
+        challenge:
+          "Critical skill sits with a few veterans. Technical files live in drives and chat. New hires take too long to ramp, and the same questions get asked and answered again.",
+        approach:
+          "Capture high-frequency skills and typical issues first as a searchable internal market, then add expert notes and incentives as usage proves out.",
+        solution:
+          "An internal skills and knowledge entry: skill cards, experience notes, and Q&A search in one place, so the line can find a usable method by process or fault type instead of hunting for a person.",
+        results: [
+          "High-frequency skills become searchable items instead of oral tradition",
+          "Similar issues can reuse what already worked",
+          "A single place for later expert collaboration and training packs",
+        ],
+        highlights: [
+          "A manufacturer can start with knowledge capture, not a heavy knowledge platform",
+          "The skills market turns experience into a reusable asset",
+        ],
+        applicable: [
+          "Plants where process and repair know-how sits with a few people",
+          "Equipment and processing teams that need a shorter ramp for the line",
+        ],
+        disclosure: "medium",
+      },
+      {
         id: "consumer-protection",
+        format: "full",
+        group: "public",
+        featured: true,
         title: "Integrated internet consumer-protection handling",
         industry: "Market regulation / public-sector digital",
         summary:
@@ -553,6 +655,8 @@ export const en: Dictionary = {
       },
       {
         id: "emergency-knowledge",
+        format: "full",
+        group: "public",
         title: "Emergency-management intelligent knowledge base",
         industry: "Emergency management / public-sector digital",
         summary:
@@ -576,6 +680,8 @@ export const en: Dictionary = {
       },
       {
         id: "municipal-police-ivr",
+        format: "full",
+        group: "public",
         title: "Public-security intelligent contact center and voice portal",
         industry: "Public security / public-sector digital",
         summary:

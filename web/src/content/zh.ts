@@ -122,7 +122,7 @@ export const zh: Dictionary = {
     },
     cases: {
       title: "案例精选",
-      sub: "企业侧项目展开业务闭环；政企项目选取典型能力，按可对外披露范围脱敏呈现。",
+      sub: "政企复杂现场做得了；开料、制单、招聘、贸易协同这类中小企业痛点，也能做成可上线的小闭环。",
     },
     growth: {
       title: "三阶段成长模型",
@@ -387,7 +387,7 @@ export const zh: Dictionary = {
   },
   cases: {
     title: "案例",
-    sub: "企业侧项目把经营闭环和落地模块写清楚；政企项目只保留 2–3 个典型能力，客户与属地均做脱敏。",
+    sub: "既能做政企级复杂现场，也能帮中小企业把开料、制单、招聘、贸易做成可上线的小闭环。客户与属地均脱敏。",
     labels: {
       challenge: "客户背景与挑战",
       approach: "我们的介入方式",
@@ -396,12 +396,21 @@ export const zh: Dictionary = {
       modules: "落地模块",
       highlights: "核心亮点",
       applicable: "适用场景",
+      enterpriseTitle: "中小企业与产业项目",
+      enterpriseLead:
+        "从开料、制单、招聘到贸易协同，先做一个可验收的小闭环，再按效果扩展——不是先卖一个用不上的大平台。",
+      publicTitle: "政企典型能力",
+      publicLead:
+        "大型机构项目只保留 2–3 个脱敏后的典型能力，用来说明复杂现场我们也扛得住。",
       stage: "当前所处阶段",
       stageNames: ["阶段一・付费服务验证", "阶段二・产品化抽象", "阶段三・对外拓展"],
     },
     items: [
       {
         id: "import-trade-platform",
+        format: "full",
+        group: "enterprise",
+        featured: true,
         title: "进口贸易全链路管理平台",
         industry: "大宗商品贸易",
         summary:
@@ -453,6 +462,8 @@ export const zh: Dictionary = {
       },
       {
         id: "local-talent-platform",
+        format: "full",
+        group: "enterprise",
         title: "县域人才招聘平台数字化改造",
         industry: "人力资源 / 本地招聘",
         summary:
@@ -504,7 +515,89 @@ export const zh: Dictionary = {
         disclosure: "medium",
       },
       {
+        id: "ai-cutting",
+        format: "brief",
+        group: "enterprise",
+        featured: true,
+        title: "制造车间 AI 智能开料",
+        industry: "智能制造 / 中小企业",
+        summary:
+          "用算法优化开料排产，减少材料浪费，并用看板看清生产状态。适合加工型企业从一个具体车间痛点起步，而不是先上一套用不上的大系统。",
+        challenge:
+          "传统开料多靠老师傅经验：排产慢、余料多，现场进度也不透明，材料成本和交期都难控。",
+        approach:
+          "从一条产线的开料环节切入，先把可计算的排产方案和生产看板跑起来，验证后再向周边工序扩展。",
+        solution:
+          "建设 AI 开料优化与生产看板：输入订单与板材约束，给出可执行的开料方案，并在看板上同步生产状态，方便现场对照和调整。",
+        results: [
+          "开料方案可计算、可比较，不再只靠口口相传",
+          "生产进度在看板上可见，异常更容易被发现",
+          "小切口可上线，后续可接到更完整的排产与工艺优化",
+        ],
+        highlights: [
+          "中小制造企业可以从一个车间闭环起步",
+          "开料优化与生产看板一体，而不是先做空平台",
+        ],
+        applicable: ["板材、型材等开料加工", "希望先降材料浪费、再扩展数字化的车间"],
+        disclosure: "medium",
+      },
+      {
+        id: "ai-trade-docs",
+        format: "brief",
+        group: "enterprise",
+        title: "外贸单证 AI 制单",
+        industry: "外贸供应链 / 中小企业",
+        summary:
+          "把合同、发票、装箱单等外贸单证从重复录入改成 AI 生成与审核辅助，让单证岗位把时间用在例外，而不是每张单据重敲一遍。",
+        challenge:
+          "外贸单证种类多、字段重复、人工易错。业务一忙，制单成为瓶颈，错单又会拖累报关、结汇和客户交付。",
+        approach:
+          "先覆盖最常用的几类单证和审核规则，做成可日常使用的制单助手，而不是一上来对接全部外部系统。",
+        solution:
+          "基于已有合同和货物信息辅助生成单证，按规则做完整性与一致性检查，人工确认后再导出或归档，把重复劳动从关键路径上拿掉。",
+        results: [
+          "常用单证可自动带出主数据，减少重复录入",
+          "明显错项和缺项能在提交前被规则拦住",
+          "单证人员转向审核例外，而不是逐字重填",
+        ],
+        highlights: [
+          "面向中小型外贸团队的小闭环，周期短、能上手",
+          "制单与审单一体，降低错单对履约的影响",
+        ],
+        applicable: ["单证种类多、靠表格流转的外贸企业", "希望先把制单效率做起来的供应链团队"],
+        disclosure: "medium",
+      },
+      {
+        id: "skills-market",
+        format: "brief",
+        group: "enterprise",
+        title: "制造企业技能知识市场",
+        industry: "装备制造 / 知识管理",
+        summary:
+          "把老师傅经验和分散文档收成内部技能市场，让工艺、维修和操作知识可检索、可复用，缩短新人上手时间。",
+        challenge:
+          "关键技能在少数老师傅脑子里，技术文档分散在网盘和即时通讯中，新人培养周期长，同类问题反复问、反复答。",
+        approach:
+          "先沉淀高频技能和典型问题，做成可检索的内部技能市场，再按使用情况补专家经验和激励机制。",
+        solution:
+          "建设企业内部技能与知识入口：技能卡片、经验条目和问答检索放在同一处，一线可以按工序或故障类型找到可用做法，而不是再找人问一遍。",
+        results: [
+          "高频技能从口口相传变成可检索的条目",
+          "同类问题可以复用已有经验，减少重复请教",
+          "为后续专家协作和培训课包留下统一承载",
+        ],
+        highlights: [
+          "适合制造企业先做知识沉淀，而不是先上重型知识中台",
+          "技能市场把经验变成可复用资产",
+        ],
+        applicable: ["工艺和维修经验集中在少数骨干的制造企业", "需要缩短一线培养周期的装备与加工团队"],
+        disclosure: "medium",
+      },
+      {
         id: "consumer-protection",
+        format: "full",
+        group: "public",
+        featured: true,
         title: "互联网消费维权一体化处置",
         industry: "市场监管 / 政企数字化",
         summary:
@@ -533,6 +626,8 @@ export const zh: Dictionary = {
       },
       {
         id: "emergency-knowledge",
+        format: "full",
+        group: "public",
         title: "应急管理智能知识库",
         industry: "应急管理 / 政企数字化",
         summary:
@@ -556,6 +651,8 @@ export const zh: Dictionary = {
       },
       {
         id: "municipal-police-ivr",
+        format: "full",
+        group: "public",
         title: "公安智能客服与语音门户",
         industry: "公安政务 / 政企数字化",
         summary:

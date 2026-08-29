@@ -17,6 +17,9 @@ export type CaseStudy = {
   modules?: { title: string; body: string }[];
   highlights?: string[];
   applicable?: string[];
+  format?: "full" | "brief";
+  group?: "enterprise" | "public";
+  featured?: boolean;
   stage?: {
     current: 1 | 2 | 3;
     note: string;
@@ -152,6 +155,10 @@ export type Dictionary = {
       modules: string;
       highlights: string;
       applicable: string;
+      enterpriseTitle: string;
+      enterpriseLead: string;
+      publicTitle: string;
+      publicLead: string;
       stage: string;
       stageNames: [string, string, string];
     };
