@@ -251,9 +251,9 @@ export const en: Dictionary = {
           bio: "Senior Alibaba engineering and delivery leader; focused on making solutions work in the field and building durable collaboration models.",
         },
         {
-          name: "Wang Senxian",
-          role: "VP of Operations",
-          bio: "Seasoned delivery and program leader from iFLYTEK, eSign, and NetEase; strong in complex coordination and customer success systems.",
+          name: "Ye Ping",
+          role: "VP of Business",
+          bio: "Senior commercial VP with experience at iFLYTEK, eSign, and NetEase, focused on strategic business development and large-account ecosystem partnerships.",
         },
         {
           name: "Qing Fei",
