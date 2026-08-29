@@ -127,7 +127,7 @@ export const en: Dictionary = {
     },
     cases: {
       title: "Selected cases",
-      sub: "We deliver complex public-sector programs—and we also help SMEs ship a small, live loop around one real pain point, from nesting and trade docs to hiring and operations.",
+      sub: "Shop-floor nesting, trade documents, hiring platforms, trade operations—and knowledge, contact-center, and case-handling systems for public services.",
     },
     growth: {
       title: "Three-stage growth model",
@@ -403,7 +403,7 @@ export const en: Dictionary = {
   },
   cases: {
     title: "Case studies",
-    sub: "We take on complex public-sector programs, and we also help SMEs ship a live loop around one pain point—nesting, trade documents, hiring, or operations. Clients and localities are anonymized.",
+    sub: "From shop-floor nesting, trade documents, and local hiring to import-trade operations, as well as knowledge, contact-center, and case-handling systems in public services.",
     labels: {
       challenge: "Background & challenge",
       approach: "How we engaged",
@@ -412,12 +412,12 @@ export const en: Dictionary = {
       modules: "What we built",
       highlights: "Key highlights",
       applicable: "Where it applies",
-      enterpriseTitle: "SME and industry programs",
+      enterpriseTitle: "Industry and growing businesses",
       enterpriseLead:
-        "From nesting and trade documents to hiring and trade operations, we start with one shippable loop—not a platform nobody will use.",
-      publicTitle: "Typical public-sector capabilities",
+        "Nesting and cutting, trade documents, local hiring, and import-trade coordination—systems built around the step that actually blocks daily work.",
+      publicTitle: "Public services",
       publicLead:
-        "Institutional work is limited to two or three anonymized examples, to show we can also carry complex field programs.",
+        "Emergency knowledge services, intelligent contact centers, and consumer-protection case handling for government operations.",
       stage: "Current stage",
       stageNames: [
         "Stage 1 · Paid validation",
@@ -708,7 +708,7 @@ export const en: Dictionary = {
 
   insights: {
     title: "Insights",
-    sub: "Methodology notes, industry observations, and anonymized project retrospectives—field experience made shareable.",
+    sub: "Methodology notes, industry observations, and project retrospectives—field experience made shareable.",
     categories: ["Methodology", "Industry trends", "Project retrospectives"],
     empty: "More articles are on the way. If you want to discuss a topic, reach us via Contact.",
     placeholders: [
