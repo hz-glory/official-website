@@ -127,7 +127,7 @@ export const en: Dictionary = {
     },
     cases: {
       title: "Selected cases",
-      sub: "Real deployments that show the model can be repeated and scaled.",
+      sub: "Enterprise programs are shown in operating detail; public-sector work is limited to a few typical, anonymized capabilities.",
     },
     growth: {
       title: "Three-stage growth model",
@@ -403,12 +403,13 @@ export const en: Dictionary = {
   },
   cases: {
     title: "Case studies",
-    sub: "Seven live programs, shown within their disclosure scope. We prioritize real deployments that clarify method and outcomes.",
+    sub: "Enterprise programs are written up in operating detail. Public-sector work is limited to two or three typical capabilities, with clients and localities anonymized.",
     labels: {
       challenge: "Background & challenge",
       approach: "How we engaged",
       solution: "Solution overview",
       results: "Outcomes",
+      modules: "What we built",
       highlights: "Key highlights",
       applicable: "Where it applies",
       stage: "Current stage",
@@ -420,186 +421,185 @@ export const en: Dictionary = {
     },
     items: [
       {
-        id: "emergency-knowledge",
-        title: "Intelligent knowledge base for the Ministry of Emergency Management",
-        industry: "Emergency management / public-sector digital",
+        id: "import-trade-platform",
+        title: "Import-trade full-chain management platform",
+        industry: "Bulk-commodity trade",
         summary:
-          "Build an intelligent knowledge system covering accidents, natural disasters, laws and regulations, and emergency plans—supporting emergency-management operations with searchable, usable knowledge.",
+          "A main chain of contract, container, inventory, pricing, customs, and settlement—turning spreadsheet-and-chat import trade into a traceable operating system.",
         challenge:
-          "Emergency-management knowledge is large and heterogeneous; much of it had not been digitized or structured into a usable system. Phase one established a graph foundation, but unified handling of heterogeneous knowledge, after-action and early-warning analysis, relationship models, similar-object analysis, and time-series analysis still needed to be strengthened.",
+          "Import trade is a long chain with many parties, currencies, documents, and time points. Traditional work splits knowledge: sales owns contracts, documentation owns containers, the warehouse owns stock, and finance reconciles again. As volume grows, duplicate entry, inconsistent figures, and hard tracing all get worse—and operating judgment arrives too late.",
         approach:
-          "We worked on site with emergency-management teams to define knowledge scope and service scenarios, then co-built in stages—knowledge processing, knowledge construction, and graph applications—rather than handing over a library no one could operate.",
+          "We aligned on site around contract → fulfillment → settlement, turned each role’s work into status-based queues, then added treasury ledgers, document templates, and control traces—avoiding a system that only stores contracts.",
         solution:
-          "We delivered five professional knowledge bases (accidents, natural disasters, laws and regulations, emergency plans, and emergency knowledge); unified processing of heterogeneous sources; flexible graph visualization; and a knowledge portal that supports intelligent search, Q&A, and recommendations across monitoring and early warning, regulatory enforcement, rescue, government services, and social mobilization.",
+          "A collaboration platform covering master data, contracts, containers, inventory, pricing, customs, funds settlement, and monitoring. Purchase, domestic, and sales contracts link to containers, goods, and funds. Pricing and customs enter each role’s queue by status. Finance keeps ledgers by fund type and handles offsets, overpayments, claims, and other non-standard settlement.",
+        modules: [
+          {
+            title: "Master data and contract chain",
+            body: "Unify partners, goods, origin, and permissions. Capture foreign, domestic, and sales contracts—with goods, amounts, payment terms, and attachments on one chain.",
+          },
+          {
+            title: "Container execution and inventory",
+            body: "Register containers, bills of lading, carriers, and packing; link inbound/outbound weight allocation so logistics status and stock gaps can be traced back to the contract.",
+          },
+          {
+            title: "Pricing and customs work pools",
+            body: "Split queues by not-yet-priced / no-pricing-needed / priced, and by not-cleared / second filing / cleared, so each role enters its own list instead of hunting a master sheet.",
+          },
+          {
+            title: "Settlement and controls",
+            body: "Separate ledgers for purchase payments, fulfillment costs, sales receipts, special settlement, and operating cost. Role permissions, login trail, operation trail, and field diffs stay auditable; documents generate from templates.",
+          },
+          {
+            title: "Operating monitor",
+            body: "Overview, alerts, and traces in one place—exceptions, accountability, and operating judgment no longer wait for after-the-fact reconciliation.",
+          },
+        ],
         results: [
-          "Five professional knowledge bases covering the full emergency-management domain",
-          "A complete technical chain from knowledge graph to intelligent applications",
-          "Unified management of heterogeneous knowledge and multi-dimensional analysis",
+          "Contracts track fulfillment, containers, inventory, and settlement—not just an archive",
+          "Pricing, customs, and alerts enter role queues by status, cutting cross-role reconciliation",
+          "Complex settlement (offsets, overpayments, claims, discounts, interest) with an audit trail",
         ],
         highlights: [
-          "A national-ministry knowledge program with benchmark authority",
-          "Five professional libraries covering accidents, disasters, regulations, and plans",
-          "Graph visualization for relationships, similar-object analysis, and time series",
+          "A complete contract chain, not a contract folder",
+          "Status-based work pools that lower collaboration cost",
+          "Engineered delivery that can be deployed and operated, not a one-off demo",
         ],
-        disclosure: "high",
+        applicable: [
+          "Import trades centered on lots or containers",
+          "Small and mid-size traders that need purchase–logistics–warehouse–sales–finance collaboration",
+          "Extendable with approvals, credit, profit analysis, mobile, and external-system integration",
+        ],
+        disclosure: "medium",
       },
       {
-        id: "hangzhou-police-ivr",
-        title: "Hangzhou Public Security Bureau intelligent customer service",
-        industry: "Public security / government services",
+        id: "local-talent-platform",
+        title: "County talent-hiring platform digital upgrade",
+        industry: "Human resources / local hiring",
         summary:
-          "Upgrade the existing intelligent contact center across voice navigation, human handoff, outbound calling, and recording—improving how residents get answers.",
+          "Upgrade a traditional job site into a multi-end local talent platform covering search, hiring, chat, and interviews—on top of existing data, without a stop-the-world cutover.",
         challenge:
-          "Public inquiries cover high-frequency services such as household registration and entry-exit. The legacy intelligent contact center needed simultaneous upgrades across the voice robot, IVR flows, human handoff, SMS, recording, business-system integration, and police-station IP-phone access before it could serve the full scene.",
+          "Local hiring is not a national job board: employers want nearby talent, fast chat, and low-friction posting; job seekers want commute, authentic local roles, and simple flows. The legacy site had inconsistent branding, deep filter trees, a weak local/township default, scattered member centers, experience gaps across PC / mobile web / mini program / app, and fragile upload and messaging paths.",
         approach:
-          "We designed the voice portal, contact center, and business systems as one field workflow: first close the loop on navigation and human handoff, then extend outbound calling, SMS, and recording into the ticket archive.",
+          "We upgraded progressively on the existing business data: unify visual language and core flows first, then localized filters and multi-end collaboration, so the platform could keep running and go live in stages.",
         solution:
-          "We integrated an intelligent voice robot and redesigned the IVR so calls reach a robot node; enabled real-time handoff to human agents; invoked SMS and ticket systems; connected household-registration, entry-exit, and other business systems; configured outbound calling for police-station IP phones; and continued to operate voice and text navigation scenarios.",
+          "A unified hiring visual and information architecture; local jobs and talent first, with township-level and wider-area filters; rebuilt job-seeker (resume → search → apply → chat → interview) and employer (post → receive → screen → chat → invite) centers; PC, mobile web, mini program, and native app on one account layer; plus harder uploads, messaging, rate limits, backups, and containerized operations.",
+        modules: [
+          {
+            title: "Brand and page experience",
+            body: "Upgrade home, jobs, talent, featured employers, salary lookup, job/company detail, and member centers—one navigation, card, tag, and primary-action language.",
+          },
+          {
+            title: "Localized filters and search",
+            body: "Default to local jobs and talent, with township-level geography plus neighboring and out-of-area filters; combine keyword, pay, experience, education, industry, and recency, with room for intelligent search and recommendations.",
+          },
+          {
+            title: "Job-seeker loop",
+            body: "Modular profile, intent, education, and work history; resume and certificate uploads; favorites, browsing, applications, interview notices, and privacy settings.",
+          },
+          {
+            title: "Employer hiring desk",
+            body: "Hiring overview, job posting and management, resume screening, recommendations and instant chat, interview invites and progress, message reply, plus company profile and verification.",
+          },
+          {
+            title: "Multi-end and reliability",
+            body: "Four ends share accounts and data. Native for high-frequency core, secure web for complex low-frequency work. Stronger upload checks, retries, rate limits, backups, and health checks.",
+          },
+        ],
         results: [
-          "Coverage of high-frequency services such as household registration and entry-exit",
-          "A voice-service closed loop from IVR navigation through handoff, outbound, and recording",
-          "Deep integration with the contact center, SMS, tickets, and business systems",
+          "Main pages share one visual and interaction language, so the brand is easier to recognize",
+          "Job-seeker and hiring flows are continuous; employers can post, screen, chat, and interview",
+          "Four ends cover core scenes with unified accounts and more stable uploads and messaging",
         ],
         highlights: [
-          "A municipal public-security intelligent-service benchmark",
-          "Full-chain voice intelligence, not a single-point robot demo",
-          "Police-station IP-phone access so service can reach the precinct level",
+          "Localization is not locking a single city: local-first, township reach, and a path to grow",
+          "The upgrade covers job seeker, employer, and production operations—not a skin-only refresh",
+          "Progressive upgrade on the existing system, fit for a live hiring platform",
         ],
-        disclosure: "high",
+        applicable: [
+          "County- and city-level talent-site upgrades",
+          "Digital platforms for HR service firms",
+          "Park, association, and industrial-cluster hiring platforms",
+          "Projects extending from PC sites to mini programs and apps",
+        ],
+        disclosure: "medium",
       },
       {
-        id: "yuhang-consumer-protection",
-        title: "Yuhang internet consumer-protection “one-stop” (complaints & reports)",
-        industry: "Market regulation",
+        id: "consumer-protection",
+        title: "Integrated internet consumer-protection handling",
+        industry: "Market regulation / public-sector digital",
         summary:
-          "A “one library, one platform, one cockpit” stack for one-stop handling of internet consumer complaints and reports at very large scale.",
+          "A “one library, one platform, one cockpit” stack for complaints and reports, with the national complaints platform and local handling on the same closed loop.",
         challenge:
-          "Yuhang handles nearly half of China’s online consumer complaints and reports, supervising nearly 10 million online shops, with annual volume above 500,000 cases. Limited staff put mediation quality under pressure (success around 50%); systems were built in batches with scattered data; and the case lake was too weakly used for outbreak warning and prevention.",
+          "Online consumer complaints are high-volume and time-bound. Limited staff put mediation quality under pressure, and complex procedures are easy to miss. Systems were built in batches with scattered data; the case lake was weakly used for outbreak warning. Cases diverted from the national platform still risked duplicate entry, with key results hard to write back.",
         approach:
-          "We rebuilt handling flows with market-regulation teams, putting data fusion, case handling, and a decision cockpit in one architecture: first centralized intake and intelligent dispatch, then complex cases and risk warning.",
+          "We rebuilt handling flows with the operations team, putting data fusion, case work, risk warning, and cross-platform collaboration in one architecture: centralized intake and dispatch first, then complex cases and prevention.",
         solution:
-          "We built a themed internet consumer-protection data library fusing national 12315, provincial Fair Online clues, and assigned/transferred data, with five-color AI risk warning on entities and key persons; an integrated platform for ordinary cases and online handling of complex “complaint-to-case” / “case-with-complaint” scenarios; and a digital cockpit for governance, key persons/cases, and risk.",
+          "A themed consumer-protection library fusing national complaint data and assigned/transferred clues, with entity and key-person risk warning; an integrated platform for ordinary cases and overlapping complaint/case scenes; and a digital cockpit. Local handling round-trips with the national complaints platform at first review, verification, and closure—less duplicate entry, results written back.",
         results: [
-          "Support for 500,000+ online consumer-protection cases per year",
-          "A shift from reactive handling to AI five-color risk warning and prevention",
-          "Complex cases handled online across scenes, with public–private co-governance and cross-region collaboration",
+          "Centralized intake, intelligent dispatch, and online handling of complex cases",
+          "A shift from reactive handling to risk warning and prevention",
+          "National and local systems collaborate so handling can write back and close the loop",
         ],
         highlights: [
-          "An integrated benchmark for a nationally high-load consumer-protection district",
           "“One library, one platform, one cockpit” covering data, operations, and decisions",
-          "A closed loop with the national 12315 local integration",
+          "AI risk warning for high-volume online consumer protection",
+          "Cross-platform collaboration that cuts duplicate entry",
         ],
         applicable: [
           "Very large-scale complaint, report, and clue handling",
           "Market-regulation scenarios that need risk warning and a digital cockpit",
         ],
-        disclosure: "high",
+        disclosure: "low",
       },
       {
-        id: "zhejiang-petition-hub",
-        title: "Zhejiang Provincial Public Complaints and Proposals data hub",
-        industry: "Petitions / government services",
+        id: "emergency-knowledge",
+        title: "Emergency-management intelligent knowledge base",
+        industry: "Emergency management / public-sector digital",
         summary:
-          "An intelligent monitoring hub so petition data flowing across systems is visible, manageable, queryable, and countable.",
+          "An intelligent knowledge system covering accidents, natural disasters, regulations, and emergency plans—supporting monitoring, enforcement, and rescue with searchable knowledge.",
         challenge:
-          "The provincial unified platform already connected 5 national systems, 13 provincial systems, and dozens of city- and district-level systems, but could not timely see data-flow volume, timeliness, or accuracy, nor connect smoothly to the National Public Complaints and Proposals Administration on a shared service standard.",
+          "Emergency knowledge is large and heterogeneous; much of it had not been digitized or structured. A graph foundation existed, but unified handling, after-action warning, relationship models, similar-object analysis, and time-series analysis were still too weak for frontline search and Q&A.",
         approach:
-          "We started from the live data-flow field: first put inflow, outflow, job scheduling, and reporting into one observability system, then crystallized configurable sources, mapping rules, and service parameters.",
+          "We defined knowledge scope and service scenes with the operations team, then co-built in stages—processing, construction, graph applications—rather than handing over a library no one could run.",
         solution:
-          "We delivered global hub run-state, scheduled sync and monitoring jobs, inbound/outbound service monitoring, service configuration, and automatic monitoring reports—so sources are visible, manageable, queryable, and countable, and the hub can connect to the national petitions administration on standard services.",
+          "Professional libraries for accidents, natural disasters, laws and regulations, emergency plans, and emergency knowledge; unified management of heterogeneous sources; graph analysis for relationships, similar objects, and time series; and a portal for intelligent search, Q&A, and recommendations.",
         results: [
-          "A data hub supporting national, provincial, city, and county systems",
-          "Integrated observability across inflow, outflow, jobs, and reports",
-          "Data flow moved from “unseen” to visible, manageable, and countable",
+          "Professional knowledge bases covering the emergency-management domain",
+          "A chain from knowledge graph to search, Q&A, and recommendations",
+          "Heterogeneous knowledge that can be managed and analyzed in more than one dimension",
         ],
         highlights: [
-          "A provincial petitions data hub",
-          "Full-chain flow monitoring, not after-the-fact reconciliation",
-          "Cross-level system connection on standard services",
+          "A complete path from knowledge engineering to intelligent applications",
+          "Graph visualization for relationship and time-series analysis",
         ],
-        disclosure: "high",
+        disclosure: "low",
       },
       {
-        id: "national-12315-yuhang",
-        title: "National 12315 platform integration (Yuhang endpoint)",
-        industry: "Market regulation",
+        id: "municipal-police-ivr",
+        title: "Public-security intelligent contact center and voice portal",
+        industry: "Public security / public-sector digital",
         summary:
-          "Two-way data flow and business collaboration between the national 12315 platform and Hangzhou’s internet-complaint handling system (Yuhang endpoint).",
+          "Upgrade intelligent customer service across voice navigation, human handoff, outbound calling, and recording—turning high-frequency public inquiries into an operable full-chain voice service.",
         challenge:
-          "Complaints and reports diverted to Yuhang internet-supervision and consumer-protection workstations still risked duplicate manual entry, broken steps, inconsistent figures, and missing write-back of key results to the national platform.",
+          "Public inquiries cover high-frequency services such as household registration and entry-exit. The legacy contact center needed simultaneous upgrades across the voice robot, IVR, human handoff, SMS, recording, business-system integration, and precinct-level phone access before it could serve the full scene—not a single-point robot demo.",
         approach:
-          "We designed automatic push and write-back around real handling steps, putting coordination, first review, verification, and closure on one collaboration path.",
+          "We treated live call flow as the field, designing the voice portal, contact center, and business systems as one path: close navigation and human handoff first, then extend outbound, SMS, and recording into the ticket archive.",
         solution:
-          "Cases diverted from national 12315 are pushed automatically into the Yuhang internet-complaint system. Staff complete investigations locally. At first review, report verification, and closure, work is handed to the national 12315 platform; final results are written back, closing the loop.",
+          "An intelligent voice robot with a redesigned IVR so calls reach a robot node; real-time human handoff; SMS and ticket-system invocation; connections to household-registration, entry-exit, and other business systems; outbound calling for precinct phones; and ongoing voice/text navigation operations.",
         results: [
-          "Automatic diversion and push—less duplicate manual entry",
-          "Round-trip at key steps to keep data consistent",
-          "A complete handling stack together with the consumer-protection “one-stop” program",
+          "Coverage of high-frequency inquiries such as household registration and entry-exit",
+          "A closed loop from navigation through handoff, outbound, and recording",
+          "Integration across the contact center, SMS, tickets, and business systems",
         ],
         highlights: [
-          "Two-way integration between a national platform and a local handling system",
-          "Handling that can write back and close the loop",
+          "Full-chain voice intelligence, not a single-point robot",
+          "Service that can reach precinct-level phone access",
         ],
-        disclosure: "high",
-      },
-      {
-        id: "import-trade-platform",
-        title: "Import-trade full-chain digital management platform",
-        industry: "Bulk-commodity trade",
-        summary:
-          "A main chain of contract, container, inventory, pricing, customs, and settlement—turning fragmented import-trade work into traceable system collaboration.",
-        challenge:
-          "Import trade is a long chain with many parties, currencies, and documents. Traditional work on spreadsheets, email, and chat splits knowledge: sales owns contracts, documentation owns containers, the warehouse owns stock, and finance reconciles again. As volume grows, duplicate entry, inconsistent figures, and hard tracing get worse fast.",
-        approach:
-          "We aligned first on the operating chain of contract → fulfillment → settlement, turned each role’s work into status-based queues, then added finance ledgers and control traces—avoiding a system that only stores contracts.",
-        solution:
-          "Coverage spans master data, contracts, containers, inventory, pricing, customs, funds settlement, and management monitoring. Finance keeps ledgers by fund type linked to contracts, containers, or goods; role-based access plus login and operation traces support controls; documents can be generated from templates and archived.",
-        results: [
-          "Purchase, domestic, and sales contracts linked to containers, goods, and funds",
-          "Pricing, customs, and alerts enter each role’s work queue by status",
-          "Complex settlement (offsets, overpayments, claims) with a traceable control trail",
-        ],
-        highlights: [
-          "A complete contract chain, not just a contract archive",
-          "Status-based work pools that cut cross-role reconciliation cost",
-          "Engineered delivery that can be deployed and operated, not a one-off demo",
-        ],
-        applicable: [
-          "Import trades centered on lots or containers",
-          "Traders that need purchase–logistics–warehouse–sales–finance collaboration",
-        ],
-        disclosure: "medium",
-      },
-      {
-        id: "beicheng-talent",
-        title: "Beicheng Talent Network digital upgrade",
-        industry: "Human resources",
-        summary:
-          "Upgrade a Yuhuan local hiring site into a multi-end talent platform covering job search, recruiting, chat, and interviews.",
-        challenge:
-          "Local hiring cares about nearby talent, fast communication, and low-friction posting—unlike national job boards. The legacy site had inconsistent branding, deep filter trees, a weak Yuhuan/township default, scattered member centers, and experience gaps across PC, mobile web, mini program, and app.",
-        approach:
-          "We upgraded progressively on the existing business data: unify visual language and core flows first, then localized filters and multi-end collaboration, avoiding a stop-the-world migration.",
-        solution:
-          "We unified brand and page experience; made Yuhuan the default with township and wider-area filters; rebuilt job-seeker (resume → apply → chat → interview) and employer (post → screen → chat → invite) member centers; connected PC, mobile web, mini program, and app; and hardened uploads, messaging, rate limits, and backups.",
-        results: [
-          "Main business pages share one visual and interaction language",
-          "Job-seeker and hiring flows are continuous; employers can post, screen, chat, and interview",
-          "Four ends cover core scenes with a shared account and data layer",
-        ],
-        highlights: [
-          "Localization can reach the township while still supporting regional growth",
-          "The upgrade covers job seeker, employer, and production operations—not a skin-only refresh",
-          "Native for high-frequency core, web for low-frequency complexity—balancing experience and cost",
-        ],
-        applicable: [
-          "County- and city-level talent-site upgrades",
-          "Park, association, and industrial-cluster hiring platforms",
-        ],
-        disclosure: "high",
+        disclosure: "low",
       },
     ],
   },
+
   insights: {
     title: "Insights",
     sub: "Methodology notes, industry observations, and anonymized project retrospectives—field experience made shareable.",

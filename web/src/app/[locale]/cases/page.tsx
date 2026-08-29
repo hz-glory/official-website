@@ -109,6 +109,29 @@ export default async function CasesPage({ params }: Props) {
                   </div>
                 </div>
 
+                {item.modules && item.modules.length > 0 ? (
+                  <div className="mt-8">
+                    <h3 className="text-sm font-semibold text-[var(--teal)]">
+                      {dict.cases.labels.modules}
+                    </h3>
+                    <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                      {item.modules.map((mod) => (
+                        <article
+                          key={mod.title}
+                          className="rounded-[var(--radius-sm)] border border-[var(--line)] bg-[var(--bg)] p-4"
+                        >
+                          <h4 className="text-sm font-semibold text-[var(--ink)]">
+                            {mod.title}
+                          </h4>
+                          <p className="mt-2 text-sm leading-relaxed text-[var(--ink-soft)]">
+                            {mod.body}
+                          </p>
+                        </article>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
                 {item.highlights && item.highlights.length > 0 ? (
                   <div className="mt-8 border-t border-[var(--line)] pt-6">
                     <h3 className="text-sm font-semibold text-[var(--teal)]">
