@@ -14,6 +14,8 @@ export type CaseStudy = {
   approach: string;
   solution: string;
   results: string[];
+  highlights?: string[];
+  applicable?: string[];
   stage?: {
     current: 1 | 2 | 3;
     note: string;
@@ -146,6 +148,8 @@ export type Dictionary = {
       approach: string;
       solution: string;
       results: string;
+      highlights: string;
+      applicable: string;
       stage: string;
       stageNames: [string, string, string];
     };

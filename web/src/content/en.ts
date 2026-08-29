@@ -114,15 +114,15 @@ export const en: Dictionary = {
           body: "Serve large institutions and public-service scenarios with reliable engineering and long-term trust.",
         },
         {
-          title: "Cross-border trade compliance intelligence",
-          body: "Improve classification and compliance efficiency—and validate a project-to-product path.",
+          title: "Trade & supply-chain digitization",
+          body: "Turn long-cycle trade operations—contracts, containers, inventory, and settlement—into a coordinated, auditable system.",
         },
       ],
       secondary: [
+        "Human resources",
+        "Agentic process automation",
         "RV / mobility",
         "Finance / banking",
-        "Hospitality / services",
-        "Agentic process automation",
       ],
     },
     cases: {
@@ -295,7 +295,7 @@ export const en: Dictionary = {
       {
         title: "Industry products",
         pain: "Pure custom work does not scale; pure products rarely solve deep scenario problems.",
-        method: "After proving value with a client, abstract reusable engines into industry products or information services—such as capabilities in cross-border compliance intelligence.",
+        method: "After proving value with a client, abstract reusable engines into industry products or information services—such as import-trade operations coordination and government knowledge services.",
         deliverables: "Reusable engines / frameworks and productized offerings (names update as packaging matures).",
         fit: "Partners who want extensible capability from deep collaboration, or who follow our product roadmap.",
       },
@@ -328,10 +328,10 @@ export const en: Dictionary = {
         persona:
           "Large public-service and institutional organizations that require stability, compliance, and auditable long-term construction.",
         scenarios: [
-          "Public-service platform build and upgrade",
-          "Process digitization with intelligent assistance",
-          "Data governance and cross-system coordination",
-          "Citizen / enterprise service experience improvement",
+          "Emergency and government knowledge bases with intelligent Q&A",
+          "Intelligent customer service, voice navigation, and outbound calling",
+          "Cross-system data hubs and flow monitoring",
+          "High-volume consumer-protection case handling",
         ],
         problems: [
           "High scale and constraints demand disciplined engineering",
@@ -340,19 +340,19 @@ export const en: Dictionary = {
         ],
       },
       {
-        title: "Cross-border trade compliance intelligence",
+        title: "Trade & supply-chain digitization",
         priority: "core",
         persona:
-          "Cross-border commerce and trade teams under pressure on classification, filing, and compliance efficiency.",
+          "Import-trade and supply-chain teams with long chains, many documents, and complex handoffs.",
         scenarios: [
-          "Product classification and coding assistance",
-          "Rule retrieval and risk hints",
-          "Structured filing materials and throughput gains",
+          "Contract, container, inventory, and customs coordination",
+          "Price-fixing and treasury ledgers",
+          "Operating monitors, alerts, and audit trail",
         ],
         problems: [
-          "Manual coding is costly and inconsistent",
-          "Rules change quickly; expertise does not scale",
-          "Need a path from project validation to reusable product capability",
+          "Spreadsheets and chat create silos and duplicate entry",
+          "Fulfillment, logistics, and finance disagree on numbers",
+          "Complex settlement and controls are hard to close by hand",
         ],
       },
       {
@@ -379,11 +379,18 @@ export const en: Dictionary = {
         problems: ["Weak multi-system coordination", "Fragmented customer touchpoints"],
       },
       {
-        title: "Finance / banking",
+        title: "Human resources / local hiring",
         priority: "secondary",
-        persona: "Financial institutions with strict compliance and risk constraints.",
-        scenarios: ["Process automation assistance", "Knowledge retrieval for operations", "Internal efficiency tools"],
-        problems: ["Generic solutions rarely meet compliance needs", "Domain knowledge is hard to operationalize"],
+        persona: "District and industrial-cluster job platforms, and HR service organizations.",
+        scenarios: [
+          "Multi-channel recruiting platform upgrades",
+          "Localized filters and intelligent search",
+          "Closed-loop job seeker and employer workflows",
+        ],
+        problems: [
+          "National job boards miss local operating habits",
+          "Channels are fragmented and core flows are incomplete",
+        ],
       },
       {
         title: "Hospitality / services",
@@ -396,12 +403,14 @@ export const en: Dictionary = {
   },
   cases: {
     title: "Case studies",
-    sub: "Cases are presented within their disclosure scope. We prioritize real deployments that clarify method and outcomes.",
+    sub: "Seven live programs, shown within their disclosure scope. We prioritize real deployments that clarify method and outcomes.",
     labels: {
       challenge: "Background & challenge",
       approach: "How we engaged",
       solution: "Solution overview",
       results: "Outcomes",
+      highlights: "Key highlights",
+      applicable: "Where it applies",
       stage: "Current stage",
       stageNames: [
         "Stage 1 · Paid validation",
@@ -411,65 +420,183 @@ export const en: Dictionary = {
     },
     items: [
       {
-        id: "housing-fund",
-        title: "Zhejiang & Hangzhou Housing Provident Fund platforms",
-        industry: "Public & enterprise digital transformation",
+        id: "emergency-knowledge",
+        title: "Intelligent knowledge base for the Ministry of Emergency Management",
+        industry: "Emergency management / public-sector digital",
         summary:
-          "Supporting large public-service platforms through digital construction and continuous evolution—evidence of institutional-grade delivery.",
+          "Build an intelligent knowledge system covering accidents, natural disasters, laws and regulations, and emergency plans—supporting emergency-management operations with searchable, usable knowledge.",
         challenge:
-          "Housing provident fund operations are large-scale, rule-heavy, and continuity-critical. The platforms needed steady digital upgrades while improving service efficiency for contributing employers and employees.",
+          "Emergency-management knowledge is large and heterogeneous; much of it had not been digitized or structured into a usable system. Phase one established a graph foundation, but unified handling of heterogeneous knowledge, after-action and early-warning analysis, relationship models, similar-object analysis, and time-series analysis still needed to be strengthened.",
         approach:
-          "We worked within institutional engineering standards and delivery discipline—understanding business constraints deeply and co-building in phases with continuous iteration, rather than a one-time handoff.",
+          "We worked on site with emergency-management teams to define knowledge scope and service scenarios, then co-built in stages—knowledge processing, knowledge construction, and graph applications—rather than handing over a library no one could operate.",
         solution:
-          "Strengthened core platform capabilities and service flows around provident fund administration—improving data coordination, processing efficiency, and maintainability for long-lived public services.",
+          "We delivered five professional knowledge bases (accidents, natural disasters, laws and regulations, emergency plans, and emergency knowledge); unified processing of heterogeneous sources; flexible graph visualization; and a knowledge portal that supports intelligent search, Q&A, and recommendations across monitoring and early warning, regulatory enforcement, rescue, government services, and social mobilization.",
         results: [
-          "Supported stable operation and ongoing iteration of provincial/municipal core fund platforms",
-          "Improved processing and coordination efficiency for employer and employee digital services",
-          "Established a platform foundation that lowers the cost of future change",
+          "Five professional knowledge bases covering the full emergency-management domain",
+          "A complete technical chain from knowledge graph to intelligent applications",
+          "Unified management of heterogeneous knowledge and multi-dimensional analysis",
+        ],
+        highlights: [
+          "A national-ministry knowledge program with benchmark authority",
+          "Five professional libraries covering accidents, disasters, regulations, and plans",
+          "Graph visualization for relationships, similar-object analysis, and time series",
         ],
         disclosure: "high",
       },
       {
-        id: "taizhou-manufacturing",
-        title: "Digital upgrade for a Taizhou manufacturer",
-        industry: "Smart manufacturing transformation",
+        id: "hangzhou-police-ivr",
+        title: "Hangzhou Public Security Bureau intelligent customer service",
+        industry: "Public security / government services",
         summary:
-          "Forward deployed engineers embedded on site to weave intelligence into real production and operations.",
+          "Upgrade the existing intelligent contact center across voice navigation, human handoff, outbound calling, and recording—improving how residents get answers.",
         challenge:
-          "The company had a digital baseline, but systems were poorly coordinated, shop-floor know-how was hard to capture, and decisions still relied heavily on tribal knowledge. Pilot tools rarely became lasting efficiency gains.",
+          "Public inquiries cover high-frequency services such as household registration and entry-exit. The legacy intelligent contact center needed simultaneous upgrades across the voice robot, IVR flows, human handoff, SMS, recording, business-system integration, and police-station IP-phone access before it could serve the full scene.",
         approach:
-          "An FDE team diagnosed and co-created on site: align on measurable goals first, then design with production, planning, and quality roles—validating on a biweekly cadence.",
+          "We designed the voice portal, contact center, and business systems as one field workflow: first close the loop on navigation and human handoff, then extend outbound calling, SMS, and recording into the ticket archive.",
         solution:
-          "Built field-facing data and intelligent assistance for exception detection, process coordination, and knowledge Q&A—integrated into existing systems so teams were not asked to adopt yet another unused tool.",
+          "We integrated an intelligent voice robot and redesigned the IVR so calls reach a robot node; enabled real-time handoff to human agents; invoked SMS and ticket systems; connected household-registration, entry-exit, and other business systems; configured outbound calling for police-station IP phones; and continued to operate voice and text navigation scenarios.",
         results: [
-          "About 30% shorter cycle time on critical workflows",
-          "Faster exception response and less repetitive manual reconciliation",
-          "A repeatable on-site co-build method ready for line/plant replication",
+          "Coverage of high-frequency services such as household registration and entry-exit",
+          "A voice-service closed loop from IVR navigation through handoff, outbound, and recording",
+          "Deep integration with the contact center, SMS, tickets, and business systems",
+        ],
+        highlights: [
+          "A municipal public-security intelligent-service benchmark",
+          "Full-chain voice intelligence, not a single-point robot demo",
+          "Police-station IP-phone access so service can reach the precinct level",
+        ],
+        disclosure: "high",
+      },
+      {
+        id: "yuhang-consumer-protection",
+        title: "Yuhang internet consumer-protection “one-stop” (complaints & reports)",
+        industry: "Market regulation",
+        summary:
+          "A “one library, one platform, one cockpit” stack for one-stop handling of internet consumer complaints and reports at very large scale.",
+        challenge:
+          "Yuhang handles nearly half of China’s online consumer complaints and reports, supervising nearly 10 million online shops, with annual volume above 500,000 cases. Limited staff put mediation quality under pressure (success around 50%); systems were built in batches with scattered data; and the case lake was too weakly used for outbreak warning and prevention.",
+        approach:
+          "We rebuilt handling flows with market-regulation teams, putting data fusion, case handling, and a decision cockpit in one architecture: first centralized intake and intelligent dispatch, then complex cases and risk warning.",
+        solution:
+          "We built a themed internet consumer-protection data library fusing national 12315, provincial Fair Online clues, and assigned/transferred data, with five-color AI risk warning on entities and key persons; an integrated platform for ordinary cases and online handling of complex “complaint-to-case” / “case-with-complaint” scenarios; and a digital cockpit for governance, key persons/cases, and risk.",
+        results: [
+          "Support for 500,000+ online consumer-protection cases per year",
+          "A shift from reactive handling to AI five-color risk warning and prevention",
+          "Complex cases handled online across scenes, with public–private co-governance and cross-region collaboration",
+        ],
+        highlights: [
+          "An integrated benchmark for a nationally high-load consumer-protection district",
+          "“One library, one platform, one cockpit” covering data, operations, and decisions",
+          "A closed loop with the national 12315 local integration",
+        ],
+        applicable: [
+          "Very large-scale complaint, report, and clue handling",
+          "Market-regulation scenarios that need risk warning and a digital cockpit",
+        ],
+        disclosure: "high",
+      },
+      {
+        id: "zhejiang-petition-hub",
+        title: "Zhejiang Provincial Public Complaints and Proposals data hub",
+        industry: "Petitions / government services",
+        summary:
+          "An intelligent monitoring hub so petition data flowing across systems is visible, manageable, queryable, and countable.",
+        challenge:
+          "The provincial unified platform already connected 5 national systems, 13 provincial systems, and dozens of city- and district-level systems, but could not timely see data-flow volume, timeliness, or accuracy, nor connect smoothly to the National Public Complaints and Proposals Administration on a shared service standard.",
+        approach:
+          "We started from the live data-flow field: first put inflow, outflow, job scheduling, and reporting into one observability system, then crystallized configurable sources, mapping rules, and service parameters.",
+        solution:
+          "We delivered global hub run-state, scheduled sync and monitoring jobs, inbound/outbound service monitoring, service configuration, and automatic monitoring reports—so sources are visible, manageable, queryable, and countable, and the hub can connect to the national petitions administration on standard services.",
+        results: [
+          "A data hub supporting national, provincial, city, and county systems",
+          "Integrated observability across inflow, outflow, jobs, and reports",
+          "Data flow moved from “unseen” to visible, manageable, and countable",
+        ],
+        highlights: [
+          "A provincial petitions data hub",
+          "Full-chain flow monitoring, not after-the-fact reconciliation",
+          "Cross-level system connection on standard services",
+        ],
+        disclosure: "high",
+      },
+      {
+        id: "national-12315-yuhang",
+        title: "National 12315 platform integration (Yuhang endpoint)",
+        industry: "Market regulation",
+        summary:
+          "Two-way data flow and business collaboration between the national 12315 platform and Hangzhou’s internet-complaint handling system (Yuhang endpoint).",
+        challenge:
+          "Complaints and reports diverted to Yuhang internet-supervision and consumer-protection workstations still risked duplicate manual entry, broken steps, inconsistent figures, and missing write-back of key results to the national platform.",
+        approach:
+          "We designed automatic push and write-back around real handling steps, putting coordination, first review, verification, and closure on one collaboration path.",
+        solution:
+          "Cases diverted from national 12315 are pushed automatically into the Yuhang internet-complaint system. Staff complete investigations locally. At first review, report verification, and closure, work is handed to the national 12315 platform; final results are written back, closing the loop.",
+        results: [
+          "Automatic diversion and push—less duplicate manual entry",
+          "Round-trip at key steps to keep data consistent",
+          "A complete handling stack together with the consumer-protection “one-stop” program",
+        ],
+        highlights: [
+          "Two-way integration between a national platform and a local handling system",
+          "Handling that can write back and close the loop",
+        ],
+        disclosure: "high",
+      },
+      {
+        id: "import-trade-platform",
+        title: "Import-trade full-chain digital management platform",
+        industry: "Bulk-commodity trade",
+        summary:
+          "A main chain of contract, container, inventory, pricing, customs, and settlement—turning fragmented import-trade work into traceable system collaboration.",
+        challenge:
+          "Import trade is a long chain with many parties, currencies, and documents. Traditional work on spreadsheets, email, and chat splits knowledge: sales owns contracts, documentation owns containers, the warehouse owns stock, and finance reconciles again. As volume grows, duplicate entry, inconsistent figures, and hard tracing get worse fast.",
+        approach:
+          "We aligned first on the operating chain of contract → fulfillment → settlement, turned each role’s work into status-based queues, then added finance ledgers and control traces—avoiding a system that only stores contracts.",
+        solution:
+          "Coverage spans master data, contracts, containers, inventory, pricing, customs, funds settlement, and management monitoring. Finance keeps ledgers by fund type linked to contracts, containers, or goods; role-based access plus login and operation traces support controls; documents can be generated from templates and archived.",
+        results: [
+          "Purchase, domestic, and sales contracts linked to containers, goods, and funds",
+          "Pricing, customs, and alerts enter each role’s work queue by status",
+          "Complex settlement (offsets, overpayments, claims) with a traceable control trail",
+        ],
+        highlights: [
+          "A complete contract chain, not just a contract archive",
+          "Status-based work pools that cut cross-role reconciliation cost",
+          "Engineered delivery that can be deployed and operated, not a one-off demo",
+        ],
+        applicable: [
+          "Import trades centered on lots or containers",
+          "Traders that need purchase–logistics–warehouse–sales–finance collaboration",
         ],
         disclosure: "medium",
       },
       {
-        id: "cross-border-compliance",
-        title: "Intelligent compliance platform for a Hangzhou cross-border seller",
-        industry: "Cross-border trade compliance intelligence",
+        id: "beicheng-talent",
+        title: "Beicheng Talent Network digital upgrade",
+        industry: "Human resources",
         summary:
-          "From paid POC to internal scale-up—a concrete example of the project-to-product growth model.",
+          "Upgrade a Yuhuan local hiring site into a multi-end talent platform covering job search, recruiting, chat, and interviews.",
         challenge:
-          "Product classification and compliance work depended heavily on manual expertise. Consistency was hard, and growth drove both labor cost and risk upward.",
+          "Local hiring cares about nearby talent, fast communication, and low-friction posting—unlike national job boards. The legacy site had inconsistent branding, deep filter trees, a weak Yuhuan/township default, scattered member centers, and experience gaps across PC, mobile web, mini program, and app.",
         approach:
-          "Entered via a bounded paid POC to prove accuracy and usability on real catalog data; once gates were met, scaled as an internal tool while abstracting portable capabilities.",
+          "We upgraded progressively on the existing business data: unify visual language and core flows first, then localized filters and multi-end collaboration, avoiding a stop-the-world migration.",
         solution:
-          "Built intelligent coding and compliance assistance combining rules and model support—raising throughput for operators while reserving engine/framework layers for productization.",
+          "We unified brand and page experience; made Yuhuan the default with township and wider-area filters; rebuilt job-seeker (resume → apply → chat → interview) and employer (post → screen → chat → invite) member centers; connected PC, mobile web, mini program, and app; and hardened uploads, messaging, rate limits, and backups.",
         results: [
-          "Met agreed accuracy targets in the paid POC and moved into scaled use",
-          "Reduced repetitive manual coding and improved consistency",
-          "Reusable frameworks began to form—early product shape achieved",
+          "Main business pages share one visual and interaction language",
+          "Job-seeker and hiring flows are continuous; employers can post, screen, chat, and interview",
+          "Four ends cover core scenes with a shared account and data layer",
         ],
-        stage: {
-          current: 2,
-          note: "Paid POC complete; now scaling the internal tool and abstracting product capabilities",
-        },
-        disclosure: "medium",
+        highlights: [
+          "Localization can reach the township while still supporting regional growth",
+          "The upgrade covers job seeker, employer, and production operations—not a skin-only refresh",
+          "Native for high-frequency core, web for low-frequency complexity—balancing experience and cost",
+        ],
+        applicable: [
+          "County- and city-level talent-site upgrades",
+          "Park, association, and industrial-cluster hiring platforms",
+        ],
+        disclosure: "high",
       },
     ],
   },
