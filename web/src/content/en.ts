@@ -119,20 +119,20 @@ export const en: Dictionary = {
           body: "Serve large institutions and public-service scenarios with reliable engineering and long-term trust.",
         },
         {
-          title: "Cross-border trade compliance intelligence",
-          body: "Improve classification and compliance efficiency—and validate a project-to-product path.",
+          title: "Trade & supply-chain digitization",
+          body: "Turn long-cycle trade operations—contracts, containers, inventory, and settlement—into a coordinated, auditable system.",
         },
       ],
       secondary: [
+        "Human resources",
+        "Agentic process automation",
         "RV / mobility",
         "Finance / banking",
-        "Hospitality / services",
-        "Agentic process automation",
       ],
     },
     cases: {
       title: "Selected cases",
-      sub: "Real deployments that show the model can be repeated and scaled.",
+      sub: "Shop-floor nesting, trade documents, hiring platforms, trade operations—and knowledge, contact-center, and case-handling systems for public services.",
     },
     growth: {
       title: "Three-stage growth model",
@@ -256,9 +256,9 @@ export const en: Dictionary = {
           bio: "Senior Alibaba engineering and delivery leader; focused on making solutions work in the field and building durable collaboration models.",
         },
         {
-          name: "Wang Senxian",
-          role: "VP of Operations",
-          bio: "Seasoned delivery and program leader from iFLYTEK, eSign, and NetEase; strong in complex coordination and customer success systems.",
+          name: "Ye Ping",
+          role: "VP of Business",
+          bio: "Senior commercial VP with experience at iFLYTEK, eSign, and NetEase, focused on strategic business development and large-account ecosystem partnerships.",
         },
         {
           name: "Qing Fei",
@@ -300,7 +300,7 @@ export const en: Dictionary = {
       {
         title: "Industry products",
         pain: "Pure custom work does not scale; pure products rarely solve deep scenario problems.",
-        method: "After proving value with a client, abstract reusable engines into industry products or information services—such as capabilities in cross-border compliance intelligence.",
+        method: "After proving value with a client, abstract reusable engines into industry products or information services—such as import-trade operations coordination and government knowledge services.",
         deliverables: "Reusable engines / frameworks and productized offerings (names update as packaging matures).",
         fit: "Partners who want extensible capability from deep collaboration, or who follow our product roadmap.",
       },
@@ -333,10 +333,10 @@ export const en: Dictionary = {
         persona:
           "Large public-service and institutional organizations that require stability, compliance, and auditable long-term construction.",
         scenarios: [
-          "Public-service platform build and upgrade",
-          "Process digitization with intelligent assistance",
-          "Data governance and cross-system coordination",
-          "Citizen / enterprise service experience improvement",
+          "Emergency and government knowledge bases with intelligent Q&A",
+          "Intelligent customer service, voice navigation, and outbound calling",
+          "Cross-system data hubs and flow monitoring",
+          "High-volume consumer-protection case handling",
         ],
         problems: [
           "High scale and constraints demand disciplined engineering",
@@ -345,19 +345,19 @@ export const en: Dictionary = {
         ],
       },
       {
-        title: "Cross-border trade compliance intelligence",
+        title: "Trade & supply-chain digitization",
         priority: "core",
         persona:
-          "Cross-border commerce and trade teams under pressure on classification, filing, and compliance efficiency.",
+          "Import-trade and supply-chain teams with long chains, many documents, and complex handoffs.",
         scenarios: [
-          "Product classification and coding assistance",
-          "Rule retrieval and risk hints",
-          "Structured filing materials and throughput gains",
+          "Contract, container, inventory, and customs coordination",
+          "Price-fixing and treasury ledgers",
+          "Operating monitors, alerts, and audit trail",
         ],
         problems: [
-          "Manual coding is costly and inconsistent",
-          "Rules change quickly; expertise does not scale",
-          "Need a path from project validation to reusable product capability",
+          "Spreadsheets and chat create silos and duplicate entry",
+          "Fulfillment, logistics, and finance disagree on numbers",
+          "Complex settlement and controls are hard to close by hand",
         ],
       },
       {
@@ -384,11 +384,18 @@ export const en: Dictionary = {
         problems: ["Weak multi-system coordination", "Fragmented customer touchpoints"],
       },
       {
-        title: "Finance / banking",
+        title: "Human resources / local hiring",
         priority: "secondary",
-        persona: "Financial institutions with strict compliance and risk constraints.",
-        scenarios: ["Process automation assistance", "Knowledge retrieval for operations", "Internal efficiency tools"],
-        problems: ["Generic solutions rarely meet compliance needs", "Domain knowledge is hard to operationalize"],
+        persona: "District and industrial-cluster job platforms, and HR service organizations.",
+        scenarios: [
+          "Multi-channel recruiting platform upgrades",
+          "Localized filters and intelligent search",
+          "Closed-loop job seeker and employer workflows",
+        ],
+        problems: [
+          "National job boards miss local operating habits",
+          "Channels are fragmented and core flows are incomplete",
+        ],
       },
       {
         title: "Hospitality / services",
@@ -401,12 +408,21 @@ export const en: Dictionary = {
   },
   cases: {
     title: "Case studies",
-    sub: "Cases are presented within their disclosure scope. We prioritize real deployments that clarify method and outcomes.",
+    sub: "From shop-floor nesting, trade documents, and local hiring to import-trade operations, as well as knowledge, contact-center, and case-handling systems in public services.",
     labels: {
       challenge: "Background & challenge",
       approach: "How we engaged",
       solution: "Solution overview",
       results: "Outcomes",
+      modules: "What we built",
+      highlights: "Key highlights",
+      applicable: "Where it applies",
+      enterpriseTitle: "Industry and growing businesses",
+      enterpriseLead:
+        "Nesting and cutting, trade documents, local hiring, and import-trade coordination—systems built around the step that actually blocks daily work.",
+      publicTitle: "Public services",
+      publicLead:
+        "Emergency knowledge services, intelligent contact centers, and consumer-protection case handling for government operations.",
       stage: "Current stage",
       stageNames: [
         "Stage 1 · Paid validation",
@@ -416,71 +432,288 @@ export const en: Dictionary = {
     },
     items: [
       {
-        id: "housing-fund",
-        title: "Zhejiang & Hangzhou Housing Provident Fund platforms",
-        industry: "Public & enterprise digital transformation",
+        id: "import-trade-platform",
+        format: "full",
+        group: "enterprise",
+        featured: true,
+        title: "Import-trade full-chain management platform",
+        industry: "Bulk-commodity trade",
         summary:
-          "Supporting large public-service platforms through digital construction and continuous evolution—evidence of institutional-grade delivery.",
+          "A main chain of contract, container, inventory, pricing, customs, and settlement—turning spreadsheet-and-chat import trade into a traceable operating system.",
         challenge:
-          "Housing provident fund operations are large-scale, rule-heavy, and continuity-critical. The platforms needed steady digital upgrades while improving service efficiency for contributing employers and employees.",
+          "Import trade is a long chain with many parties, currencies, documents, and time points. Traditional work splits knowledge: sales owns contracts, documentation owns containers, the warehouse owns stock, and finance reconciles again. As volume grows, duplicate entry, inconsistent figures, and hard tracing all get worse—and operating judgment arrives too late.",
         approach:
-          "We worked within institutional engineering standards and delivery discipline—understanding business constraints deeply and co-building in phases with continuous iteration, rather than a one-time handoff.",
+          "We aligned on site around contract → fulfillment → settlement, turned each role’s work into status-based queues, then added treasury ledgers, document templates, and control traces—avoiding a system that only stores contracts.",
         solution:
-          "Strengthened core platform capabilities and service flows around provident fund administration—improving data coordination, processing efficiency, and maintainability for long-lived public services.",
-        results: [
-          "Supported stable operation and ongoing iteration of provincial/municipal core fund platforms",
-          "Improved processing and coordination efficiency for employer and employee digital services",
-          "Established a platform foundation that lowers the cost of future change",
+          "A collaboration platform covering master data, contracts, containers, inventory, pricing, customs, funds settlement, and monitoring. Purchase, domestic, and sales contracts link to containers, goods, and funds. Pricing and customs enter each role’s queue by status. Finance keeps ledgers by fund type and handles offsets, overpayments, claims, and other non-standard settlement.",
+        modules: [
+          {
+            title: "Master data and contract chain",
+            body: "Unify partners, goods, origin, and permissions. Capture foreign, domestic, and sales contracts—with goods, amounts, payment terms, and attachments on one chain.",
+          },
+          {
+            title: "Container execution and inventory",
+            body: "Register containers, bills of lading, carriers, and packing; link inbound/outbound weight allocation so logistics status and stock gaps can be traced back to the contract.",
+          },
+          {
+            title: "Pricing and customs work pools",
+            body: "Split queues by not-yet-priced / no-pricing-needed / priced, and by not-cleared / second filing / cleared, so each role enters its own list instead of hunting a master sheet.",
+          },
+          {
+            title: "Settlement and controls",
+            body: "Separate ledgers for purchase payments, fulfillment costs, sales receipts, special settlement, and operating cost. Role permissions, login trail, operation trail, and field diffs stay auditable; documents generate from templates.",
+          },
+          {
+            title: "Operating monitor",
+            body: "Overview, alerts, and traces in one place—exceptions, accountability, and operating judgment no longer wait for after-the-fact reconciliation.",
+          },
         ],
-        disclosure: "high",
-      },
-      {
-        id: "taizhou-manufacturing",
-        title: "Digital upgrade for a Taizhou manufacturer",
-        industry: "Smart manufacturing transformation",
-        summary:
-          "Forward deployed engineers embedded on site to weave intelligence into real production and operations.",
-        challenge:
-          "The company had a digital baseline, but systems were poorly coordinated, shop-floor know-how was hard to capture, and decisions still relied heavily on tribal knowledge. Pilot tools rarely became lasting efficiency gains.",
-        approach:
-          "An FDE team diagnosed and co-created on site: align on measurable goals first, then design with production, planning, and quality roles—validating on a biweekly cadence.",
-        solution:
-          "Built field-facing data and intelligent assistance for exception detection, process coordination, and knowledge Q&A—integrated into existing systems so teams were not asked to adopt yet another unused tool.",
         results: [
-          "About 30% shorter cycle time on critical workflows",
-          "Faster exception response and less repetitive manual reconciliation",
-          "A repeatable on-site co-build method ready for line/plant replication",
+          "Contracts track fulfillment, containers, inventory, and settlement—not just an archive",
+          "Pricing, customs, and alerts enter role queues by status, cutting cross-role reconciliation",
+          "Complex settlement (offsets, overpayments, claims, discounts, interest) with an audit trail",
+        ],
+        highlights: [
+          "A complete contract chain, not a contract folder",
+          "Status-based work pools that lower collaboration cost",
+          "Engineered delivery that can be deployed and operated, not a one-off demo",
+        ],
+        applicable: [
+          "Import trades centered on lots or containers",
+          "Small and mid-size traders that need purchase–logistics–warehouse–sales–finance collaboration",
+          "Extendable with approvals, credit, profit analysis, mobile, and external-system integration",
         ],
         disclosure: "medium",
       },
       {
-        id: "cross-border-compliance",
-        title: "Intelligent compliance platform for a Hangzhou cross-border seller",
-        industry: "Cross-border trade compliance intelligence",
+        id: "local-talent-platform",
+        format: "full",
+        group: "enterprise",
+        title: "County talent-hiring platform digital upgrade",
+        industry: "Human resources / local hiring",
         summary:
-          "From paid POC to internal scale-up—a concrete example of the project-to-product growth model.",
+          "Upgrade a traditional job site into a multi-end local talent platform covering search, hiring, chat, and interviews—on top of existing data, without a stop-the-world cutover.",
         challenge:
-          "Product classification and compliance work depended heavily on manual expertise. Consistency was hard, and growth drove both labor cost and risk upward.",
+          "Local hiring is not a national job board: employers want nearby talent, fast chat, and low-friction posting; job seekers want commute, authentic local roles, and simple flows. The legacy site had inconsistent branding, deep filter trees, a weak local/township default, scattered member centers, experience gaps across PC / mobile web / mini program / app, and fragile upload and messaging paths.",
         approach:
-          "Entered via a bounded paid POC to prove accuracy and usability on real catalog data; once gates were met, scaled as an internal tool while abstracting portable capabilities.",
+          "We upgraded progressively on the existing business data: unify visual language and core flows first, then localized filters and multi-end collaboration, so the platform could keep running and go live in stages.",
         solution:
-          "Built intelligent coding and compliance assistance combining rules and model support—raising throughput for operators while reserving engine/framework layers for productization.",
-        results: [
-          "Met agreed accuracy targets in the paid POC and moved into scaled use",
-          "Reduced repetitive manual coding and improved consistency",
-          "Reusable frameworks began to form—early product shape achieved",
+          "A unified hiring visual and information architecture; local jobs and talent first, with township-level and wider-area filters; rebuilt job-seeker (resume → search → apply → chat → interview) and employer (post → receive → screen → chat → invite) centers; PC, mobile web, mini program, and native app on one account layer; plus harder uploads, messaging, rate limits, backups, and containerized operations.",
+        modules: [
+          {
+            title: "Brand and page experience",
+            body: "Upgrade home, jobs, talent, featured employers, salary lookup, job/company detail, and member centers—one navigation, card, tag, and primary-action language.",
+          },
+          {
+            title: "Localized filters and search",
+            body: "Default to local jobs and talent, with township-level geography plus neighboring and out-of-area filters; combine keyword, pay, experience, education, industry, and recency, with room for intelligent search and recommendations.",
+          },
+          {
+            title: "Job-seeker loop",
+            body: "Modular profile, intent, education, and work history; resume and certificate uploads; favorites, browsing, applications, interview notices, and privacy settings.",
+          },
+          {
+            title: "Employer hiring desk",
+            body: "Hiring overview, job posting and management, resume screening, recommendations and instant chat, interview invites and progress, message reply, plus company profile and verification.",
+          },
+          {
+            title: "Multi-end and reliability",
+            body: "Four ends share accounts and data. Native for high-frequency core, secure web for complex low-frequency work. Stronger upload checks, retries, rate limits, backups, and health checks.",
+          },
         ],
-        stage: {
-          current: 2,
-          note: "Paid POC complete; now scaling the internal tool and abstracting product capabilities",
-        },
+        results: [
+          "Main pages share one visual and interaction language, so the brand is easier to recognize",
+          "Job-seeker and hiring flows are continuous; employers can post, screen, chat, and interview",
+          "Four ends cover core scenes with unified accounts and more stable uploads and messaging",
+        ],
+        highlights: [
+          "Localization is not locking a single city: local-first, township reach, and a path to grow",
+          "The upgrade covers job seeker, employer, and production operations—not a skin-only refresh",
+          "Progressive upgrade on the existing system, fit for a live hiring platform",
+        ],
+        applicable: [
+          "County- and city-level talent-site upgrades",
+          "Digital platforms for HR service firms",
+          "Park, association, and industrial-cluster hiring platforms",
+          "Projects extending from PC sites to mini programs and apps",
+        ],
         disclosure: "medium",
+      },
+      {
+        id: "ai-cutting",
+        format: "brief",
+        group: "enterprise",
+        featured: true,
+        title: "Shop-floor AI nesting and cutting",
+        industry: "Smart manufacturing / SME",
+        summary:
+          "Use algorithms to nest and schedule cutting, cut material waste, and show live status on a production board. A processing plant can start from one shop-floor pain—not a MES nobody will run.",
+        challenge:
+          "Nesting still lives with a few veterans: slow planning, leftover stock, and little visibility of live status, so material cost and due dates are hard to control.",
+        approach:
+          "Start with one line’s cutting step: get a computable nesting plan and a production board live, then expand to neighboring processes once it is used.",
+        solution:
+          "AI nesting plus a production board: take orders and sheet constraints, propose an executable cutting plan, and keep shop-floor status on the same board so teams can compare and adjust.",
+        results: [
+          "Nesting plans can be computed and compared, not only passed on by word of mouth",
+          "Progress is visible on the board, so exceptions show up sooner",
+          "A small loop that can go live, then connect to broader planning and process work",
+        ],
+        highlights: [
+          "An SME manufacturer can start with one shop-floor closed loop",
+          "Nesting and the production board ship together—not an empty platform first",
+        ],
+        applicable: [
+          "Sheet, profile, and similar cutting shops",
+          "Plants that want less waste first, then a wider digital path",
+        ],
+        disclosure: "medium",
+      },
+      {
+        id: "ai-trade-docs",
+        format: "brief",
+        group: "enterprise",
+        title: "AI generation of trade documents",
+        industry: "Trade supply chain / SME",
+        summary:
+          "Turn contracts, invoices, packing lists and other trade documents from re-keying into AI draft-and-check, so documentation staff spend time on exceptions—not retyping every form.",
+        challenge:
+          "Many document types, repeated fields, easy human error. When volume spikes, documentation is the bottleneck; bad documents then delay customs, settlement, and delivery.",
+        approach:
+          "Cover the most-used document types and review rules first, as a daily drafting assistant—not a full external-system integration on day one.",
+        solution:
+          "Draft documents from existing contract and cargo data, check completeness and consistency by rule, then let people confirm before export or archive—taking re-keying off the critical path.",
+        results: [
+          "Common documents pull master data automatically, with less duplicate entry",
+          "Obvious gaps and mismatches can be caught before submit",
+          "Staff review exceptions instead of filling every field again",
+        ],
+        highlights: [
+          "A short-cycle loop for small and mid-size trade teams",
+          "Drafting and checking together, so bad documents hurt fulfillment less",
+        ],
+        applicable: [
+          "Exporters whose documents still move on spreadsheets",
+          "Supply-chain teams that want documentation throughput first",
+        ],
+        disclosure: "medium",
+      },
+      {
+        id: "skills-market",
+        format: "brief",
+        group: "enterprise",
+        title: "Internal skills and knowledge market for manufacturers",
+        industry: "Equipment manufacturing / knowledge",
+        summary:
+          "Turn veteran know-how and scattered files into an internal skills market so process, maintenance, and operating knowledge can be searched and reused—and new hires ramp faster.",
+        challenge:
+          "Critical skill sits with a few veterans. Technical files live in drives and chat. New hires take too long to ramp, and the same questions get asked and answered again.",
+        approach:
+          "Capture high-frequency skills and typical issues first as a searchable internal market, then add expert notes and incentives as usage proves out.",
+        solution:
+          "An internal skills and knowledge entry: skill cards, experience notes, and Q&A search in one place, so the line can find a usable method by process or fault type instead of hunting for a person.",
+        results: [
+          "High-frequency skills become searchable items instead of oral tradition",
+          "Similar issues can reuse what already worked",
+          "A single place for later expert collaboration and training packs",
+        ],
+        highlights: [
+          "A manufacturer can start with knowledge capture, not a heavy knowledge platform",
+          "The skills market turns experience into a reusable asset",
+        ],
+        applicable: [
+          "Plants where process and repair know-how sits with a few people",
+          "Equipment and processing teams that need a shorter ramp for the line",
+        ],
+        disclosure: "medium",
+      },
+      {
+        id: "consumer-protection",
+        format: "full",
+        group: "public",
+        featured: true,
+        title: "Integrated internet consumer-protection handling",
+        industry: "Market regulation / public-sector digital",
+        summary:
+          "A “one library, one platform, one cockpit” stack for complaints and reports, with the national complaints platform and local handling on the same closed loop.",
+        challenge:
+          "Online consumer complaints are high-volume and time-bound. Limited staff put mediation quality under pressure, and complex procedures are easy to miss. Systems were built in batches with scattered data; the case lake was weakly used for outbreak warning. Cases diverted from the national platform still risked duplicate entry, with key results hard to write back.",
+        approach:
+          "We rebuilt handling flows with the operations team, putting data fusion, case work, risk warning, and cross-platform collaboration in one architecture: centralized intake and dispatch first, then complex cases and prevention.",
+        solution:
+          "A themed consumer-protection library fusing national complaint data and assigned/transferred clues, with entity and key-person risk warning; an integrated platform for ordinary cases and overlapping complaint/case scenes; and a digital cockpit. Local handling round-trips with the national complaints platform at first review, verification, and closure—less duplicate entry, results written back.",
+        results: [
+          "Centralized intake, intelligent dispatch, and online handling of complex cases",
+          "A shift from reactive handling to risk warning and prevention",
+          "National and local systems collaborate so handling can write back and close the loop",
+        ],
+        highlights: [
+          "“One library, one platform, one cockpit” covering data, operations, and decisions",
+          "AI risk warning for high-volume online consumer protection",
+          "Cross-platform collaboration that cuts duplicate entry",
+        ],
+        applicable: [
+          "Very large-scale complaint, report, and clue handling",
+          "Market-regulation scenarios that need risk warning and a digital cockpit",
+        ],
+        disclosure: "low",
+      },
+      {
+        id: "emergency-knowledge",
+        format: "full",
+        group: "public",
+        title: "Emergency-management intelligent knowledge base",
+        industry: "Emergency management / public-sector digital",
+        summary:
+          "An intelligent knowledge system covering accidents, natural disasters, regulations, and emergency plans—supporting monitoring, enforcement, and rescue with searchable knowledge.",
+        challenge:
+          "Emergency knowledge is large and heterogeneous; much of it had not been digitized or structured. A graph foundation existed, but unified handling, after-action warning, relationship models, similar-object analysis, and time-series analysis were still too weak for frontline search and Q&A.",
+        approach:
+          "We defined knowledge scope and service scenes with the operations team, then co-built in stages—processing, construction, graph applications—rather than handing over a library no one could run.",
+        solution:
+          "Professional libraries for accidents, natural disasters, laws and regulations, emergency plans, and emergency knowledge; unified management of heterogeneous sources; graph analysis for relationships, similar objects, and time series; and a portal for intelligent search, Q&A, and recommendations.",
+        results: [
+          "Professional knowledge bases covering the emergency-management domain",
+          "A chain from knowledge graph to search, Q&A, and recommendations",
+          "Heterogeneous knowledge that can be managed and analyzed in more than one dimension",
+        ],
+        highlights: [
+          "A complete path from knowledge engineering to intelligent applications",
+          "Graph visualization for relationship and time-series analysis",
+        ],
+        disclosure: "low",
+      },
+      {
+        id: "municipal-police-ivr",
+        format: "full",
+        group: "public",
+        title: "Public-security intelligent contact center and voice portal",
+        industry: "Public security / public-sector digital",
+        summary:
+          "Upgrade intelligent customer service across voice navigation, human handoff, outbound calling, and recording—turning high-frequency public inquiries into an operable full-chain voice service.",
+        challenge:
+          "Public inquiries cover high-frequency services such as household registration and entry-exit. The legacy contact center needed simultaneous upgrades across the voice robot, IVR, human handoff, SMS, recording, business-system integration, and precinct-level phone access before it could serve the full scene—not a single-point robot demo.",
+        approach:
+          "We treated live call flow as the field, designing the voice portal, contact center, and business systems as one path: close navigation and human handoff first, then extend outbound, SMS, and recording into the ticket archive.",
+        solution:
+          "An intelligent voice robot with a redesigned IVR so calls reach a robot node; real-time human handoff; SMS and ticket-system invocation; connections to household-registration, entry-exit, and other business systems; outbound calling for precinct phones; and ongoing voice/text navigation operations.",
+        results: [
+          "Coverage of high-frequency inquiries such as household registration and entry-exit",
+          "A closed loop from navigation through handoff, outbound, and recording",
+          "Integration across the contact center, SMS, tickets, and business systems",
+        ],
+        highlights: [
+          "Full-chain voice intelligence, not a single-point robot",
+          "Service that can reach precinct-level phone access",
+        ],
+        disclosure: "low",
       },
     ],
   },
+
   insights: {
     title: "Insights",
-    sub: "Methodology notes, industry observations, and anonymized project retrospectives—field experience made shareable.",
+    sub: "Methodology notes, industry observations, and project retrospectives—field experience made shareable.",
     categories: ["Methodology", "Industry trends", "Project retrospectives"],
     empty: "More articles are on the way. If you want to discuss a topic, reach us via Contact.",
     placeholders: [

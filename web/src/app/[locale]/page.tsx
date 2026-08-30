@@ -24,7 +24,11 @@ export default async function HomePage({ params }: Props) {
   if (!isLocale(raw)) notFound();
   const locale = raw;
   const dict = getDictionary(locale);
-  const featured = dict.cases.items.slice(0, 3);
+  const featured = (
+    dict.cases.items.filter((item) => item.featured).length
+      ? dict.cases.items.filter((item) => item.featured)
+      : dict.cases.items
+  ).slice(0, 3);
 
   return (
     <>
@@ -219,12 +223,23 @@ export default async function HomePage({ params }: Props) {
                   <p className="mt-3 flex-1 text-sm text-[var(--ink-soft)]">
                     {item.summary}
                   </p>
-                  <Link
-                    href={localePath(locale, `/cases#${item.id}`)}
-                    className="mt-5 text-sm font-semibold text-[var(--teal)]"
-                  >
-                    {dict.cta.viewCase} →
-                  </Link>
+                  <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+                    <Link
+                      href={localePath(locale, `/cases#${item.id}`)}
+                      className="text-sm font-semibold text-[var(--teal)]"
+                    >
+                      {dict.cta.viewCase} →
+                    </Link>
+                    <Link
+                      href={localePath(
+                        locale,
+                        `/contact?intent=client&from=case-${item.id}`,
+                      )}
+                      className="text-sm font-semibold text-[var(--teal)]"
+                    >
+                      {dict.cta.discussCase} →
+                    </Link>
+                  </div>
                 </article>
               </Reveal>
             ))}
