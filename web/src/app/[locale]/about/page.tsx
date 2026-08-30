@@ -2,7 +2,9 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { SectionCTA } from "@/components/SectionCTA";
 import { getDictionary, isLocale } from "@/lib/i18n";
+import { pageMeta } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -12,7 +14,7 @@ export async function generateMetadata({ params }: Props) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) return {};
   const dict = getDictionary(raw);
-  return { title: dict.about.title, description: dict.about.sub };
+  return pageMeta(raw, dict.about.title, dict.about.sub, "/about");
 }
 
 export default async function AboutPage({ params }: Props) {
@@ -155,6 +157,17 @@ export default async function AboutPage({ params }: Props) {
           </Reveal>
         </div>
       </section>
+
+      <SectionCTA
+        locale={raw}
+        title={dict.sectionCta.title}
+        sub={dict.sectionCta.sub}
+        primaryLabel={dict.cta.consult}
+        primaryHref="/contact?intent=client"
+        secondaryLabel={dict.sectionCta.secondaryAbout}
+        secondaryHref="/about#methodology"
+        eventSource="about"
+      />
     </>
   );
 }

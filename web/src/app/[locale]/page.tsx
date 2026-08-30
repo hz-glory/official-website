@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/Reveal";
 import { getDictionary, isLocale, localePath } from "@/lib/i18n";
+import { pageMeta } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -13,8 +14,8 @@ export async function generateMetadata({ params }: Props) {
   if (!isLocale(raw)) return {};
   const dict = getDictionary(raw);
   return {
+    ...pageMeta(raw, dict.meta.title, dict.meta.description, "/"),
     title: { absolute: dict.meta.title },
-    description: dict.meta.description,
   };
 }
 
@@ -222,12 +223,23 @@ export default async function HomePage({ params }: Props) {
                   <p className="mt-3 flex-1 text-sm text-[var(--ink-soft)]">
                     {item.summary}
                   </p>
-                  <Link
-                    href={localePath(locale, `/cases#${item.id}`)}
-                    className="mt-5 text-sm font-semibold text-[var(--teal)]"
-                  >
-                    {dict.cta.viewCase} →
-                  </Link>
+                  <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+                    <Link
+                      href={localePath(locale, `/cases#${item.id}`)}
+                      className="text-sm font-semibold text-[var(--teal)]"
+                    >
+                      {dict.cta.viewCase} →
+                    </Link>
+                    <Link
+                      href={localePath(
+                        locale,
+                        `/contact?intent=client&from=case-${item.id}`,
+                      )}
+                      className="text-sm font-semibold text-[var(--teal)]"
+                    >
+                      {dict.cta.discussCase} →
+                    </Link>
+                  </div>
                 </article>
               </Reveal>
             ))}

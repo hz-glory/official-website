@@ -2,7 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { SectionCTA } from "@/components/SectionCTA";
 import { getDictionary, isLocale, localePath } from "@/lib/i18n";
+import { pageMeta } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -12,7 +14,7 @@ export async function generateMetadata({ params }: Props) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) return {};
   const dict = getDictionary(raw);
-  return { title: dict.careers.title, description: dict.careers.sub };
+  return pageMeta(raw, dict.careers.title, dict.careers.sub, "/careers");
 }
 
 export default async function CareersPage({ params }: Props) {
@@ -78,6 +80,17 @@ export default async function CareersPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      <SectionCTA
+        locale={raw}
+        title={dict.sectionCta.title}
+        sub={dict.sectionCta.sub}
+        primaryLabel={dict.cta.careers}
+        primaryHref="/contact?intent=career"
+        secondaryLabel={dict.cta.consult}
+        secondaryHref="/contact?intent=client"
+        eventSource="careers"
+      />
     </>
   );
 }

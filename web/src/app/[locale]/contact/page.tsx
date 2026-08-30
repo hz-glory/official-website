@@ -3,6 +3,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { getDictionary, isLocale } from "@/lib/i18n";
+import { pageMeta } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: Props) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) return {};
   const dict = getDictionary(raw);
-  return { title: dict.contact.title, description: dict.contact.sub };
+  return pageMeta(raw, dict.contact.title, dict.contact.sub, "/contact");
 }
 
 export default async function ContactPage({ params, searchParams }: Props) {

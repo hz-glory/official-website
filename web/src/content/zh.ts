@@ -17,7 +17,6 @@ export const zh: Dictionary = {
     { href: "/solutions", label: "业务与服务" },
     { href: "/industries", label: "行业与场景" },
     { href: "/cases", label: "案例" },
-    { href: "/insights", label: "洞察" },
     { href: "/careers", label: "加入我们" },
     { href: "/contact", label: "联系我们" },
   ],
@@ -30,6 +29,12 @@ export const zh: Dictionary = {
     learnMore: "了解更多",
     viewCase: "查看详情",
     backHome: "返回首页",
+    discussCase: "讨论类似项目",
+  },
+  sectionCta: {
+    title: "从一次诊断开始",
+    sub: "告诉我们你的场景与目标，我们会按客户合作、招聘或投资合作分类跟进。",
+    secondaryAbout: "了解 FDE 方法论",
   },
   home: {
     hero: {
