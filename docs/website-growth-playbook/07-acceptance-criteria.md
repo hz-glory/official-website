@@ -5,9 +5,9 @@
 ## P0 验收
 
 ### 转化
-- [ ] 从 `/zh/contact` 与 `/en/contact` 提交 client/career/invest 各至少 1 次，接收端收到完整字段
-- [ ] 非法邮箱无法成功提交；错误提示可见
-- [ ] 成功前提交按钮有 loading；禁止「假成功」
+- [x] 从 `/zh/contact` 与 `/en/contact` 提交 client/career/invest 各至少 1 次，接收端收到完整字段（飞书通道已通）
+- [x] 非法邮箱无法成功提交；错误提示可见
+- [x] 成功前提交按钮有 loading；禁止「假成功」
 - [ ] About/Solutions/Industries/Cases/Careers 页尾有 CTA，移动端可点
 
 ### Insights

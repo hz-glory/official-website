@@ -11,7 +11,7 @@
 | 素材 | 说明 | 状态 | 负责人 |
 |---|---|---|---|
 | 对外邮箱 | 用于页脚展示（可选；收表单可用飞书等） | 未开始 | |
-| 表单接收方式 | **推荐飞书/钉钉/企微 Webhook**；也可 Telegram / Formspree / Resend | 未开始 | 见 `10-contact-form-backends.md` |
+| 表单接收方式 | **飞书 Webhook 已接通**（Vercel/Cloudflare 环境变量） | 已提供 | 见 `10-contact-form-backends.md` |
 | 生产站点 URL | 用于 canonical / sitemap / OG | 未开始 | |
 | 响应时效文案 | 如「2 个工作日内」 | 未开始 | |
 | 微信（可选） | 二维码图 | 未开始 | |

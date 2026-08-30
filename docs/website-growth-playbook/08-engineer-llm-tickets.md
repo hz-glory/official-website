@@ -5,21 +5,11 @@
 
 ---
 
-## TICKET-P0-01 · 接通联系表单后端
+## TICKET-P0-01 · 接通联系表单后端 ✅
 
 **优先级**：P0 阻断  
-**规格**：`04-implementation-specs/P0-critical-fixes.md` §P0-1  
-**涉及文件**：
-- `web/src/components/ContactForm.tsx`
-- `web/src/app/api/contact/route.ts`（新建）
-- `web/src/content/zh.ts` / `en.ts`（错误/发送中/隐私文案）
-- `web/src/content/types.ts`
-
-**实现要求**：
-1. POST `/api/contact` 校验并发送到邮箱或 Webhook（环境变量）
-2. 前端 loading / error / success 三态
-3. honeypot 字段
-4. 本地用 `.env.local` 文档示例写入 `web/.env.example`
+**状态**：已完成（代码已合并；飞书通道 2026-08-09 业务确认可用）  
+**规格**：`04-implementation-specs/P0-critical-fixes.md` §P0-1 / `10-contact-form-backends.md`
 
 **完成定义**：三种 intent 实测可达；`npm run build` 通过。
 
