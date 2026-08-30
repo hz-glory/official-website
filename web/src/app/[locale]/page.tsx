@@ -23,7 +23,11 @@ export default async function HomePage({ params }: Props) {
   if (!isLocale(raw)) notFound();
   const locale = raw;
   const dict = getDictionary(locale);
-  const featured = dict.cases.items.slice(0, 3);
+  const featured = (
+    dict.cases.items.filter((item) => item.featured).length
+      ? dict.cases.items.filter((item) => item.featured)
+      : dict.cases.items
+  ).slice(0, 3);
 
   return (
     <>
