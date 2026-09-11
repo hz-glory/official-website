@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${site}/${locale}${path}`,
       lastModified: now,
       changeFrequency: path === "" ? "weekly" : "monthly",
-      priority: path === "" ? 1 : path === "/contact" ? 0.8 : 0.7,
+      priority: path === "" ? 1 : path === "/contact" || path === "/compute" ? 0.8 : 0.7,
     })),
   );
 }

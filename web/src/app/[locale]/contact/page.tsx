@@ -41,8 +41,8 @@ export default async function ContactPage({ params, searchParams }: Props) {
               <div className="border-t border-[var(--line)] pt-6">
                 <p className="text-sm leading-relaxed text-[var(--ink-soft)]">
                   {raw === "zh"
-                    ? "请通过表单留下联系方式与诉求。我们会按客户合作、招聘或投资合作分类跟进。"
-                    : "Leave your details and intent via the form. We route inquiries across client partnerships, careers, and investment conversations."}
+                    ? "请通过表单留下联系方式与诉求。我们会按客户合作、算力与模型、招聘或投资合作分类跟进。"
+                    : "Leave your details and intent via the form. We route inquiries across client partnerships, compute and model APIs, careers, and investment conversations."}
                 </p>
                 <p className="mt-3 text-xs leading-relaxed text-[var(--ink-muted)]">
                   {dict.contact.form.privacyNote}

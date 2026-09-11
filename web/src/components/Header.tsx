@@ -40,7 +40,7 @@ export function Header({ locale, dict }: Props) {
       <div className="container flex h-[4.25rem] items-center justify-between gap-4">
         <Logo locale={locale} />
 
-        <nav className="desktop-nav flex items-center gap-5">
+        <nav className="desktop-nav flex items-center gap-3.5 lg:gap-5">
           {dict.nav.slice(1).map((item) => (
             <Link
               key={item.href}

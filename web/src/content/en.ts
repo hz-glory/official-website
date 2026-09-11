@@ -4,7 +4,7 @@ export const en: Dictionary = {
   meta: {
     title: "Glorion Intelligence",
     description:
-      "Glorion Intelligence is an AI and digital transformation partner built on the Forward Deployed Engineer model—embedded with clients, accountable for business outcomes.",
+      "Glorion Intelligence is an AI and digital transformation partner built on the Forward Deployed Engineer model. We also broker compute hardware and domestic and overseas foundation-model APIs, helping align specifications and coordinate contracting and delivery.",
   },
   brand: {
     name: "光荣智能",
@@ -15,6 +15,7 @@ export const en: Dictionary = {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/solutions", label: "Solutions" },
+    { href: "/compute", label: "Compute & APIs" },
     { href: "/industries", label: "Industries" },
     { href: "/cases", label: "Case Studies" },
     { href: "/careers", label: "Careers" },
@@ -30,17 +31,19 @@ export const en: Dictionary = {
     viewCase: "View details",
     backHome: "Back to home",
     discussCase: "Discuss a similar project",
+    compute: "Inquire about compute",
+    guide: "View trading guide",
   },
   sectionCta: {
     title: "Start with a diagnostic",
-    sub: "Tell us your scenario and goals—we route client, career, and investment inquiries separately.",
+    sub: "Tell us your scenario and goals—we route client, compute, career, and investment inquiries separately.",
     secondaryAbout: "Read the FDE methodology",
   },
   home: {
     hero: {
       brand: "Glorion Intelligence",
       headline: "An on-site AI and digital transformation partner",
-      sub: "We operate through the Forward Deployed Engineer (FDE) model—not as a software vendor that “ships and leaves,” but as a team that defines problems with clients and delivers measurable business outcomes.",
+      sub: "We operate through the Forward Deployed Engineer (FDE) model—not as a software vendor that “ships and leaves,” but as a team that defines problems with clients and delivers measurable outcomes. We also broker compute: GPU hardware and domestic and overseas foundation-model APIs, helping confirm specifications, match supply and demand, and coordinate contracting and delivery.",
       primaryCta: "Book a diagnostic consult",
       secondaryCta: "Our methodology",
     },
@@ -89,6 +92,10 @@ export const en: Dictionary = {
       sub: "From diagnosis to production—and from validated projects to reusable product assets.",
       items: [
         {
+          title: "Compute and model APIs",
+          body: "Match GPU hardware and domestic / overseas foundation-model APIs—spot or forward, China or Southeast Asia—and help confirm specs and coordinate delivery.",
+        },
+        {
           title: "Business & technology consulting",
           body: "Digital / AI maturity diagnostics, capability assessment, and roadmap design.",
         },
@@ -108,8 +115,12 @@ export const en: Dictionary = {
     },
     industries: {
       title: "Industries & scenarios",
-      sub: "We concentrate on smart manufacturing and institutional digital transformation, deepen core scenarios, and extend selectively elsewhere.",
+      sub: "We concentrate on smart manufacturing and institutional digital transformation, expand compute hardware and model-API brokerage, deepen core scenarios, and extend selectively elsewhere.",
       primary: [
+        {
+          title: "Compute resources and model APIs",
+          body: "Match GPU hardware such as H200 / B300 and domestic or overseas model APIs—spot or forward, with China and Southeast Asia deployment paths.",
+        },
         {
           title: "Smart manufacturing transformation",
           body: "Embed AI and data capabilities into real production and operations through on-site delivery.",
@@ -167,16 +178,29 @@ export const en: Dictionary = {
     },
     outlook: {
       title: "Why this moment",
-      body: "Foundation models lowered the cost of building intelligent features. The hard part remains embedding capability into workflows and sustaining operating results. The forward-deployed model closes the gap between field understanding, engineering, and KPI accountability—and the winners will be those who can turn deep projects into repeatable assets.",
+      body: "Foundation models lowered the cost of building intelligent features. The hard part remains embedding capability into workflows and sustaining operating results. The forward-deployed model closes the gap between field understanding, engineering, and KPI accountability; matching compute hardware and model APIs determines whether training and inference can run on time and through compliant channels. The window is open—repeatable methods and resource coordination decide who can turn deep projects into scalable assets.",
+    },
+    compute: {
+      eyebrow: "New offering",
+      title: "Compute brokerage: hardware and model APIs",
+      body: "The trading scope covers compute hardware and domestic and overseas foundation-model APIs. We match supply and demand, help align specifications and lead times, and coordinate China and Southeast Asia deployment paths—spot or forward.",
+      primaryCta: "Explore compute & APIs",
+      secondaryCta: "Inquire about compute",
+      pills: ["H200 / B300", "Spot & forward", "China / SEA", "Model APIs"],
     },
     finalCta: {
       title: "Start with a conversation",
-      sub: "Whether you want a pilot, a partnership discussion, or a role on the team—we are glad to talk.",
+      sub: "Whether you want a pilot, compute or model-API matching, a partnership discussion, or a role on the team—we are glad to talk.",
       items: [
         {
           label: "Client inquiry",
           href: "/contact?intent=client",
           desc: "Book a digital / AI diagnostic",
+        },
+        {
+          label: "Compute & APIs",
+          href: "/contact?intent=compute",
+          desc: "GPU hardware or domestic / overseas model APIs",
         },
         {
           label: "Join us",
@@ -200,6 +224,7 @@ export const en: Dictionary = {
         "Glorion Intelligence started from a simple conviction: digital and AI programs should not end at “go-live acceptance.” Too many systems fade after the contract closes, while business teams never see KPI movement.",
         "We chose the Forward Deployed Engineer model over classic outsourcing or a pure product-only path—because effective intelligence happens in the client’s operating reality: workflows, data quality, and how people collaborate.",
         "Our vision is to be a trusted long-term partner: from diagnosis to delivery, from project validation to productized assets—defining problems together and owning outcomes together.",
+        "Alongside on-site intelligence delivery, we now broker compute resources: matching GPU hardware and domestic and overseas foundation-model APIs, covering spot and forward supply as well as China and Southeast Asia deployment, and coordinating specification confirmation, contracting, and delivery.",
       ],
     },
     method: {
@@ -274,8 +299,16 @@ export const en: Dictionary = {
   },
   solutions: {
     title: "Solutions",
-    sub: "Every offering follows one logic: align on the problem, co-build the answer, and stay accountable for business results.",
+    sub: "Every offering follows one logic: align on the problem, co-build the answer, and stay accountable for business results. Compute hardware and domestic / overseas model-API brokerage is our newly expanded trading and coordination capability.",
     items: [
+      {
+        title: "Compute and model-API brokerage",
+        badge: "New",
+        pain: "Training and inference need stable, compliant, clearly specified compute and model interfaces—but supply is fragmented, spot and forward lead times differ, and China versus overseas deployment paths have different compliance requirements.",
+        method: "As a matching and coordination partner, we help confirm GPU specifications and facility conditions, match spot or forward supply, and assist with domestic and overseas foundation-model API access and settlement.",
+        deliverables: "Specification alignment, supply–demand matching, and contracting / delivery coordination; China and Southeast Asia deployment-path guidance; model-API access and settlement support.",
+        fit: "AI companies, institutions, and overseas-facing teams that need GPU systems or leases, or access to domestic and international model APIs.",
+      },
       {
         title: "Business & technology consulting",
         pain: "Teams often do not know where to start—weak data foundations, unclear scenario priority, or unrealistic expectations of AI.",
@@ -306,10 +339,130 @@ export const en: Dictionary = {
       },
     ],
   },
+  compute: {
+    title: "Compute & model APIs",
+    sub: "Glorion now brokers compute resources: matching GPU hardware and domestic and overseas foundation-model APIs, and helping confirm specifications, match supply, and coordinate contracting and delivery.",
+    eyebrow: "Compute brokerage",
+    intro:
+      "Shipping intelligent applications takes more than on-site engineering—it also takes stable, compliant, clearly specified compute and model interfaces. We act as a matching and coordination partner between buyers and suppliers, covering GPU hardware such as NVIDIA H200 and B300, plus access and settlement support for domestic and overseas foundation-model APIs.",
+    guideLabel: "View the compute trading guide",
+    guideUrl: "https://xiejinian.github.io/tech_docs/glory/nvida.html",
+    guideNote:
+      "The guide outlines the trading process and rule framework for both sides. This site page is a public introduction only—it is not a quote or a performance commitment.",
+    scopesTitle: "Trading scope",
+    scopes: [
+      {
+        title: "Compute hardware",
+        body: "Help match GPU systems and leases. Confirm model, memory, GPU count, interconnect, and facility conditions—spot or forward.",
+      },
+      {
+        title: "Domestic and overseas model APIs",
+        body: "Help connect domestic and overseas model interfaces, and sort out region, settlement, and access arrangements for training, inference, and application integration.",
+      },
+    ],
+    modelsTitle: "Hardware classes",
+    modelsSub: "We start from current mainstream training and inference systems. Compare prices only after specifications are confirmed in writing.",
+    models: [
+      {
+        name: "NVIDIA H200",
+        tag: "Training + inference",
+        body: "Hopper-generation flagship for mixed training and inference workloads; deployable in conventional facilities.",
+        points: [
+          "Write memory and interconnect specs before comparing quotes",
+          "Spot supply usually delivers faster; forward supply trades wait time for a locked allocation",
+        ],
+      },
+      {
+        name: "NVIDIA B300",
+        tag: "Very large-model inference",
+        body: "Blackwell Ultra generation for higher-spec inference; facilities must meet liquid-cooling and related conditions.",
+        points: [
+          "Cooling method and facility conditions decide whether a deployment is viable",
+          "Lead time and batch availability should be locked in writing with the supplier",
+        ],
+      },
+    ],
+    modesTitle: "Trading modes",
+    modes: [
+      {
+        title: "Spot",
+        body: "Machines are already in a facility and networked. Specifications can be verified, and delivery and acceptance can start soon after signing.",
+      },
+      {
+        title: "Forward",
+        body: "Resources are still being procured, shipped, or assembled. A reservation locks specifications and lead time—suited to bulk demand that can wait.",
+      },
+    ],
+    regionsTitle: "Deployment paths",
+    regions: [
+      {
+        title: "China",
+        body: "For teams that need data localization and RMB settlement, sourced and deployed through compliant channels.",
+        points: [
+          "Supply chain and facility options are relatively complete",
+          "Compliant channels are required; facilities need the relevant qualifications",
+        ],
+      },
+      {
+        title: "Southeast Asia",
+        body: "For overseas-facing applications and inference closer to international users. Local entity and compliance paths should be planned early.",
+        points: [
+          "Singapore and Malaysia are common discussion destinations",
+          "Contracting entity, end-use declarations, and review requirements should be aligned in advance",
+        ],
+      },
+    ],
+    processTitle: "How we coordinate",
+    processSub: "We do not replace either party as the contracting entity. We help align specifications, lead times, and delivery cadence.",
+    process: [
+      {
+        title: "Clarify the need",
+        body: "Training or inference, scale and lead time, deployment location, and whether the need is hardware or a model API.",
+      },
+      {
+        title: "Confirm specifications",
+        body: "Align model, memory, GPU count, interconnect, and facility conditions—or the region and settlement method for a model API.",
+      },
+      {
+        title: "Match supply",
+        body: "Match discussable supply by spot or forward, China or Southeast Asia—avoid comparing prices on incomplete specs.",
+      },
+      {
+        title: "Coordinate contracting and delivery",
+        body: "Help both sides align contract essentials, acceptance cadence, and next steps toward verifiable delivery.",
+      },
+    ],
+    principlesTitle: "Public principles",
+    principles: [
+      "Write specifications before comparing prices: model, memory, GPU count, interconnect, facility, and cooling. Missing any of these makes quotes incomparable.",
+      "Spot and forward differ in lead time and certainty—align them in writing first.",
+      "Source and deploy through compliant channels. China and Southeast Asia follow different paths; overseas deployments need the entity and reviews planned early.",
+      "Align the contract and delivery plan before moving to subsequent funding steps.",
+    ],
+    ctaTitle: "Tell us your compute or model need",
+    ctaSub: "System class and scale, spot or forward, deployment location, or the domestic / overseas model APIs you need—leave a note and we will route it.",
+  },
   industries: {
     title: "Industries & scenarios",
-    sub: "Go deep on priority industries, advance core scenarios steadily, and extend elsewhere with intent.",
+    sub: "Go deep on priority industries, advance core scenarios steadily, expand compute and model services, and extend elsewhere with intent.",
     items: [
+      {
+        title: "Compute and foundation-model services",
+        priority: "primary",
+        persona:
+          "AI companies, research institutions, and overseas-facing teams that need training / inference compute or access to domestic and overseas foundation-model APIs.",
+        scenarios: [
+          "Spot and forward GPU hardware such as H200 / B300",
+          "China and Southeast Asia deployment paths",
+          "Foundation-model API access and settlement support",
+          "Specification confirmation and contracting / delivery coordination",
+        ],
+        problems: [
+          "Fragmented supply makes incomplete specs hard to compare",
+          "Spot versus forward lead times and facility conditions vary widely",
+          "Cross-border deployment and compliance paths need early alignment",
+        ],
+      },
       {
         title: "Smart manufacturing transformation",
         priority: "primary",
@@ -784,6 +937,7 @@ export const en: Dictionary = {
       intent: "Inquiry type",
       intents: [
         { value: "client", label: "Client partnership" },
+        { value: "compute", label: "Compute & model APIs" },
         { value: "career", label: "Careers" },
         { value: "invest", label: "Investment" },
       ],
@@ -803,7 +957,7 @@ export const en: Dictionary = {
   },
   footer: {
     blurb:
-      "Glorion Intelligence — an on-site partner for AI and digital transformation.",
+      "Glorion Intelligence — an on-site partner for AI and digital transformation, and a broker for compute hardware and foundation-model APIs.",
     rights: "© Glorion Intelligence. All rights reserved.",
   },
 };

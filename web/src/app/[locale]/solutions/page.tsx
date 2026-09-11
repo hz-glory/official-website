@@ -42,6 +42,11 @@ export default async function SolutionsPage({ params }: Props) {
                   <p className="mono text-xs text-[var(--orange)]">
                     {String(i + 1).padStart(2, "0")}
                   </p>
+                  {item.badge ? (
+                    <p className="mt-3 inline-flex rounded-full border border-[var(--line)] px-2.5 py-0.5 text-xs font-semibold text-[var(--teal)]">
+                      {item.badge}
+                    </p>
+                  ) : null}
                   <h2 className="serif mt-3 text-2xl font-semibold leading-snug">
                     {item.title}
                   </h2>
@@ -86,8 +91,8 @@ export default async function SolutionsPage({ params }: Props) {
         sub={dict.sectionCta.sub}
         primaryLabel={dict.cta.consult}
         primaryHref="/contact?intent=client"
-        secondaryLabel={dict.cta.viewCase}
-        secondaryHref="/cases"
+        secondaryLabel={dict.cta.compute}
+        secondaryHref="/compute"
         eventSource="solutions"
       />
     </>

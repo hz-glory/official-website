@@ -2,6 +2,7 @@ import type { ContactChannel, ContactPayload } from "./types";
 
 const INTENT_LABEL: Record<ContactPayload["intent"], { zh: string; en: string }> = {
   client: { zh: "客户合作", en: "Client partnership" },
+  compute: { zh: "算力与模型服务", en: "Compute & model APIs" },
   career: { zh: "招聘沟通", en: "Careers" },
   invest: { zh: "投资合作", en: "Investment" },
 };
