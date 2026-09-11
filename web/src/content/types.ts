@@ -53,6 +53,12 @@ export type Dictionary = {
     learnMore: string;
     viewCase: string;
     backHome: string;
+    discussCase: string;
+  };
+  sectionCta: {
+    title: string;
+    sub: string;
+    secondaryAbout: string;
   };
   home: {
     hero: {

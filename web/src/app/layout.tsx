@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
+import { getSiteUrl } from "@/lib/site";
 import "./globals.css";
 
 const sans = Noto_Sans_SC({
@@ -21,9 +22,10 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: "光荣智能 · Glorion Intelligence",
-    template: "%s · 光荣智能",
+    template: "%s · Glorion Intelligence",
   },
   description:
     "Glorion Intelligence — Forward Deployed Engineer partner for AI and digital transformation.",

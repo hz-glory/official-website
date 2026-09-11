@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { SectionCTA } from "@/components/SectionCTA";
 import { getDictionary, isLocale } from "@/lib/i18n";
+import { pageMeta } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -11,7 +13,7 @@ export async function generateMetadata({ params }: Props) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) return {};
   const dict = getDictionary(raw);
-  return { title: dict.solutions.title, description: dict.solutions.sub };
+  return pageMeta(raw, dict.solutions.title, dict.solutions.sub, "/solutions");
 }
 
 export default async function SolutionsPage({ params }: Props) {
@@ -77,6 +79,17 @@ export default async function SolutionsPage({ params }: Props) {
           ))}
         </div>
       </section>
+
+      <SectionCTA
+        locale={raw}
+        title={dict.sectionCta.title}
+        sub={dict.sectionCta.sub}
+        primaryLabel={dict.cta.consult}
+        primaryHref="/contact?intent=client"
+        secondaryLabel={dict.cta.viewCase}
+        secondaryHref="/cases"
+        eventSource="solutions"
+      />
     </>
   );
 }

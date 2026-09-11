@@ -31,6 +31,7 @@
 | [08-engineer-llm-tickets.md](./08-engineer-llm-tickets.md) | 工程师 / LLM | 拆好的工单（可直接复制开干） |
 | [09-messaging-kit.md](./09-messaging-kit.md) | 文案 / 全员 | 统一话术与禁用词 |
 | [10-contact-form-backends.md](./10-contact-form-backends.md) | 工程 / 运营 | 表单多通道接收方案（飞书等） |
+| [11-materials-needed-now.md](./11-materials-needed-now.md) | 业务负责人 | **当前待补充材料清单** |
 
 ---
 
@@ -68,3 +69,4 @@
 |---|---|---|
 | 2026-07-20 | 初版作战手册入库 | Cloud Agent |
 | 2026-07-27 | 联系表单多通道实现 + `10-contact-form-backends.md` | Cloud Agent |
+| 2026-08-09 | 飞书通道业务确认可用；P0 CTA/Insights/SEO/Reveal/埋点落地；新增 `11-materials-needed-now.md` | Cloud Agent |
