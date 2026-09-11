@@ -13,6 +13,8 @@ export type ContactPayload = {
   from?: string;
   /** Honeypot — bots fill this; humans leave it empty */
   website?: string;
+  rfqId?: string;
+  computeInquiry?: import("./compute-inquiry").ComputeInquiry;
 };
 
 export type ContactChannel =

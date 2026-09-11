@@ -8,11 +8,12 @@ type Props = {
   dict: Dictionary;
   defaultIntent?: string;
   defaultFrom?: string;
+  inquiryHref?: string;
 };
 
 type SubmitState = "idle" | "sending" | "success" | "error";
 
-export function ContactForm({ dict, defaultIntent, defaultFrom }: Props) {
+export function ContactForm({ dict, defaultIntent, defaultFrom, inquiryHref }: Props) {
   const intents = dict.contact.form.intents;
   const initial = useMemo(() => {
     if (defaultIntent && intents.some((i) => i.value === defaultIntent)) {
@@ -103,6 +104,15 @@ export function ContactForm({ dict, defaultIntent, defaultFrom }: Props) {
               ))}
             </select>
           </div>
+
+          {intent === "compute" && inquiryHref ? (
+            <p className="rounded-[var(--radius-sm)] border border-[var(--line)] bg-[var(--bg-muted)] px-4 py-3 text-sm text-[var(--ink-soft)]">
+              <a href={inquiryHref} className="font-semibold text-[var(--teal)]">
+                {dict.cta.inquiry}
+              </a>{" "}
+              {dict.contact.form.computeHint}
+            </p>
+          ) : null}
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="form-field">

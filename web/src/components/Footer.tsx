@@ -61,10 +61,10 @@ export function Footer({ locale, dict }: Props) {
             </li>
             <li>
               <Link
-                href={localePath(locale, "/contact?intent=compute")}
+                href={localePath(locale, "/compute/inquiry")}
                 className="transition-colors hover:text-[var(--teal)]"
               >
-                {dict.cta.compute}
+                {dict.cta.inquiry}
               </Link>
             </li>
             <li>

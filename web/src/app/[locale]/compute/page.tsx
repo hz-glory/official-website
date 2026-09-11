@@ -37,10 +37,10 @@ export default async function ComputePage({ params }: Props) {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href={localePath(raw, "/contact?intent=compute")}
+                href={localePath(raw, "/compute/inquiry")}
                 className="btn btn-primary"
               >
-                {dict.cta.compute}
+                {dict.cta.inquiry}
               </a>
               <a
                 href={dict.compute.guideUrl}
@@ -217,10 +217,10 @@ export default async function ComputePage({ params }: Props) {
         locale={raw}
         title={dict.compute.ctaTitle}
         sub={dict.compute.ctaSub}
-        primaryLabel={dict.cta.compute}
-        primaryHref="/contact?intent=compute"
-        secondaryLabel={dict.cta.consult}
-        secondaryHref="/contact?intent=client"
+        primaryLabel={dict.cta.inquiry}
+        primaryHref="/compute/inquiry"
+        secondaryLabel={dict.cta.compute}
+        secondaryHref="/contact?intent=compute"
         eventSource="compute"
       />
     </>

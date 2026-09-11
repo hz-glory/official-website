@@ -55,6 +55,7 @@ export type Dictionary = {
     backHome: string;
     discussCase: string;
     compute: string;
+    inquiry: string;
     guide: string;
   };
   sectionCta: {
@@ -175,6 +176,29 @@ export type Dictionary = {
     ctaTitle: string;
     ctaSub: string;
   };
+  computeInquiry: {
+    title: string;
+    sub: string;
+    eyebrow: string;
+    disclaimer: string;
+    confirm: string;
+    required: string;
+    optional: string;
+    submit: string;
+    sending: string;
+    success: string;
+    error: string;
+    back: string;
+    sections: {
+      basic: { title: string; lead: string };
+      specs: { title: string; lead: string };
+      scenario: { title: string; lead: string };
+      commercial: { title: string; lead: string };
+      timeline: { title: string; lead: string };
+      other: { title: string; lead: string };
+    };
+    labels: Record<string, string>;
+  };
   industries: {
     title: string;
     sub: string;
@@ -238,6 +262,7 @@ export type Dictionary = {
       error: string;
       notConfigured: string;
       privacyNote: string;
+      computeHint: string;
     };
   };
   footer: {

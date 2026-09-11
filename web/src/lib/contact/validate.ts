@@ -1,4 +1,9 @@
 import {
+  generateRfqId,
+  inquirySummaryMessage,
+  parseComputeInquiry,
+} from "./compute-inquiry";
+import {
   CONTACT_INTENTS,
   type ContactIntent,
   type ContactPayload,
@@ -38,12 +43,43 @@ export function parseContactPayload(input: unknown):
   if (!EMAIL_RE.test(email)) {
     return { ok: false, error: "invalid_email" };
   }
-  if (message.length < 2) {
+
+  let computeInquiry: ContactPayload["computeInquiry"];
+  let rfqId: string | undefined;
+  let resolvedMessage = message;
+  let resolvedCompany = company;
+
+  if (body.computeInquiry != null) {
+    const parsedInquiry = parseComputeInquiry(body.computeInquiry);
+    if (!parsedInquiry.ok) {
+      return parsedInquiry;
+    }
+    computeInquiry = parsedInquiry.data;
+    rfqId = generateRfqId();
+    resolvedCompany = parsedInquiry.data.company;
+    if (resolvedMessage.length < 2) {
+      resolvedMessage = inquirySummaryMessage(parsedInquiry.data);
+    }
+  }
+
+  if (resolvedMessage.length < 2) {
     return { ok: false, error: "invalid_message" };
   }
 
   return {
     ok: true,
-    data: { intent, name, email, company, message, locale, pagePath, from, website },
+    data: {
+      intent,
+      name,
+      email,
+      company: resolvedCompany,
+      message: resolvedMessage,
+      locale,
+      pagePath,
+      from,
+      website,
+      rfqId,
+      computeInquiry,
+    },
   };
 }

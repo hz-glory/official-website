@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { getDictionary, isLocale } from "@/lib/i18n";
+import { getDictionary, isLocale, localePath } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
 
 type Props = {
@@ -60,7 +60,12 @@ export default async function ContactPage({ params, searchParams }: Props) {
             </div>
           </Reveal>
           <Reveal>
-            <ContactForm dict={dict} defaultIntent={intent} defaultFrom={from} />
+            <ContactForm
+              dict={dict}
+              defaultIntent={intent}
+              defaultFrom={from}
+              inquiryHref={localePath(raw, "/compute/inquiry")}
+            />
           </Reveal>
         </div>
       </section>

@@ -1,3 +1,4 @@
+import { formatComputeInquirySections, formatComputeInquiryText } from "./compute-inquiry";
 import type { ContactChannel, ContactPayload } from "./types";
 
 const INTENT_LABEL: Record<ContactPayload["intent"], { zh: string; en: string }> = {
@@ -12,38 +13,46 @@ function intentLabel(payload: ContactPayload) {
   return payload.locale === "en" ? labels.en : labels.zh;
 }
 
-function formatText(payload: ContactPayload) {
+function formatHeaderLines(payload: ContactPayload, markdown: boolean) {
+  const dash = markdown ? "- " : "";
+  const wrap = (value: string) => (markdown ? `\`${value}\`` : value);
   const lines = [
-    "【光荣智能官网咨询】",
-    `类型: ${intentLabel(payload)} (${payload.intent})`,
-    `姓名: ${payload.name}`,
-    `邮箱: ${payload.email}`,
-    `公司: ${payload.company || "-"}`,
-    `语言: ${payload.locale}`,
-    payload.from ? `来源: ${payload.from}` : null,
-    payload.pagePath ? `页面: ${payload.pagePath}` : null,
-    "",
-    "留言:",
-    payload.message,
+    markdown ? "**光荣智能官网咨询**" : "【光荣智能官网咨询】",
+    `${dash}类型: ${intentLabel(payload)} (${wrap(payload.intent)})`,
+    payload.rfqId ? `${dash}编号: ${wrap(payload.rfqId)}` : null,
+    `${dash}姓名: ${payload.name}`,
+    `${dash}邮箱: ${payload.email}`,
+    `${dash}公司: ${payload.company || "-"}`,
+    `${dash}语言: ${payload.locale}`,
+    payload.from ? `${dash}来源: ${payload.from}` : null,
+    payload.pagePath ? `${dash}页面: ${payload.pagePath}` : null,
   ];
-  return lines.filter((line) => line !== null).join("\n");
+  return lines.filter((line) => line !== null);
+}
+
+function formatText(payload: ContactPayload) {
+  const inquiry = payload.computeInquiry
+    ? formatComputeInquiryText(payload.computeInquiry, payload.rfqId || "-", "zh")
+    : ["留言:", payload.message].join("\n");
+  return [...formatHeaderLines(payload, false), "", inquiry].join("\n");
 }
 
 function formatMarkdown(payload: ContactPayload) {
+  if (!payload.computeInquiry) {
+    return [...formatHeaderLines(payload, true), "", payload.message].join("\n");
+  }
   return [
-    "**光荣智能官网咨询**",
-    `- 类型: ${intentLabel(payload)} (\`${payload.intent}\`)`,
-    `- 姓名: ${payload.name}`,
-    `- 邮箱: ${payload.email}`,
-    `- 公司: ${payload.company || "-"}`,
-    `- 语言: ${payload.locale}`,
-    payload.from ? `- 来源: ${payload.from}` : null,
-    payload.pagePath ? `- 页面: ${payload.pagePath}` : null,
+    ...formatHeaderLines(payload, true),
     "",
-    payload.message,
-  ]
-    .filter((line) => line !== null)
-    .join("\n");
+    formatComputeInquiryText(payload.computeInquiry, payload.rfqId || "-", "zh"),
+  ].join("\n");
+}
+
+function feishuCardTitle(payload: ContactPayload) {
+  if (payload.computeInquiry && payload.rfqId) {
+    return `算力采购需求 ${payload.rfqId}`;
+  }
+  return "光荣智能官网咨询";
 }
 
 async function postJson(url: string, body: unknown) {
@@ -59,23 +68,45 @@ async function postJson(url: string, body: unknown) {
 }
 
 async function sendFeishu(url: string, payload: ContactPayload) {
+  const header = {
+    title: { tag: "plain_text", content: feishuCardTitle(payload) },
+    template: "orange" as const,
+  };
+
+  const elements: Array<Record<string, unknown>> = [
+    {
+      tag: "div",
+      text: {
+        tag: "lark_md",
+        content: formatHeaderLines(payload, true).join("\n"),
+      },
+    },
+  ];
+
+  if (payload.computeInquiry) {
+    for (const section of formatComputeInquirySections(payload.computeInquiry, "zh")) {
+      elements.push({ tag: "hr" });
+      elements.push({
+        tag: "div",
+        text: {
+          tag: "lark_md",
+          content: `**${section.title}**\n${section.body}`,
+        },
+      });
+    }
+  } else {
+    elements.push({
+      tag: "div",
+      text: {
+        tag: "lark_md",
+        content: payload.message,
+      },
+    });
+  }
+
   await postJson(url, {
     msg_type: "interactive",
-    card: {
-      header: {
-        title: { tag: "plain_text", content: "光荣智能官网咨询" },
-        template: "orange",
-      },
-      elements: [
-        {
-          tag: "div",
-          text: {
-            tag: "lark_md",
-            content: formatMarkdown(payload),
-          },
-        },
-      ],
-    },
+    card: { header, elements },
   });
 }
 
@@ -138,7 +169,9 @@ async function sendResend(payload: ContactPayload) {
       from,
       to: [to],
       reply_to: payload.email,
-      subject: `[官网咨询] ${intentLabel(payload)} · ${payload.name}`,
+      subject: payload.rfqId
+        ? `[算力采购] ${payload.rfqId} · ${payload.name}`
+        : `[官网咨询] ${intentLabel(payload)} · ${payload.name}`,
       text: formatText(payload),
     }),
   });
@@ -165,7 +198,11 @@ async function sendFormspree(url: string, payload: ContactPayload) {
       locale: payload.locale,
       pagePath: payload.pagePath || "",
       from: payload.from || "",
-      _subject: `[Glorion] ${payload.intent} · ${payload.name}`,
+      rfqId: payload.rfqId || "",
+      computeInquiry: payload.computeInquiry || null,
+      _subject: payload.rfqId
+        ? `[Glorion RFQ] ${payload.rfqId} · ${payload.name}`
+        : `[Glorion] ${payload.intent} · ${payload.name}`,
     }),
   });
   if (!res.ok) {
