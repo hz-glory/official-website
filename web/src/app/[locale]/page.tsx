@@ -67,7 +67,78 @@ export default async function HomePage({ params }: Props) {
             >
               {dict.home.hero.secondaryCta}
             </Link>
+            <Link
+              href={localePath(locale, "/compute")}
+              className="inline-flex items-center text-sm font-semibold text-[#fff8f0]"
+            >
+              {dict.home.compute.primaryCta} →
+            </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--bg-muted)_70%,transparent)]">
+        <div className="container py-10 sm:py-12">
+          <Reveal>
+            <article className="panel relative overflow-hidden p-6 sm:p-8">
+              <div
+                className="pointer-events-none absolute inset-0 opacity-80"
+                style={{
+                  background:
+                    "radial-gradient(420px 180px at 8% 0%, rgba(217,119,44,0.14), transparent), radial-gradient(360px 160px at 92% 100%, rgba(47,111,106,0.12), transparent)",
+                }}
+              />
+              <div className="relative grid gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+                <div>
+                  <p className="eyebrow">{dict.home.compute.eyebrow}</p>
+                  <h2 className="heading mt-3 text-3xl sm:text-4xl">
+                    {dict.home.compute.title}
+                  </h2>
+                  <p className="lead mt-4">{dict.home.compute.body}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {dict.home.compute.pills.map((pill) => (
+                      <span
+                        key={pill}
+                        className="rounded-full border border-[var(--line)] bg-[rgba(255,253,249,0.8)] px-3 py-1 text-xs font-semibold text-[var(--ink-soft)]"
+                      >
+                        {pill}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    <Link href={localePath(locale, "/compute")} className="btn btn-primary">
+                      {dict.home.compute.primaryCta}
+                    </Link>
+                    <Link
+                      href={localePath(locale, "/contact?intent=compute")}
+                      className="btn btn-secondary"
+                    >
+                      {dict.home.compute.secondaryCta}
+                    </Link>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  {dict.compute.scopes.map((scope) => (
+                    <div
+                      key={scope.title}
+                      className="rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(255,253,249,0.72)] p-4"
+                    >
+                      <p className="serif text-lg font-semibold">{scope.title}</p>
+                      <p className="mt-2 text-sm text-[var(--ink-soft)]">{scope.body}</p>
+                    </div>
+                  ))}
+                  <a
+                    href={dict.compute.guideUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex text-sm font-semibold text-[var(--teal)]"
+                  >
+                    {dict.compute.guideLabel} ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+          </Reveal>
         </div>
       </section>
 
@@ -336,7 +407,7 @@ export default async function HomePage({ params }: Props) {
               <div className="relative">
                 <h2 className="heading text-3xl sm:text-4xl">{dict.home.finalCta.title}</h2>
                 <p className="lead mt-4">{dict.home.finalCta.sub}</p>
-                <div className="mt-8 grid gap-4 md:grid-cols-3">
+                <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                   {dict.home.finalCta.items.map((item) => (
                     <Link
                       key={item.label}

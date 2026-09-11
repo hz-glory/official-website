@@ -54,6 +54,8 @@ export type Dictionary = {
     viewCase: string;
     backHome: string;
     discussCase: string;
+    compute: string;
+    guide: string;
   };
   sectionCta: {
     title: string;
@@ -108,6 +110,14 @@ export type Dictionary = {
       title: string;
       body: string;
     };
+    compute: {
+      eyebrow: string;
+      title: string;
+      body: string;
+      primaryCta: string;
+      secondaryCta: string;
+      pills: string[];
+    };
     finalCta: {
       title: string;
       sub: string;
@@ -133,11 +143,37 @@ export type Dictionary = {
     sub: string;
     items: {
       title: string;
+      badge?: string;
       pain: string;
       method: string;
       deliverables: string;
       fit: string;
     }[];
+  };
+  compute: {
+    title: string;
+    sub: string;
+    eyebrow: string;
+    intro: string;
+    guideLabel: string;
+    guideUrl: string;
+    guideNote: string;
+    scopesTitle: string;
+    scopes: { title: string; body: string }[];
+    modelsTitle: string;
+    modelsSub: string;
+    models: { name: string; tag: string; body: string; points: string[] }[];
+    modesTitle: string;
+    modes: { title: string; body: string }[];
+    regionsTitle: string;
+    regions: { title: string; body: string; points: string[] }[];
+    processTitle: string;
+    processSub: string;
+    process: { title: string; body: string }[];
+    principlesTitle: string;
+    principles: string[];
+    ctaTitle: string;
+    ctaSub: string;
   };
   industries: {
     title: string;

@@ -1,4 +1,4 @@
-export const CONTACT_INTENTS = ["client", "career", "invest"] as const;
+export const CONTACT_INTENTS = ["client", "compute", "career", "invest"] as const;
 
 export type ContactIntent = (typeof CONTACT_INTENTS)[number];
 

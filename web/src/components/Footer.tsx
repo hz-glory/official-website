@@ -27,7 +27,13 @@ export function Footer({ locale, dict }: Props) {
             {locale === "zh" ? "导航" : "Explore"}
           </p>
           <ul className="space-y-2 text-sm text-[var(--ink-soft)]">
-            {dict.nav.slice(1, 5).map((item) => (
+            {dict.nav
+              .filter((item) =>
+                ["/about", "/solutions", "/compute", "/industries", "/cases"].includes(
+                  item.href,
+                ),
+              )
+              .map((item) => (
               <li key={item.href}>
                 <Link
                   href={localePath(locale, item.href)}
@@ -51,6 +57,14 @@ export function Footer({ locale, dict }: Props) {
                 className="transition-colors hover:text-[var(--teal)]"
               >
                 {dict.cta.consult}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={localePath(locale, "/contact?intent=compute")}
+                className="transition-colors hover:text-[var(--teal)]"
+              >
+                {dict.cta.compute}
               </Link>
             </li>
             <li>

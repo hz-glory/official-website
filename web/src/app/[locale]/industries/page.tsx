@@ -66,7 +66,13 @@ export default async function IndustriesPage({ params }: Props) {
                   <article className="panel grid overflow-hidden lg:grid-cols-[0.9fr_1.1fr]">
                     <div className="relative min-h-[220px]">
                       <Image
-                        src={idx === 0 ? "/images/manufacturing.jpg" : "/images/government.jpg"}
+                        src={
+                          /算力|compute/i.test(item.title)
+                            ? "/images/hero.jpg"
+                            : idx === 0 || /制造|manufacturing/i.test(item.title)
+                              ? "/images/manufacturing.jpg"
+                              : "/images/government.jpg"
+                        }
                         alt=""
                         fill
                         className="object-cover"
