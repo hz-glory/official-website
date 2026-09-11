@@ -110,10 +110,10 @@ export default async function HomePage({ params }: Props) {
                       {dict.home.compute.primaryCta}
                     </Link>
                     <Link
-                      href={localePath(locale, "/contact?intent=compute")}
+                      href={localePath(locale, "/compute/inquiry")}
                       className="btn btn-secondary"
                     >
-                      {dict.home.compute.secondaryCta}
+                      {dict.cta.inquiry}
                     </Link>
                   </div>
                 </div>

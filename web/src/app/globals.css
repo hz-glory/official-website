@@ -361,7 +361,7 @@ a {
   color: var(--ink-soft);
 }
 
-.form-field input,
+.form-field input:not([type="checkbox"]):not([type="radio"]),
 .form-field select,
 .form-field textarea {
   width: 100%;
@@ -375,11 +375,43 @@ a {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form-field input:focus,
+.form-field input:not([type="checkbox"]):not([type="radio"]):focus,
 .form-field select:focus,
 .form-field textarea:focus {
   border-color: color-mix(in srgb, var(--teal) 55%, white);
   box-shadow: 0 0 0 3px rgba(47, 111, 106, 0.12);
+}
+
+.choice-grid {
+  display: grid;
+  gap: 0.45rem;
+}
+
+@media (min-width: 640px) {
+  .choice-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.choice-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.choice-item input {
+  margin-top: 0.2rem;
+  accent-color: var(--teal);
+}
+
+.form-field legend {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
 }
 
 .mobile-nav {
