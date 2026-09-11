@@ -117,24 +117,26 @@ export default async function HomePage({ params }: Props) {
                     </Link>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  {dict.compute.scopes.map((scope) => (
-                    <div
-                      key={scope.title}
-                      className="rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(255,253,249,0.72)] p-4"
+                <div className="space-y-3">
+                  {dict.compute.offers.items.map((offer) => (
+                    <Link
+                      key={offer.id}
+                      href={localePath(locale, `/compute#${offer.id}`)}
+                      className="block rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(255,253,249,0.72)] p-4 transition hover:border-[var(--teal)]"
                     >
-                      <p className="serif text-lg font-semibold">{scope.title}</p>
-                      <p className="mt-2 text-sm text-[var(--ink-soft)]">{scope.body}</p>
-                    </div>
+                      <p className="text-xs font-semibold tracking-wide text-[var(--orange)]">
+                        {offer.badge}
+                      </p>
+                      <p className="serif mt-1 text-lg font-semibold">{offer.title}</p>
+                      <p className="mt-1 text-sm text-[var(--ink-soft)]">{offer.availability}</p>
+                    </Link>
                   ))}
-                  <a
-                    href={dict.compute.guideUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href={localePath(locale, "/compute/inquiry")}
                     className="inline-flex text-sm font-semibold text-[var(--teal)]"
                   >
-                    {dict.compute.guideLabel} ↗
-                  </a>
+                    {dict.cta.inquiry} →
+                  </Link>
                 </div>
               </div>
             </article>

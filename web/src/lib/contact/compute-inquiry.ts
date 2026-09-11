@@ -148,6 +148,7 @@ export const COMPUTE_INQUIRY_OPTIONS = {
   paymentStructure: [
     opt("deposit1_pay3", "押一付三（按季）", "1-month deposit, quarterly pay"),
     opt("deposit1_pay1", "押一付一（按月）", "1-month deposit, monthly pay"),
+    opt("deposit3_pay1", "押三付一（按月）", "3-month deposit, monthly pay"),
     opt("deposit3_pay3", "押三付三（季付）", "3-month deposit, quarterly pay"),
     opt("annual", "年付（全年一次）", "Annual prepay"),
     opt("discuss", "需要商议", "Need to discuss"),
@@ -463,6 +464,56 @@ export function formatComputeInquiryText(
   ]
     .join("\n")
     .trim();
+}
+
+export const COMPUTE_OFFER_DEFAULTS: Record<
+  string,
+  {
+    gpuModels: string[];
+    location: string[];
+    acquireMode: string[];
+    contractTerm?: string[];
+    acceptForward?: string[];
+    paymentStructure?: string[];
+  }
+> = {
+  rtx5090: {
+    gpuModels: ["rtx"],
+    location: ["east"],
+    acquireMode: ["lease"],
+    contractTerm: ["1to3"],
+    acceptForward: ["spot_only"],
+    paymentStructure: ["deposit1_pay3"],
+  },
+  "h200-chongqing": {
+    gpuModels: ["h200"],
+    location: ["southwest"],
+    acquireMode: ["lease"],
+    contractTerm: ["gt5"],
+    acceptForward: ["yes_window"],
+    paymentStructure: ["deposit1_pay3"],
+  },
+  "h200-hebei": {
+    gpuModels: ["h200"],
+    location: ["north"],
+    acquireMode: ["lease"],
+    contractTerm: ["3to5"],
+    acceptForward: ["yes_window"],
+    paymentStructure: ["deposit1_pay3"],
+  },
+  "b300-qinghai": {
+    gpuModels: ["b200_b300"],
+    location: ["northwest"],
+    acquireMode: ["lease"],
+    contractTerm: ["gt5"],
+    acceptForward: ["yes_window"],
+    paymentStructure: ["deposit3_pay1"],
+  },
+};
+
+export function getComputeOfferDefaults(id?: string | null) {
+  if (!id) return undefined;
+  return COMPUTE_OFFER_DEFAULTS[id];
 }
 
 export function inquirySummaryMessage(inquiry: ComputeInquiry) {
