@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { ComputeOffers } from "@/components/ComputeOffers";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { SectionCTA } from "@/components/SectionCTA";
@@ -42,6 +43,9 @@ export default async function ComputePage({ params }: Props) {
               >
                 {dict.cta.inquiry}
               </a>
+              <a href="#offers" className="btn btn-secondary">
+                {dict.compute.offers.title}
+              </a>
               <a
                 href={dict.compute.guideUrl}
                 target="_blank"
@@ -71,7 +75,9 @@ export default async function ComputePage({ params }: Props) {
         </div>
       </section>
 
-      <section className="section bg-[color-mix(in_srgb,var(--bg-muted)_55%,transparent)]">
+      <ComputeOffers locale={raw} dict={dict} />
+
+      <section className="section">
         <div className="container">
           <Reveal>
             <p className="eyebrow">{raw === "zh" ? "硬件" : "Hardware"}</p>

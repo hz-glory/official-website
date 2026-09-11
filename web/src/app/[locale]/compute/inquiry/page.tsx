@@ -8,6 +8,7 @@ import { pageMeta } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ from?: string; resource?: string }>;
 };
 
 export async function generateMetadata({ params }: Props) {
@@ -17,10 +18,11 @@ export async function generateMetadata({ params }: Props) {
   return pageMeta(raw, dict.computeInquiry.title, dict.computeInquiry.sub, "/compute/inquiry");
 }
 
-export default async function ComputeInquiryPage({ params }: Props) {
+export default async function ComputeInquiryPage({ params, searchParams }: Props) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) notFound();
   const dict = getDictionary(raw);
+  const { from, resource } = await searchParams;
 
   return (
     <>
@@ -39,7 +41,12 @@ export default async function ComputeInquiryPage({ params }: Props) {
               ← {dict.computeInquiry.back}
             </Link>
           </Reveal>
-          <ComputeInquiryForm dict={dict} locale={raw} />
+          <ComputeInquiryForm
+            dict={dict}
+            locale={raw}
+            resourceId={resource}
+            defaultFrom={from || (resource ? `offer-${resource}` : undefined)}
+          />
         </div>
       </section>
     </>

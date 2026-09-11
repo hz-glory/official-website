@@ -5,12 +5,16 @@ import type { Dictionary, Locale } from "@/content/types";
 import { track } from "@/lib/analytics";
 import {
   COMPUTE_INQUIRY_OPTIONS,
+  getComputeOfferDefaults,
   type ComputeInquiryOptionKey,
 } from "@/lib/contact/compute-inquiry";
+import { localePath } from "@/lib/i18n";
 
 type Props = {
   dict: Dictionary;
   locale: Locale;
+  resourceId?: string;
+  defaultFrom?: string;
 };
 
 type SubmitState = "idle" | "sending" | "success" | "error";
@@ -57,6 +61,7 @@ function ChoiceGroup({
   multiple,
   locale,
   disabled,
+  defaultValues,
 }: {
   name: ComputeInquiryOptionKey | "contactRole" | string;
   label: string;
@@ -67,8 +72,10 @@ function ChoiceGroup({
   multiple: boolean;
   locale: Locale;
   disabled?: boolean;
+  defaultValues?: string[];
 }) {
   const type = multiple ? "checkbox" : "radio";
+  const selected = new Set(defaultValues ?? []);
   return (
     <fieldset className="form-field">
       <legend>
@@ -86,6 +93,7 @@ function ChoiceGroup({
               value={option.value}
               required={required && !multiple}
               disabled={disabled}
+              defaultChecked={selected.has(option.value)}
             />
             <span>{locale === "en" ? option.en : option.zh}</span>
           </label>
@@ -95,9 +103,11 @@ function ChoiceGroup({
   );
 }
 
-export function ComputeInquiryForm({ dict, locale }: Props) {
+export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Props) {
   const copy = dict.computeInquiry;
   const labels = copy.labels;
+  const offer = dict.compute.offers.items.find((item) => item.id === resourceId);
+  const defaults = getComputeOfferDefaults(resourceId);
   const [state, setState] = useState<SubmitState>("idle");
   const [error, setError] = useState<string | null>(null);
   const [confirmed, setConfirmed] = useState(false);
@@ -199,7 +209,7 @@ export function ComputeInquiryForm({ dict, locale }: Props) {
               website: String(data.get("website") || ""),
               locale,
               pagePath: window.location.pathname,
-              from: "compute-inquiry",
+              from: defaultFrom || (resourceId ? `offer-${resourceId}` : "compute-inquiry"),
               computeInquiry: inquiry,
             }),
           });
@@ -208,7 +218,11 @@ export function ComputeInquiryForm({ dict, locale }: Props) {
             | null;
           if (!res.ok || !json?.ok) {
             const code = json?.error || `http_${res.status}`;
-            track("contact_submit_error", { code, intent: "compute", from: "compute-inquiry" });
+          track("contact_submit_error", {
+            code,
+            intent: "compute",
+            from: defaultFrom || resourceId || "compute-inquiry",
+          });
             setError(
               code === "not_configured"
                 ? dict.contact.form.notConfigured
@@ -217,7 +231,10 @@ export function ComputeInquiryForm({ dict, locale }: Props) {
             setState("error");
             return;
           }
-          track("contact_submit_success", { intent: "compute", from: "compute-inquiry" });
+          track("contact_submit_success", {
+            intent: "compute",
+            from: defaultFrom || (resourceId ? `offer-${resourceId}` : "compute-inquiry"),
+          });
           setState("success");
           form.reset();
           setConfirmed(false);
@@ -234,6 +251,23 @@ export function ComputeInquiryForm({ dict, locale }: Props) {
         </div>
       ) : (
         <>
+          {offer ? (
+            <div className="panel p-5 sm:p-6">
+              <p className="text-xs font-semibold tracking-wide text-[var(--orange)]">
+                {offer.badge}
+              </p>
+              <h2 className="serif mt-2 text-xl font-semibold">{offer.title}</h2>
+              <p className="mt-2 text-sm text-[var(--ink-soft)]">{copy.selectedOffer}</p>
+              <p className="mt-1 text-sm text-[var(--ink-muted)]">{offer.availability}</p>
+              <a
+                href={localePath(locale, `/compute#${offer.id}`)}
+                className="mt-3 inline-flex text-sm font-semibold text-[var(--teal)]"
+              >
+                {copy.changeOffer} →
+              </a>
+            </div>
+          ) : null}
+
           <section className="panel space-y-5 p-6 sm:p-8">
             <div>
               <p className="eyebrow">{copy.sections.basic.title}</p>
@@ -376,6 +410,7 @@ export function ComputeInquiryForm({ dict, locale }: Props) {
               multiple={false}
               locale={locale}
               disabled={sending}
+              defaultValues={defaults?.acquireMode}
             />
             <ChoiceGroup
               name="gpuModels"
@@ -387,6 +422,7 @@ export function ComputeInquiryForm({ dict, locale }: Props) {
               multiple
               locale={locale}
               disabled={sending}
+              defaultValues={defaults?.gpuModels}
             />
             <div className="grid gap-4 sm:grid-cols-2">
               <Field
@@ -464,6 +500,7 @@ export function ComputeInquiryForm({ dict, locale }: Props) {
               multiple
               locale={locale}
               disabled={sending}
+              defaultValues={defaults?.location}
             />
           </section>
 
@@ -536,6 +573,7 @@ export function ComputeInquiryForm({ dict, locale }: Props) {
               multiple={false}
               locale={locale}
               disabled={sending}
+              defaultValues={defaults?.contractTerm}
             />
             <ChoiceGroup
               name="paymentStructure"
@@ -546,6 +584,7 @@ export function ComputeInquiryForm({ dict, locale }: Props) {
               multiple
               locale={locale}
               disabled={sending}
+              defaultValues={defaults?.paymentStructure}
             />
             <ChoiceGroup
               name="budgetRange"
@@ -638,6 +677,7 @@ export function ComputeInquiryForm({ dict, locale }: Props) {
               multiple={false}
               locale={locale}
               disabled={sending}
+              defaultValues={defaults?.acceptForward}
             />
             <ChoiceGroup
               name="hardDeadline"
