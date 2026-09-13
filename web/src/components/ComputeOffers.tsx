@@ -14,6 +14,7 @@ type Props = {
 export function ComputeOffers({ locale, dict }: Props) {
   const offers = dict.compute.offers;
   const [openId, setOpenId] = useState<string | null>(null);
+  const openItem = offers.items.find((item) => item.id === openId) ?? null;
 
   useEffect(() => {
     const syncHash = () => {
@@ -78,6 +79,7 @@ export function ComputeOffers({ locale, dict }: Props) {
                       type="button"
                       className="btn btn-secondary !min-h-10 !px-3.5 !text-sm"
                       aria-expanded={open}
+                      aria-controls={`${item.id}-details`}
                       onClick={() => toggleDetails(item.id)}
                     >
                       {open ? offers.collapseCta : offers.detailsCta}
@@ -92,63 +94,70 @@ export function ComputeOffers({ locale, dict }: Props) {
                       {offers.inquiryCta}
                     </Link>
                   </div>
-
-                  {open ? (
-                    <div className="compute-offer-details">
-                      <p className="text-xs text-[var(--ink-muted)]">{item.validity}</p>
-                      <div className="mt-5 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-                        <div>
-                          <p className="text-xs font-semibold tracking-wide text-[var(--teal)]">
-                            {offers.specsLabel}
-                          </p>
-                          <dl className="mt-3 space-y-2 text-sm">
-                            {item.specs.map((spec) => (
-                              <div key={spec.label} className="grid gap-1 sm:grid-cols-[7rem_1fr]">
-                                <dt className="text-[var(--ink-muted)]">{spec.label}</dt>
-                                <dd className="text-[var(--ink-soft)]">{spec.value}</dd>
-                              </div>
-                            ))}
-                          </dl>
-                          <p className="mt-5 text-xs font-semibold tracking-wide text-[var(--teal)]">
-                            {offers.termsLabel}
-                          </p>
-                          <ul className="mt-3 space-y-1.5 text-sm text-[var(--ink-soft)]">
-                            {item.terms.map((term) => (
-                              <li key={term}>· {term}</li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold tracking-wide text-[var(--teal)]">
-                            {offers.pricingLabel}
-                          </p>
-                          <ul className="mt-3 divide-y divide-[var(--line)] border-y border-[var(--line)]">
-                            {item.pricing.map((row) => (
-                              <li
-                                key={`${row.tier}-${row.price}`}
-                                className="flex items-baseline justify-between gap-4 py-2.5 text-sm"
-                              >
-                                <span className="text-[var(--ink-muted)]">{row.tier}</span>
-                                <span className="text-right font-semibold text-[var(--ink)]">
-                                  {row.price}
-                                  {row.note ? (
-                                    <span className="mt-0.5 block text-xs font-medium text-[var(--ink-muted)]">
-                                      {row.note}
-                                    </span>
-                                  ) : null}
-                                </span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  ) : null}
                 </article>
               </Reveal>
             );
           })}
         </div>
+
+        {openItem ? (
+          <article
+            id={`${openItem.id}-details`}
+            className="panel compute-offer-details mt-4 scroll-mt-24"
+          >
+            <div className="flex flex-wrap items-baseline justify-between gap-3">
+              <h3 className="serif text-xl font-semibold">{openItem.title}</h3>
+              <p className="text-xs text-[var(--ink-muted)]">{openItem.validity}</p>
+            </div>
+            <div className="mt-5 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+              <div>
+                <p className="text-xs font-semibold tracking-wide text-[var(--teal)]">
+                  {offers.specsLabel}
+                </p>
+                <dl className="mt-3 space-y-2 text-sm">
+                  {openItem.specs.map((spec) => (
+                    <div key={spec.label} className="grid gap-1 sm:grid-cols-[7rem_1fr]">
+                      <dt className="text-[var(--ink-muted)]">{spec.label}</dt>
+                      <dd className="text-[var(--ink-soft)]">{spec.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="mt-5 text-xs font-semibold tracking-wide text-[var(--teal)]">
+                  {offers.termsLabel}
+                </p>
+                <ul className="mt-3 space-y-1.5 text-sm text-[var(--ink-soft)]">
+                  {openItem.terms.map((term) => (
+                    <li key={term}>· {term}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-xs font-semibold tracking-wide text-[var(--teal)]">
+                  {offers.pricingLabel}
+                </p>
+                <ul className="mt-3 divide-y divide-[var(--line)] border-y border-[var(--line)]">
+                  {openItem.pricing.map((row) => (
+                    <li
+                      key={`${row.tier}-${row.price}`}
+                      className="flex items-baseline justify-between gap-4 py-2.5 text-sm"
+                    >
+                      <span className="text-[var(--ink-muted)]">{row.tier}</span>
+                      <span className="text-right font-semibold text-[var(--ink)]">
+                        {row.price}
+                        {row.note ? (
+                          <span className="mt-0.5 block text-xs font-medium text-[var(--ink-muted)]">
+                            {row.note}
+                          </span>
+                        ) : null}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        ) : null}
+
         <p className="mt-6 max-w-3xl text-xs leading-relaxed text-[var(--ink-muted)]">
           {offers.quoteNote}
         </p>

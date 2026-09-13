@@ -325,10 +325,12 @@ a {
   padding: 1.25rem 1.35rem;
 }
 
+.compute-offer.is-open {
+  border-color: color-mix(in srgb, var(--teal) 45%, var(--line));
+}
+
 .compute-offer-details {
-  margin-top: 1.15rem;
-  padding-top: 1.15rem;
-  border-top: 1px solid var(--line);
+  padding: 1.35rem 1.45rem;
 }
 
 .lang-switch {
