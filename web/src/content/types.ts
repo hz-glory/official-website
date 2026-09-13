@@ -57,6 +57,7 @@ export type Dictionary = {
     compute: string;
     inquiry: string;
     guide: string;
+    more: string;
   };
   sectionCta: {
     title: string;
@@ -184,6 +185,9 @@ export type Dictionary = {
       specsLabel: string;
       termsLabel: string;
       inquiryCta: string;
+      detailsCta: string;
+      collapseCta: string;
+      fromPrice: string;
       items: {
         id: string;
         badge: string;

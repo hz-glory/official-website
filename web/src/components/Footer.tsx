@@ -29,7 +29,7 @@ export function Footer({ locale, dict }: Props) {
           <ul className="space-y-2 text-sm text-[var(--ink-soft)]">
             {dict.nav
               .filter((item) =>
-                ["/about", "/solutions", "/compute", "/industries", "/cases"].includes(
+                ["/about", "/solutions", "/compute", "/industries", "/cases", "/careers"].includes(
                   item.href,
                 ),
               )
