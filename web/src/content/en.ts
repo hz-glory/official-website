@@ -34,6 +34,7 @@ export const en: Dictionary = {
     compute: "Inquire about compute",
     inquiry: "Fill the procurement form",
     guide: "View trading guide",
+    more: "More",
   },
   sectionCta: {
     title: "Start with a diagnostic",
@@ -451,6 +452,9 @@ export const en: Dictionary = {
       specsLabel: "Spec highlights",
       termsLabel: "Commercial notes",
       inquiryCta: "Inquire about this batch",
+      detailsCta: "View batch details",
+      collapseCta: "Hide details",
+      fromPrice: "From",
       items: [
         {
           id: "rtx5090",

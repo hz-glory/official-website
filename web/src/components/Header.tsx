@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Dictionary, Locale } from "@/content/types";
 import { track } from "@/lib/analytics";
 import { localePath } from "@/lib/i18n";
 import { Logo } from "./Logo";
+
+const PRIMARY_HREFS = ["/about", "/solutions", "/compute"];
+const MORE_HREFS = ["/industries", "/cases", "/careers"];
 
 type Props = {
   locale: Locale;
@@ -17,6 +20,8 @@ export function Header({ locale, dict }: Props) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -24,6 +29,24 @@ export function Header({ locale, dict }: Props) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onPointer = (event: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(event.target as Node)) {
+        setMoreOpen(false);
+      }
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMoreOpen(false);
+    };
+    document.addEventListener("mousedown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [moreOpen]);
 
   const rest = pathname.replace(/^\/(zh|en)/, "") || "/";
   const otherLocale: Locale = locale === "zh" ? "en" : "zh";
@@ -35,13 +58,17 @@ export function Header({ locale, dict }: Props) {
     return pathname.startsWith(full);
   };
 
+  const primaryItems = dict.nav.filter((item) => PRIMARY_HREFS.includes(item.href));
+  const moreItems = dict.nav.filter((item) => MORE_HREFS.includes(item.href));
+  const moreActive = moreItems.some((item) => isActive(item.href));
+
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
       <div className="container flex h-[4.25rem] items-center justify-between gap-4">
         <Logo locale={locale} />
 
-        <nav className="desktop-nav flex items-center gap-3.5 lg:gap-5">
-          {dict.nav.slice(1).map((item) => (
+        <nav className="desktop-nav flex items-center gap-6">
+          {primaryItems.map((item) => (
             <Link
               key={item.href}
               href={localePath(locale, item.href)}
@@ -50,6 +77,38 @@ export function Header({ locale, dict }: Props) {
               {item.label}
             </Link>
           ))}
+          <div
+            ref={moreRef}
+            className={`nav-more ${moreOpen ? "is-open" : ""}`}
+            onMouseEnter={() => setMoreOpen(true)}
+            onMouseLeave={() => setMoreOpen(false)}
+          >
+            <button
+              type="button"
+              className={`nav-link nav-more-trigger ${moreActive ? "is-active" : ""}`}
+              aria-expanded={moreOpen}
+              aria-haspopup="true"
+              onClick={() => setMoreOpen((value) => !value)}
+            >
+              {dict.cta.more}
+              <span aria-hidden="true" className="nav-more-caret">
+                ▾
+              </span>
+            </button>
+            <div className="nav-more-menu" role="menu">
+              {moreItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={localePath(locale, item.href)}
+                  role="menuitem"
+                  className={`nav-more-item ${isActive(item.href) ? "is-active" : ""}`}
+                  onClick={() => setMoreOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
         </nav>
 
         <div className="flex items-center gap-3">

@@ -34,6 +34,7 @@ export const zh: Dictionary = {
     compute: "咨询算力与模型",
     inquiry: "填写采购需求表",
     guide: "查看交易指南",
+    more: "更多",
   },
   sectionCta: {
     title: "从一次诊断开始",
@@ -434,6 +435,9 @@ export const zh: Dictionary = {
       specsLabel: "规格要点",
       termsLabel: "商务要点",
       inquiryCta: "就该批次填写需求表",
+      detailsCta: "查看批次详情",
+      collapseCta: "收起详情",
+      fromPrice: "起步参考价",
       items: [
         {
           id: "rtx5090",
