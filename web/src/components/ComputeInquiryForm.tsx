@@ -5,7 +5,6 @@ import type { Dictionary, Locale } from "@/content/types";
 import { track } from "@/lib/analytics";
 import {
   COMPUTE_INQUIRY_OPTIONS,
-  getComputeOfferDefaults,
   type ComputeInquiryOptionKey,
 } from "@/lib/contact/compute-inquiry";
 import { localePath } from "@/lib/i18n";
@@ -13,7 +12,10 @@ import { localePath } from "@/lib/i18n";
 type Props = {
   dict: Dictionary;
   locale: Locale;
-  resourceId?: string;
+  prefill?: {
+    gpuModels?: string[];
+    acquireMode?: string[];
+  };
   defaultFrom?: string;
 };
 
@@ -103,11 +105,17 @@ function ChoiceGroup({
   );
 }
 
-export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Props) {
+export function ComputeInquiryForm({ dict, locale, prefill, defaultFrom }: Props) {
   const copy = dict.computeInquiry;
   const labels = copy.labels;
-  const offer = dict.compute.offers.items.find((item) => item.id === resourceId);
-  const defaults = getComputeOfferDefaults(resourceId);
+  const selectedModel = dict.compute.models.find((item) => prefill?.gpuModels?.includes(item.id));
+  const modeValue = prefill?.acquireMode?.[0];
+  const modeLabel =
+    modeValue === "lease"
+      ? dict.compute.modes[0]?.title
+      : modeValue === "purchase"
+        ? dict.compute.modes[1]?.title
+        : undefined;
   const [state, setState] = useState<SubmitState>("idle");
   const [error, setError] = useState<string | null>(null);
   const [confirmed, setConfirmed] = useState(false);
@@ -179,11 +187,35 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
         const missingGroups = [
           [inquiry.companyType, labels.companyType],
           [inquiry.gpuModels, labels.gpuModels],
+          [inquiry.network, labels.network],
+          [inquiry.location, labels.location],
           [inquiry.usages, labels.usages],
+          [inquiry.loadPattern, labels.loadPattern],
+          [inquiry.existingPlatform, labels.existingPlatform],
+          [inquiry.paymentStructure, labels.paymentStructure],
+          [inquiry.budgetRange, labels.budgetRange],
+          [inquiry.fundingSource, labels.fundingSource],
+          [inquiry.urgency, labels.urgency],
+          [inquiry.acceptForward, labels.acceptForward],
         ] as const;
         const missing = missingGroups.find(([vals]) => vals.length < 1);
         if (missing) {
           setError(`${missing[1]} · ${copy.required}`);
+          setState("error");
+          return;
+        }
+        if (inquiry.businessDesc.trim().length < 8) {
+          setError(`${labels.businessDesc} · ${copy.required}`);
+          setState("error");
+          return;
+        }
+        if (inquiry.projectBackground.trim().length < 12) {
+          setError(`${labels.projectBackground} · ${copy.required}`);
+          setState("error");
+          return;
+        }
+        if (!inquiry.gpusPerMachine.trim()) {
+          setError(`${labels.gpusPerMachine} · ${copy.required}`);
           setState("error");
           return;
         }
@@ -209,7 +241,7 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
               website: String(data.get("website") || ""),
               locale,
               pagePath: window.location.pathname,
-              from: defaultFrom || (resourceId ? `offer-${resourceId}` : "compute-inquiry"),
+              from: defaultFrom || "compute-inquiry",
               computeInquiry: inquiry,
             }),
           });
@@ -221,7 +253,7 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
           track("contact_submit_error", {
             code,
             intent: "compute",
-            from: defaultFrom || resourceId || "compute-inquiry",
+            from: defaultFrom || "compute-inquiry",
           });
             setError(
               code === "not_configured"
@@ -233,7 +265,7 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
           }
           track("contact_submit_success", {
             intent: "compute",
-            from: defaultFrom || (resourceId ? `offer-${resourceId}` : "compute-inquiry"),
+            from: defaultFrom || "compute-inquiry",
           });
           setState("success");
           form.reset();
@@ -251,16 +283,14 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
         </div>
       ) : (
         <>
-          {offer ? (
+          {selectedModel || modeLabel ? (
             <div className="panel p-5 sm:p-6">
               <p className="text-xs font-semibold tracking-wide text-[var(--orange)]">
-                {offer.badge}
+                {[selectedModel?.name, modeLabel].filter(Boolean).join(" · ")}
               </p>
-              <h2 className="serif mt-2 text-xl font-semibold">{offer.title}</h2>
               <p className="mt-2 text-sm text-[var(--ink-soft)]">{copy.selectedOffer}</p>
-              <p className="mt-1 text-sm text-[var(--ink-muted)]">{offer.availability}</p>
               <a
-                href={localePath(locale, `/compute#${offer.id}`)}
+                href={localePath(locale, "/compute#hardware")}
                 className="mt-3 inline-flex text-sm font-semibold text-[var(--teal)]"
               >
                 {copy.changeOffer} →
@@ -330,10 +360,11 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
             <Field
               id="businessDesc"
               label={labels.businessDesc}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
             >
-              <textarea id="businessDesc" name="businessDesc" rows={3} disabled={sending} />
+              <textarea id="businessDesc" name="businessDesc" rows={3} required minLength={8} disabled={sending} />
             </Field>
             <div className="grid gap-4 sm:grid-cols-2">
               <Field
@@ -410,7 +441,7 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
               multiple={false}
               locale={locale}
               disabled={sending}
-              defaultValues={defaults?.acquireMode}
+              defaultValues={prefill?.acquireMode}
             />
             <ChoiceGroup
               name="gpuModels"
@@ -422,7 +453,7 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
               multiple
               locale={locale}
               disabled={sending}
-              defaultValues={defaults?.gpuModels}
+              defaultValues={prefill?.gpuModels}
             />
             <div className="grid gap-4 sm:grid-cols-2">
               <Field
@@ -437,15 +468,17 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
               <Field
                 id="gpusPerMachine"
                 label={labels.gpusPerMachine}
+                required
                 requiredLabel={mark.required}
                 optionalLabel={mark.optional}
               >
-                <input id="gpusPerMachine" name="gpusPerMachine" disabled={sending} />
+                <input id="gpusPerMachine" name="gpusPerMachine" required disabled={sending} />
               </Field>
             </div>
             <ChoiceGroup
               name="network"
               label={labels.network}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
               options={COMPUTE_INQUIRY_OPTIONS.network}
@@ -494,13 +527,13 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
             <ChoiceGroup
               name="location"
               label={labels.location}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
               options={COMPUTE_INQUIRY_OPTIONS.location}
               multiple
               locale={locale}
               disabled={sending}
-              defaultValues={defaults?.location}
             />
           </section>
 
@@ -531,6 +564,7 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
             <ChoiceGroup
               name="loadPattern"
               label={labels.loadPattern}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
               options={COMPUTE_INQUIRY_OPTIONS.loadPattern}
@@ -541,6 +575,7 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
             <ChoiceGroup
               name="existingPlatform"
               label={labels.existingPlatform}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
               options={COMPUTE_INQUIRY_OPTIONS.existingPlatform}
@@ -551,10 +586,11 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
             <Field
               id="projectBackground"
               label={labels.projectBackground}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
             >
-              <textarea id="projectBackground" name="projectBackground" rows={4} disabled={sending} />
+              <textarea id="projectBackground" name="projectBackground" rows={4} required minLength={12} disabled={sending} />
             </Field>
           </section>
 
@@ -573,22 +609,22 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
               multiple={false}
               locale={locale}
               disabled={sending}
-              defaultValues={defaults?.contractTerm}
             />
             <ChoiceGroup
               name="paymentStructure"
               label={labels.paymentStructure}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
               options={COMPUTE_INQUIRY_OPTIONS.paymentStructure}
               multiple
               locale={locale}
               disabled={sending}
-              defaultValues={defaults?.paymentStructure}
             />
             <ChoiceGroup
               name="budgetRange"
               label={labels.budgetRange}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
               options={COMPUTE_INQUIRY_OPTIONS.budgetRange}
@@ -607,6 +643,7 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
             <ChoiceGroup
               name="fundingSource"
               label={labels.fundingSource}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
               options={COMPUTE_INQUIRY_OPTIONS.fundingSource}
@@ -661,6 +698,7 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
             <ChoiceGroup
               name="urgency"
               label={labels.urgency}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
               options={COMPUTE_INQUIRY_OPTIONS.urgency}
@@ -671,13 +709,13 @@ export function ComputeInquiryForm({ dict, locale, resourceId, defaultFrom }: Pr
             <ChoiceGroup
               name="acceptForward"
               label={labels.acceptForward}
+              required
               requiredLabel={mark.required}
               optionalLabel={mark.optional}
               options={COMPUTE_INQUIRY_OPTIONS.acceptForward}
               multiple={false}
               locale={locale}
               disabled={sending}
-              defaultValues={defaults?.acceptForward}
             />
             <ChoiceGroup
               name="hardDeadline"

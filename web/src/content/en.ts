@@ -95,7 +95,7 @@ export const en: Dictionary = {
       items: [
         {
           title: "Compute and model APIs",
-          body: "Match GPU hardware and domestic / overseas foundation-model APIs—spot or forward, China or Southeast Asia—and help confirm specs and coordinate delivery.",
+          body: "Match RTX 5090, H200, and B300 for lease or purchase, and help with domestic and overseas model API access. Specs, budget, and timing are confirmed through the inquiry form.",
         },
         {
           title: "Business & technology consulting",
@@ -121,7 +121,7 @@ export const en: Dictionary = {
       primary: [
         {
           title: "Compute resources and model APIs",
-          body: "Match GPU hardware such as H200 / B300 and domestic or overseas model APIs—spot or forward, with China and Southeast Asia deployment paths.",
+          body: "Match RTX 5090, H200, and B300 for lease or purchase, plus domestic and overseas model APIs. Price and timing are confirmed in writing after an inquiry.",
         },
         {
           title: "Smart manufacturing transformation",
@@ -185,10 +185,10 @@ export const en: Dictionary = {
     compute: {
       eyebrow: "New offering",
       title: "Compute brokerage: hardware and model APIs",
-      body: "The trading scope covers compute hardware and domestic and overseas foundation-model APIs. We match supply and demand, help align specifications and lead times, and coordinate China and Southeast Asia deployment paths—spot or forward.",
-      primaryCta: "Explore compute & APIs",
+      body: "Public hardware is RTX 5090, H200, and B300, available to lease or buy. This page does not list batches or prices. Send the inquiry form and we follow up on specs, budget, and timing.",
+      primaryCta: "Open the inquiry form",
       secondaryCta: "Inquire about compute",
-      pills: ["5090 spot", "H200 forward", "Hebei cluster", "B300 batch"],
+      pills: ["RTX 5090", "H200", "B300", "Lease / purchase"],
     },
     finalCta: {
       title: "Start with a conversation",
@@ -226,7 +226,7 @@ export const en: Dictionary = {
         "Glorion Intelligence started from a simple conviction: digital and AI programs should not end at “go-live acceptance.” Too many systems fade after the contract closes, while business teams never see KPI movement.",
         "We chose the Forward Deployed Engineer model over classic outsourcing or a pure product-only path—because effective intelligence happens in the client’s operating reality: workflows, data quality, and how people collaborate.",
         "Our vision is to be a trusted long-term partner: from diagnosis to delivery, from project validation to productized assets—defining problems together and owning outcomes together.",
-        "Alongside on-site intelligence delivery, we now broker compute resources: matching GPU hardware and domestic and overseas foundation-model APIs, covering spot and forward supply as well as China and Southeast Asia deployment, and coordinating specification confirmation, contracting, and delivery.",
+        "Alongside on-site intelligence delivery, we now broker compute resources: matching RTX 5090, H200, and B300 for lease or purchase, plus domestic and overseas foundation-model APIs, and coordinating specification confirmation, contracting, and delivery.",
       ],
     },
     method: {
@@ -306,8 +306,8 @@ export const en: Dictionary = {
       {
         title: "Compute and model-API brokerage",
         badge: "New",
-        pain: "Training and inference need stable, compliant, clearly specified compute and model interfaces—but supply is fragmented, spot and forward lead times differ, and China versus overseas deployment paths have different compliance requirements.",
-        method: "As a matching and coordination partner, we help confirm GPU specifications and facility conditions, match spot or forward supply, and assist with domestic and overseas foundation-model API access and settlement.",
+        pain: "Training and inference need stable, compliant, clearly specified compute and model interfaces—but supply is fragmented, lease and purchase terms differ, and deployment paths have different compliance requirements.",
+        method: "As a matching and coordination partner, we start from the inquiry form—model, lease or purchase, scale, budget, and timing—then match RTX 5090, H200, or B300, and assist with domestic and overseas foundation-model API access and settlement.",
         deliverables: "Specification alignment, supply–demand matching, and contracting / delivery coordination; China and Southeast Asia deployment-path guidance; model-API access and settlement support.",
         fit: "AI companies, institutions, and overseas-facing teams that need GPU systems or leases, or access to domestic and international model APIs.",
       },
@@ -346,7 +346,7 @@ export const en: Dictionary = {
     sub: "Glorion now brokers compute resources: matching GPU hardware and domestic and overseas foundation-model APIs, and helping confirm specifications, match supply, and coordinate contracting and delivery.",
     eyebrow: "Compute brokerage",
     intro:
-      "Shipping intelligent applications takes more than on-site engineering—it also takes stable, compliant, clearly specified compute and model interfaces. We act as a matching and coordination partner between buyers and suppliers, covering GPU hardware such as NVIDIA H200 and B300, plus access and settlement support for domestic and overseas foundation-model APIs.",
+      "Shipping intelligent applications takes more than on-site engineering—it also takes stable, compliant, clearly specified compute and model interfaces. We match RTX 5090, H200, and B300 for lease or purchase, and can still help with domestic and overseas model API access and settlement. Prices, inventory, and lead times are not published on this page.",
     guideLabel: "View the compute trading guide",
     guideUrl: "https://xiejinian.github.io/tech_docs/glory/nvida.html",
     guideNote:
@@ -355,44 +355,49 @@ export const en: Dictionary = {
     scopes: [
       {
         title: "Compute hardware",
-        body: "Help match GPU systems and leases. Confirm model, memory, GPU count, interconnect, and facility conditions—spot or forward.",
+        body: "Help match RTX 5090, H200, and B300 for lease or purchase. Model, GPU count, interconnect, and facility conditions are written on the inquiry form before we discuss terms.",
       },
       {
         title: "Domestic and overseas model APIs",
         body: "Help connect domestic and overseas model interfaces, and sort out region, settlement, and access arrangements for training, inference, and application integration.",
       },
     ],
-    modelsTitle: "Hardware classes",
-    modelsSub: "We start from current mainstream training and inference systems. Compare prices only after specifications are confirmed in writing.",
+    modelsTitle: "Hardware you can inquire about",
+    modelsSub: "These three systems are the public catalog. The page does not list batches, inventory, or reference prices. Choose a model and lease or purchase, then write specs, budget, and timing on the inquiry form.",
+    leaseCta: "Inquire to lease",
+    purchaseCta: "Inquire to buy",
     models: [
       {
+        id: "rtx5090",
+        name: "NVIDIA RTX 5090",
+        tag: "Inference / multi-GPU workstation",
+        body: "For inference, fine-tuning, and multi-GPU workstations. Write cards per server, memory form, and facility needs on the inquiry form.",
+        points: ["Lease or purchase", "Specs and price are confirmed in writing after the inquiry"],
+      },
+      {
+        id: "h200",
         name: "NVIDIA H200",
         tag: "Training + inference",
-        body: "Hopper-generation flagship for mixed training and inference workloads; deployable in conventional facilities.",
-        points: [
-          "Write memory and interconnect specs before comparing quotes",
-          "Spot supply usually delivers faster; forward supply trades wait time for a locked allocation",
-        ],
+        body: "Hopper generation for mixed training and inference. Interconnect, memory, and cluster scale need to be written before we match supply.",
+        points: ["Lease or purchase", "Say on the form whether you can wait for delivery"],
       },
       {
+        id: "b300",
         name: "NVIDIA B300",
-        tag: "Very large-model inference",
-        body: "Blackwell Ultra generation for higher-spec inference; facilities must meet liquid-cooling and related conditions.",
-        points: [
-          "Cooling method and facility conditions decide whether a deployment is viable",
-          "Lead time and batch availability should be locked in writing with the supplier",
-        ],
+        tag: "Higher-spec inference",
+        body: "Blackwell Ultra generation for higher-spec inference. Cooling and facility conditions decide whether a deployment is viable.",
+        points: ["Lease or purchase", "Note liquid-cooling or other facility needs in the form"],
       },
     ],
-    modesTitle: "Trading modes",
+    modesTitle: "Commercial modes",
     modes: [
       {
-        title: "Spot",
-        body: "Machines are already in a facility and networked. Specifications can be verified, and delivery and acceptance can start soon after signing.",
+        title: "Lease",
+        body: "Use servers for a term. Contract length, payment cadence, and budget are filled on a monthly basis.",
       },
       {
-        title: "Forward",
-        body: "Resources are still being procured, shipped, or assembled. A reservation locks specifications and lead time—suited to bulk demand that can wait.",
+        title: "Purchase",
+        body: "Buy the hardware. Budget is the expected contract total. Delivery and acceptance are confirmed in writing after the inquiry.",
       },
     ],
     regionsTitle: "Deployment paths",
@@ -427,7 +432,7 @@ export const en: Dictionary = {
       },
       {
         title: "Match supply",
-        body: "Match discussable supply by spot or forward, China or Southeast Asia—avoid comparing prices on incomplete specs.",
+        body: "Match discussable supply by lease or purchase, China or Southeast Asia—avoid comparing prices on incomplete specs.",
       },
       {
         title: "Coordinate contracting and delivery",
@@ -437,135 +442,12 @@ export const en: Dictionary = {
     principlesTitle: "Public principles",
     principles: [
       "Write specifications before comparing prices: model, memory, GPU count, interconnect, facility, and cooling. Missing any of these makes quotes incomparable.",
-      "Spot and forward differ in lead time and certainty—align them in writing first.",
+      "Lease and purchase follow different commercial terms. Whether you can wait for delivery also needs to be aligned in writing.",
       "Source and deploy through compliant channels. China and Southeast Asia follow different paths; overseas deployments need the entity and reviews planned early.",
       "Align the contract and delivery plan before moving to subsequent funding steps.",
     ],
     ctaTitle: "Tell us your compute or model need",
-    ctaSub: "Review current batches, then send the procurement form. Clearer specs, quantity, and timing mean a faster match.",
-    offers: {
-      eyebrow: "Current batches",
-      title: "Compute resources available to discuss",
-      sub: "These are GPU lease batches Glorion is currently matching. Prices are tax-inclusive references; the signed contract governs. After you pick a batch, fill the procurement form—we prefill specs and follow up to lock supply.",
-      quoteNote: "Quotes are for matching only and are not an offer. Material transactions require a signed contract; rent starts after acceptance.",
-      pricingLabel: "Reference monthly rent (tax incl. / server)",
-      specsLabel: "Spec highlights",
-      termsLabel: "Commercial notes",
-      inquiryCta: "Inquire about this batch",
-      detailsCta: "View batch details",
-      collapseCta: "Hide details",
-      fromPrice: "From",
-      items: [
-        {
-          id: "rtx5090",
-          badge: "Spot",
-          title: "NVIDIA RTX 5090",
-          subtitle: "8-GPU servers · Lianyungang IDC · as soon as next-day start",
-          mode: "Spot lease",
-          location: "Lianyungang IDC",
-          availability: "About 30 servers in stock · 5-server minimum",
-          validity: "Reference quote valid through 31 Oct 2026",
-          pricing: [
-            { tier: "1–3 years · 5–9 servers", price: "¥19,000 / mo" },
-            { tier: "1–3 years · 10+ servers", price: "¥17,500 / mo" },
-            { tier: "2-year closed term · 5–9", price: "¥18,000 / mo", note: "Price locked for the term" },
-            { tier: "2-year closed term · 10+", price: "¥17,000 / mo" },
-            { tier: "5 years", price: "¥17,000 / mo", note: "Same rate at 5–9 and 10+" },
-          ],
-          specs: [
-            { label: "GPU", value: "RTX 5090 32GB turbo × 8" },
-            { label: "CPU / memory", value: "Xeon 8380 × 2 · DDR4 1TB" },
-            { label: "Storage / net", value: "480GB SSD · 2TB shared · 25G Ethernet · 50Mbps included" },
-          ],
-          terms: [
-            "Payment: 1-month deposit, quarterly prepay",
-            "10+ servers automatically get the volume rate",
-            "Optional SSD / HDD and extra egress bandwidth",
-            "Term starts on delivery; billed by calendar month",
-          ],
-        },
-        {
-          id: "h200-chongqing",
-          badge: "Forward",
-          title: "NVIDIA HGX H200",
-          subtitle: "8 × H200 SXM5 141GB · Chongqing IDC · target start 20 Oct 2026",
-          mode: "Forward reservation",
-          location: "Chongqing IDC",
-          availability: "Current reservation cap: 35 servers",
-          validity: "Reference quote valid through 31 Oct 2026",
-          pricing: [
-            { tier: "1–9 servers · 5-year closed", price: "¥150,000 / mo" },
-            { tier: "10–34 servers · 5-year closed", price: "¥145,000 / mo", note: "~3.3% off" },
-            { tier: "Full 35-server batch · 5-year closed", price: "¥140,000 / mo", note: "Best tier this batch" },
-          ],
-          specs: [
-            { label: "GPU", value: "H200 SXM5 141GB × 8 (~1.1TB HBM per server)" },
-            { label: "CPU / memory", value: "Dual CPU ≥48 cores · DDR5 2048GB" },
-            { label: "Network / storage", value: "8 × 400G InfiniBand · NVMe · redundant PSU" },
-          ],
-          terms: [
-            "Payment: 1-month deposit, quarterly prepay; deposit and performance security per contract",
-            "5-year closed price, locked in the contract",
-            "Demand beyond 35 servers: lead time to be discussed",
-            "Term starts on delivery and acceptance",
-          ],
-        },
-        {
-          id: "h200-hebei",
-          badge: "Forward · large cluster",
-          title: "H200 HGX Hebei batch",
-          subtitle: "1,024-server cluster · Hebei IDC · 10-server minimum · target end-Oct 2026",
-          mode: "Forward reservation",
-          location: "Hebei IDC (Beijing–Tianjin–Hebei)",
-          availability: "1,024-server scale · 10-server minimum · 3-year closed term minimum",
-          validity: "The hold window is short (about two weeks)—confirm quantity soon",
-          pricing: [
-            { tier: "10–49 servers · 3-year closed", price: "from ¥160,000 / mo" },
-            { tier: "50–199 servers · 3-year closed", price: "¥155,000 / mo" },
-            { tier: "200–499 servers · 3-year closed", price: "¥150,000 / mo" },
-            { tier: "500+ servers", price: "On request", note: "Custom by quantity" },
-          ],
-          specs: [
-            { label: "GPU", value: "H200 HGX SXM5 141GB × 8 (~1.1TB HBM per server)" },
-            { label: "CPU / memory", value: "Xeon 8380 × 2 · DDR5 2TB" },
-            { label: "Interconnect", value: "NVLink 4.0 + NVSwitch · high-speed InfiniBand" },
-          ],
-          terms: [
-            "Payment: 1-month deposit, quarterly prepay",
-            "Phased start possible—suitable for mid-size and very large needs",
-            "Shorter than 3 years or fewer than 10 servers: we can match other supply",
-            "Extending to 5 years can be discounted further",
-          ],
-        },
-        {
-          id: "b300-qinghai",
-          badge: "Forward · full batch",
-          title: "NVIDIA B300 Blackwell Ultra",
-          subtitle: "288GB HBM3e × 8 · liquid-cooled · Qinghai IDC · target Nov 2026",
-          mode: "Forward full-batch lock",
-          location: "Qinghai IDC",
-          availability: "128 servers must be locked as a full batch—no split orders",
-          validity: "Reference quote valid through 31 Oct 2026",
-          pricing: [
-            { tier: "128-server batch · 5-year closed · discussion", price: "¥275,000 / mo" },
-            { tier: "128-server batch · 5-year closed · list", price: "¥280,000 / mo" },
-          ],
-          specs: [
-            { label: "GPU", value: "B300 Blackwell Ultra × 8 (~2.1TB HBM per server)" },
-            { label: "Cooling", value: "Liquid cooling (facility must support it)" },
-            { label: "Interconnect", value: "NVLink 5.0 + NVSwitch" },
-          ],
-          terms: [
-            "Payment: 3-month deposit, monthly prepay; 5-year price lock",
-            "Full 128-server batch only—no partial then add-on",
-            "Early stop during the five-year term still follows the remaining contract obligations",
-            "Locking this batch typically needs a large deposit and bank performance security—details in discussion",
-            "Some use cases need eligibility confirmed in advance",
-            "A same-spec second batch (~256 servers, Dec) can be waitlisted",
-          ],
-        },
-      ],
-    },
+    ctaSub: "Please complete the inquiry form. Clearer model, lease or purchase, quantity, budget, and timing make it possible to tell whether this is a demand we can move forward.",
   },
   computeInquiry: {
     title: "Compute procurement requirements",
@@ -582,8 +464,8 @@ export const en: Dictionary = {
     success: "We received your requirements and will match supply and follow up soon.",
     error: "Something went wrong. Please try again, or reach us by email.",
     back: "Back to compute & APIs",
-    selectedOffer: "You are inquiring about this batch. Specs and region are prefilled—you can still edit them before submit.",
-    changeOffer: "See all batches",
+    selectedOffer: "Model and lease or purchase are prefilled. You can still edit them before submit.",
+    changeOffer: "Choose a different model",
     sections: {
       basic: {
         title: "01 Company & contacts",
@@ -603,7 +485,7 @@ export const en: Dictionary = {
       },
       timeline: {
         title: "05 Timing & delivery",
-        lead: "More urgent needs are matched to spot supply first",
+        lead: "Write the earliest start date, and whether you can wait",
       },
       other: {
         title: "06 Other requirements",
@@ -641,7 +523,7 @@ export const en: Dictionary = {
       projectBackground: "Project background (upstream buyer, government support, etc.)",
       contractTerm: "Preferred contract term",
       paymentStructure: "Acceptable payment structure",
-      budgetRange: "Monthly rent budget range",
+      budgetRange: "Budget scale (monthly rent if leasing, expected contract total if buying)",
       contractingEntity: "Contracting / paying entity if different from the company",
       fundingSource: "Funding source",
       invoice: "Invoice requirements",
@@ -668,14 +550,14 @@ export const en: Dictionary = {
         persona:
           "AI companies, research institutions, and overseas-facing teams that need training / inference compute or access to domestic and overseas foundation-model APIs.",
         scenarios: [
-          "Spot and forward GPU hardware such as H200 / B300",
+          "RTX 5090 / H200 / B300 lease or purchase",
           "China and Southeast Asia deployment paths",
           "Foundation-model API access and settlement support",
           "Specification confirmation and contracting / delivery coordination",
         ],
         problems: [
           "Fragmented supply makes incomplete specs hard to compare",
-          "Spot versus forward lead times and facility conditions vary widely",
+          "Lease and purchase terms, lead times, and facility requirements vary widely",
           "Cross-border deployment and compliance paths need early alignment",
         ],
       },

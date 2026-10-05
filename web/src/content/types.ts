@@ -164,7 +164,9 @@ export type Dictionary = {
     scopes: { title: string; body: string }[];
     modelsTitle: string;
     modelsSub: string;
-    models: { name: string; tag: string; body: string; points: string[] }[];
+    leaseCta: string;
+    purchaseCta: string;
+    models: { id: string; name: string; tag: string; body: string; points: string[] }[];
     modesTitle: string;
     modes: { title: string; body: string }[];
     regionsTitle: string;
@@ -176,32 +178,6 @@ export type Dictionary = {
     principles: string[];
     ctaTitle: string;
     ctaSub: string;
-    offers: {
-      eyebrow: string;
-      title: string;
-      sub: string;
-      quoteNote: string;
-      pricingLabel: string;
-      specsLabel: string;
-      termsLabel: string;
-      inquiryCta: string;
-      detailsCta: string;
-      collapseCta: string;
-      fromPrice: string;
-      items: {
-        id: string;
-        badge: string;
-        title: string;
-        subtitle: string;
-        mode: string;
-        location: string;
-        availability: string;
-        validity: string;
-        pricing: { tier: string; price: string; note?: string }[];
-        specs: { label: string; value: string }[];
-        terms: string[];
-      }[];
-    };
   };
   computeInquiry: {
     title: string;

@@ -73,19 +73,14 @@ export const COMPUTE_INQUIRY_OPTIONS = {
     opt("referrer", "项目推荐人", "Referrer"),
   ],
   acquireMode: [
-    opt("lease", "纯租赁（不买断）", "Lease only"),
-    opt("lease_to_own", "租转买（先租后买）", "Lease-to-own"),
-    opt("purchase", "直接购买", "Outright purchase"),
-    opt("undecided", "未定，需建议", "Undecided — need a recommendation"),
+    opt("lease", "租赁", "Lease"),
+    opt("purchase", "购买", "Purchase"),
   ],
   gpuModels: [
-    opt("h200", "H200 HGX SXM5 141GB", "H200 HGX SXM5 141GB"),
-    opt("h100", "H100 SXM5 80GB", "H100 SXM5 80GB"),
-    opt("b200_b300", "B200 / B300 Blackwell", "B200 / B300 Blackwell"),
-    opt("a100", "A100 80GB", "A100 80GB"),
-    opt("rtx", "RTX 5090 / 4090", "RTX 5090 / 4090"),
-    opt("domestic", "国产芯片（昆仑 / 昇腾）", "Domestic chips (Kunlun / Ascend)"),
-    opt("any", "不限，按性价比推荐", "No preference — recommend on value"),
+    opt("rtx5090", "NVIDIA RTX 5090", "NVIDIA RTX 5090"),
+    opt("h200", "NVIDIA H200", "NVIDIA H200"),
+    opt("b300", "NVIDIA B300", "NVIDIA B300"),
+    opt("other", "其他 / 还不确定", "Other / not sure yet"),
   ],
   network: [
     opt("ib400", "400G InfiniBand", "400G InfiniBand"),
@@ -154,11 +149,11 @@ export const COMPUTE_INQUIRY_OPTIONS = {
     opt("discuss", "需要商议", "Need to discuss"),
   ],
   budgetRange: [
-    opt("lt100", "< 100 万 / 月", "< RMB 1M / month"),
-    opt("100to500", "100–500 万 / 月", "RMB 1–5M / month"),
-    opt("500to2000", "500–2000 万 / 月", "RMB 5–20M / month"),
-    opt("gt2000", "> 2000 万 / 月", "> RMB 20M / month"),
-    opt("tbd", "预算待定", "Budget TBD"),
+    opt("lt100", "100 万以内", "Under RMB 1M"),
+    opt("100to500", "100–500 万", "RMB 1–5M"),
+    opt("500to2000", "500–2000 万", "RMB 5–20M"),
+    opt("gt2000", "2000 万以上", "Over RMB 20M"),
+    opt("tbd", "项目已立项，具体数字待内部确认", "Project is approved; exact figure still internal"),
   ],
   fundingSource: [
     opt("own", "自有资金", "Own funds"),
@@ -337,14 +332,26 @@ export function parseComputeInquiry(input: unknown):
 
   if (data.company.length < 2) return { ok: false, error: "invalid_company" };
   if (data.companyType.length < 1) return { ok: false, error: "invalid_company_type" };
+  if ((data.businessDesc?.length ?? 0) < 8) return { ok: false, error: "invalid_business_desc" };
   if (data.contactPhone.length < 6) return { ok: false, error: "invalid_phone" };
   if (data.contactRole.length < 1) return { ok: false, error: "invalid_contact_role" };
   if (data.acquireMode.length < 1) return { ok: false, error: "invalid_acquire_mode" };
   if (data.gpuModels.length < 1) return { ok: false, error: "invalid_gpu_models" };
   if (data.machineCount.length < 1) return { ok: false, error: "invalid_machine_count" };
+  if ((data.gpusPerMachine?.length ?? 0) < 1) return { ok: false, error: "invalid_gpus_per_machine" };
+  if (data.network.length < 1) return { ok: false, error: "invalid_network" };
+  if (data.location.length < 1) return { ok: false, error: "invalid_location" };
   if (data.usages.length < 1) return { ok: false, error: "invalid_usages" };
+  if (data.loadPattern.length < 1) return { ok: false, error: "invalid_load_pattern" };
+  if (data.existingPlatform.length < 1) return { ok: false, error: "invalid_existing_platform" };
+  if ((data.projectBackground?.length ?? 0) < 12) return { ok: false, error: "invalid_project_background" };
   if (data.contractTerm.length < 1) return { ok: false, error: "invalid_contract_term" };
+  if (data.paymentStructure.length < 1) return { ok: false, error: "invalid_payment" };
+  if (data.budgetRange.length < 1) return { ok: false, error: "invalid_budget" };
+  if (data.fundingSource.length < 1) return { ok: false, error: "invalid_funding" };
   if (!DATE_RE.test(data.earliestDate)) return { ok: false, error: "invalid_earliest_date" };
+  if (data.urgency.length < 1) return { ok: false, error: "invalid_urgency" };
+  if (data.acceptForward.length < 1) return { ok: false, error: "invalid_accept_forward" };
   if (data.latestDate && !DATE_RE.test(data.latestDate)) {
     return { ok: false, error: "invalid_latest_date" };
   }
@@ -421,7 +428,7 @@ export function formatComputeInquirySections(inquiry: ComputeInquiry, locale: "z
       body: renderLines([
         line("期望合同期限", pick("contractTerm", inquiry.contractTerm)),
         line("可接受付款结构", pick("paymentStructure", inquiry.paymentStructure)),
-        line("月租总预算区间", pick("budgetRange", inquiry.budgetRange)),
+        line("预算量级", pick("budgetRange", inquiry.budgetRange)),
         line("合同签署主体", inquiry.contractingEntity),
         line("资金来源", pick("fundingSource", inquiry.fundingSource)),
         line("发票要求", pick("invoice", inquiry.invoice)),
@@ -466,54 +473,31 @@ export function formatComputeInquiryText(
     .trim();
 }
 
-export const COMPUTE_OFFER_DEFAULTS: Record<
-  string,
-  {
-    gpuModels: string[];
-    location: string[];
-    acquireMode: string[];
-    contractTerm?: string[];
-    acceptForward?: string[];
-    paymentStructure?: string[];
-  }
-> = {
-  rtx5090: {
-    gpuModels: ["rtx"],
-    location: ["east"],
-    acquireMode: ["lease"],
-    contractTerm: ["1to3"],
-    acceptForward: ["spot_only"],
-    paymentStructure: ["deposit1_pay3"],
-  },
-  "h200-chongqing": {
-    gpuModels: ["h200"],
-    location: ["southwest"],
-    acquireMode: ["lease"],
-    contractTerm: ["gt5"],
-    acceptForward: ["yes_window"],
-    paymentStructure: ["deposit1_pay3"],
-  },
-  "h200-hebei": {
-    gpuModels: ["h200"],
-    location: ["north"],
-    acquireMode: ["lease"],
-    contractTerm: ["3to5"],
-    acceptForward: ["yes_window"],
-    paymentStructure: ["deposit1_pay3"],
-  },
-  "b300-qinghai": {
-    gpuModels: ["b200_b300"],
-    location: ["northwest"],
-    acquireMode: ["lease"],
-    contractTerm: ["gt5"],
-    acceptForward: ["yes_window"],
-    paymentStructure: ["deposit3_pay1"],
-  },
-};
-
-export function getComputeOfferDefaults(id?: string | null) {
-  if (!id) return undefined;
-  return COMPUTE_OFFER_DEFAULTS[id];
+export function resolveInquiryPrefill(input: {
+  model?: string | null;
+  mode?: string | null;
+  resource?: string | null;
+}) {
+  const legacyModel: Record<string, string> = {
+    rtx5090: "rtx5090",
+    "h200-chongqing": "h200",
+    "h200-hebei": "h200",
+    "b300-qinghai": "b300",
+  };
+  const modelIds = new Set(COMPUTE_INQUIRY_OPTIONS.gpuModels.map((item) => item.value));
+  const modeIds = new Set(COMPUTE_INQUIRY_OPTIONS.acquireMode.map((item) => item.value));
+  const model =
+    input.model && modelIds.has(input.model)
+      ? input.model
+      : input.resource
+        ? legacyModel[input.resource]
+        : undefined;
+  const mode = input.mode && modeIds.has(input.mode) ? input.mode : undefined;
+  if (!model && !mode) return undefined;
+  return {
+    gpuModels: model ? [model] : undefined,
+    acquireMode: mode ? [mode] : undefined,
+  };
 }
 
 export function inquirySummaryMessage(inquiry: ComputeInquiry) {
