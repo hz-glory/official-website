@@ -106,7 +106,7 @@ export default async function HomePage({ params }: Props) {
                     ))}
                   </div>
                   <div className="mt-7 flex flex-wrap gap-3">
-                    <Link href={localePath(locale, "/compute")} className="btn btn-primary">
+                    <Link href={localePath(locale, "/compute#inquiry")} className="btn btn-primary">
                       {dict.home.compute.primaryCta}
                     </Link>
                     <Link
@@ -118,21 +118,23 @@ export default async function HomePage({ params }: Props) {
                   </div>
                 </div>
                 <div className="space-y-3">
-                  {dict.compute.offers.items.map((offer) => (
+                  {dict.compute.models.map((model) => (
                     <Link
-                      key={offer.id}
-                      href={localePath(locale, `/compute#${offer.id}`)}
+                      key={model.id}
+                      href={localePath(locale, `/compute?model=${model.id}#inquiry`)}
                       className="block rounded-[var(--radius-sm)] border border-[var(--line)] bg-[rgba(255,253,249,0.72)] p-4 transition hover:border-[var(--teal)]"
                     >
                       <p className="text-xs font-semibold tracking-wide text-[var(--orange)]">
-                        {offer.badge}
+                        {model.tag}
                       </p>
-                      <p className="serif mt-1 text-lg font-semibold">{offer.title}</p>
-                      <p className="mt-1 text-sm text-[var(--ink-soft)]">{offer.availability}</p>
+                      <p className="serif mt-1 text-lg font-semibold">{model.name}</p>
+                      <p className="mt-1 text-sm text-[var(--ink-soft)]">
+                        {dict.compute.leaseCta} / {dict.compute.purchaseCta}
+                      </p>
                     </Link>
                   ))}
                   <Link
-                    href={localePath(locale, "/compute/inquiry")}
+                    href={localePath(locale, "/compute#inquiry")}
                     className="inline-flex text-sm font-semibold text-[var(--teal)]"
                   >
                     {dict.cta.inquiry} →

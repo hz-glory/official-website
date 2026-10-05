@@ -3,12 +3,13 @@ import { notFound } from "next/navigation";
 import { ComputeInquiryForm } from "@/components/ComputeInquiryForm";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { resolveInquiryPrefill } from "@/lib/contact/compute-inquiry";
 import { getDictionary, isLocale, localePath } from "@/lib/i18n";
 import { pageMeta } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ from?: string; resource?: string }>;
+  searchParams: Promise<{ from?: string; resource?: string; model?: string; mode?: string }>;
 };
 
 export async function generateMetadata({ params }: Props) {
@@ -22,7 +23,8 @@ export default async function ComputeInquiryPage({ params, searchParams }: Props
   const { locale: raw } = await params;
   if (!isLocale(raw)) notFound();
   const dict = getDictionary(raw);
-  const { from, resource } = await searchParams;
+  const query = await searchParams;
+  const prefill = resolveInquiryPrefill(query);
 
   return (
     <>
@@ -31,11 +33,11 @@ export default async function ComputeInquiryPage({ params, searchParams }: Props
         title={dict.computeInquiry.title}
         sub={dict.computeInquiry.sub}
       />
-      <section className="section">
+      <section id="inquiry" className="section">
         <div className="container max-w-4xl">
           <Reveal>
             <Link
-              href={localePath(raw, "/compute")}
+              href={localePath(raw, "/compute#hardware")}
               className="mb-8 inline-flex text-sm font-semibold text-[var(--teal)]"
             >
               ← {dict.computeInquiry.back}
@@ -44,8 +46,8 @@ export default async function ComputeInquiryPage({ params, searchParams }: Props
           <ComputeInquiryForm
             dict={dict}
             locale={raw}
-            resourceId={resource}
-            defaultFrom={from || (resource ? `offer-${resource}` : undefined)}
+            prefill={prefill}
+            defaultFrom={query.from || (query.model ? `model-${query.model}` : undefined)}
           />
         </div>
       </section>
